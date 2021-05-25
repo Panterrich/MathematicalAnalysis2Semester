@@ -1,0 +1,431 @@
+\documentclass[a4paper,12pt]{article} % тип документа
+
+%  Русский язык
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{graphicx}               % импорт изображений
+\usepackage{wrapfig}                % обтекаемые изображения
+\graphicspath{{pictures/}}          % обращение к подкаталогу с изображениями
+\usepackage[14pt]{extsizes}         % для того чтобы задать нестандартный 14-ый размер шрифта
+\usepackage{amsfonts}               % буквы с двойными штрихами
+\usepackage[warn]{mathtext}         % русский язык в формулах
+\usepackage{indentfirst}            % indent first
+\usepackage[margin = 25mm]{geometry}% отступы полей
+\usepackage{amsmath}                % можно выводить фигурные скобочки -- делать системы уравнений
+\usepackage[table,xcdraw]{xcolor}   % таблицы
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % Математика
+\usepackage{wasysym}                % ???
+\usepackage{upgreek}                % ???  
+
+\usepackage{gensymb} % degree symbol
+\usepackage{mathrsfs}
+
+%Заговолок
+\author{Артамонов Кирилл}
+\title{Билет 10.}
+\date{\today}
+
+
+\begin{document} % начало документа
+
+\maketitle
+\newpage
+
+\section*{Билет 10.}
+\subsection*{Понятия функциональных последовательностей и рядов }
+\noindent \textbf{Определение}[функциональная последовательность]:\newline
+Пусть $X \subset \mathds{R}$ --- произвольное множество. \newline
+\hspace*{5mm}$\forall n \in \mathds{N} \leftrightarrow y = f_n(x), x \in X$ \newline 
+Множество занумерованных функций $f_1, f_2 \dots f_n \dots $ называют функциональной последовательностью, где  \newline
+\hspace*{50mm}$f_n$ --- член последовательности \newline
+ \hspace*{50mm}   $X$ --- область определения 
+\newline\newline
+\noindent \textbf{Определение}[функциональный ряд]:\newline
+сумма $${\sum_{k = 1}^{\infty}}  f_k(x) = f_1(x) + \dots + f_n(x) + \dots$$ \newline членов функциональной последовательности $\{f_n(x)\}_{k=1}^\infty$ называется функциональным рядом.
+\newline
+
+\noindent \textbf{Замечание:} изучение функциональных рядов эквивалентно изучению функциональных последовательностей:\newline
+\begin{enumerate}
+    \item Каждому функциональному ряду $${\sum_{k = 1}^{\infty}}f_k(x)$$ соответствует функциональная последовательность его частичных сумм $$\{S_n(x) = \sum_{k = 1}^{n}f_k(x)\}_{n=1}^\infty$$ 
+   \item Каждой функциональной последовательности $\{S_n(x)\}_{k=1}^\infty$ соответствует функциональный ряд с членами $f_1(x) = S_1(x)$, $f_2(x) = S_2(x) - S_1(x)$ \dots, $f_n(x) = S_n(x) - S_{n-1}(x)$, \dots 
+   
+\end{enumerate}
+
+\noindent \textbf{Примеры:}
+\begin{enumerate}
+    
+    \item 
+\begin{equation*}
+f_n(x) = 
+ \begin{cases}
+   1-nx &\text{, $0 \leq x \leq {1 \over n}$}\\
+   0 &\text{, ${1\over n}< x\leq 1$}
+ \end{cases}
+\end{equation*}
+
+    \item
+    $1 + \sum\limits_{k=1}^\infty {x^k \over k!}  = 1 + {x\over 1!} + \cdots + {x^n \over n!} + \cdots$ \newline
+    $S_{n+1}(x) = 1 + {x\over 1!} + \cdots + {x^n \over n!}$ \newline
+    
+    $S_{n+1}(x)$ отличается от $e^x$ по формуле Маклорена с остаточным членом в форме Лагранжа на $R_{n+1}(x)= {e^{\theta x}\over {(n+1)!}} x^{n+1}$,  $0 < \theta < 1$
+\end{enumerate}
+
+\subsection*{Сходимость функциональных рядов и последовательностей в точке и на множестве }
+
+\noindent \textbf{Определение}[сходимость в точке]:\newlineЗафиксируем точку $x_0 \in X$ и рассмотрим числовую последовательность $\{f_n(x_0)\}_{k=1}^\infty$. Если указанная последовательность сходится, то функциональную последовательность $\{f_n(x)\}_{k=1}^\infty$ называют сходящейся в точке $x_0$. \newline \newline
+\noindent \textbf{Замечание:} аналогичное верно и для функциональных рядов: Если числовой ряд $\sum\limits_{k = 1}^{\infty}  f_k(x_0)$ сходится, то функциональный ряд  $\sum\limits_{k = 1}^{\infty}  f_k(x)$ называют сходящимся в точке $x_0$. \newline
+
+\noindent \textbf{Определение}[область сходимости]:\newline
+Множество точек в которых сходится функциональная последовательность (или функциональный ряд) называют областью сходимости функциональной последовательности (функционального ряда). \newline 
+
+\noindent \textbf{Замечание:} область сходимости функциональной последовательности(ряда) может совпадать с его областью определения $X$, составлять его части или быть $\varnothing$. \newline
+
+\noindent \textbf{Определение}[предельная функция]:\newline
+Пусть $\widetilde{X} \subset X$ ---  область сходимости функциональной последовательности $\{f_n(x)\}_{k=1}^\infty$, совокупность пределов, взятых в точке $x\in \widetilde{X}$ определяет на $\widetilde{X}$ функцию $y = f(x)$. Эта функция называется предельной функцией $y = f(x) $ функциональной последовательности. \newline
+
+\noindent \textbf{Определение}[сумма ряда]:\newline
+Пусть $\widetilde{X} \subset X$ ---  область сходимости функционального ряда  $\sum\limits_{k = 1}^{\infty}  f_k(x_0)$, совокупность пределов, взятых в точке $x\in \widetilde{X}$ определяет на $\widetilde{X}$ функцию $y = S(x)$. Эта функция называется суммой ряда  $y = S(x) $ функциональной последовательности.
+
+
+\subsection{Понятие равномерной сходимости на множестве}
+
+\noindent \textbf{Определение}[равномерная сходимость функциональной последовательности]:\newline
+Функциональная последовательность $\{f_n(x)\}_{n=1}^\infty$ сходится равномерно к функции $y=f(x)$ на множестве $X$ если: \newline \newline
+
+$\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$  $\forall x \in X$ $\longmapsto$ $|f_n(x) -f(x)| < \varepsilon$
+\newline \newline
+\hspace*{5mm} \noindent \textbf{(-):} $\exists \varepsilon_0>0:$ $\forall n$  $\exists n_0 \geq n$  $\&$  $\exists x_n \in X:$ $|f_{n_0}(x_n)-f(x_n)| \geq \varepsilon_0$ 
+\newline \newline
+\noindent \textbf{Обозначение:} $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$
+
+\noindent \textbf{Примеры:} \newline
+1.
+\begin{equation*}
+f_n(x) = 
+ \begin{cases}
+   1-nx &\text{, $0 \leq x \leq {1 \over n}$}\\
+   0 &\text{, ${1\over n}< x\leq 1$}
+ \end{cases}
+\end{equation*}
+
+\begin{equation*}
+f(x) = 
+ \begin{cases}
+   0 &\text{, $0 \leq x < {1}$}\\
+   1 &\text{, $x=1$}
+ \end{cases}
+\end{equation*}
+
+
+
+$\forall \varepsilon > 0$  $\exists n_0 = n$ $\&$ $x_n = {1\over 2n}:$ \newline
+\hspace*{40 mm}$f(x_n) = 0$, $f_n(x_n) = {1\over2}$ \newline
+\hspace*{40 mm}$|f_n(x_n) - f(x_n)| = \varepsilon_0$
+
+\noindent 2.
+\begin{equation*}
+f_n(x) = 
+ \begin{cases}
+   1-nx &\text{, $\delta \leq x \leq {1 \over n}$}\\
+   0 &\text{, ${1\over n}< x\leq 1$}
+ \end{cases}
+\end{equation*}
+Для заданного $\delta > 0$ $\exists N$ $\longmapsto$ \newline
+\hspace*{40 mm} $f_n(x) \equiv 0$ на $[\delta, 1]$ \newline
+\hspace*{40 mm} $f(x) \equiv 0$ на $[\delta, 1]$ \newline
+Тогда $f_n(x) \overset{x \in [\delta;1]}{\underset{n \rightarrow \infty}{\rightrightarrows}} 0$
+
+
+
+\noindent \textbf{Замечания:}\newline
+
+\begin{enumerate}
+    \item $N$ в определении не зависит от $x$, а только от $\varepsilon$. Один номер для всех $x \in X$ одновременно.
+    
+    \item Из сходимости функциональной последовательности $\{f_n(x)\}_{n=1}^\infty$ в каждой точке $x \in X$ НЕ следует равномерная сходимость на $X$.
+   
+\end{enumerate}
+
+\noindent \textbf{Замечание:} Если $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$, то 
+$f_n(x) \overset{x \in X^/}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$, где $X^/ \subset X$.
+
+\\[5 mm]
+\begin{equation*}
+f_n(x) = 
+ \begin{cases}
+   1-nx &\text{, $\delta \leq x \leq {1 \over n}$}\\
+   0 &\text{, ${1\over n}< x\leq 1$}
+ \end{cases}
+\end{equation*}
+
+
+
+
+
+\noindent \textbf{Определение}[равномерная сходимость функционального ряда]:\newline 
+Функциональный ряд $$\sum_{k = 1}^{\infty}  f_k(x)$$ равномерно сходится к $S(x)$ на множестве $X$ , если $S_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} S(x)$
+
+\subsection{Критерий Коши равномерной сходимости}
+
+\noindent \textbf{Теорема}[критерий Коши для функциональной последовательности]: \newline
+Функциональная последовательность $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ сходится тогда или только тогда, когда выполнено условие Коши
+равномерной сходимости функциональной последовательности: \newline
+
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\forall x \in X$ $\longmapsto$ \newline 
+\hspace*{50mm}$|f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
+
+\noindent \textbf{Доказательство:} \newline
+
+ 1. \textit{Необходимость $\Rightarrow$:} \newline
+
+\noindent $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ 
+\newline \newline
+Тогда: \newline
+\hspace*{5mm}$\forall \varepsilon > 0$ $\exists N = N(\varepsilon)$:
+$\forall n \geq N$ $\&$ $x \in X$ $\longmapsto$ $|f_n(x) - f(x)| < \varepsilon / 2$ \newline
+Тогда и 
+\newline 
+\hspace*{5mm}$\forall p \in \mathds{N}$ $|f_{n+p}(x) - f(x)| < \varepsilon / 2$
+\newline \newline 
+Воспользуемся правилом треугольника: \newline \newline
+$|f_{n+p}(x) - f_n(x)| \leq |f_{n+p}(x) - f(x)| + |f_n(x) - f(x)| < {\varepsilon \over 2} + {\varepsilon \over 2} = \varepsilon$
+\noindent  \newline \newline
+
+2. \textit{Достаточность $\Leftarrow$:} \newline
+
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\&$ $\forall x \in X$ $\longmapsto$ \newline 
+\hspace*{50mm}$|f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
+\newline \newline 
+Зафиксируем $x \in X$, тогда $\exists f(x)$ --- предельное значение последовательности $\{f_n(x)\}_{n=1}^\infty$. \newline \newline 
+Тогда $f_{n+p}(x) \underset{n \longrightarrow \infty}{\longrightarrow} f(x)$ \newline \newline 
+В неравенстве перейдем к предельному при $p \longrightarrow \infty$:\newline 
+\hspace*{20mm}$\forall n \geq N$ $\&$ $\forall x \in X$ $\Rightarrow$ $|f_n(x) - f(x)| \leq {\varepsilon \over 2} < \varepsilon$  
+\newline \newline 
+Тогда получим, что $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ по определнию.
+\newline \newline 
+
+\noindent \textbf{Теорема}[критерий Коши для функционального ряда]: \newline
+Ряд $$\sum_{k = 1}^{\infty}  f_k(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} S(x)$$ тогда и только тогда, когда выполнено условие Коши: 
+\newline 
+
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N \& $   $\forall p \in  \mathds{N} \&$ $\forall x \in X$ $\longmapsto$ \newline 
+\hspace*{50mm}$$|\sum_{k = n+1}^{n+p}f_k(x)| < \varepsilon\big]$$
+
+\noindent \textbf{Замечание:} критерий Коши для функциональных рядов следует из критерия Коши для функциональных последовательностей, так как: \newline 
+$$|\sum_{k = n+1}^{n+p}| = S_{n+p}(x) - S_n(x)|$$
+\\[5 mm]
+\noindent \textbf{Отрицание условия Коши:} 
+\newline 
+
+\textit{Для функциональной последовательности:}
+\newline
+$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n$ $\& $ $\exists  p_0 \in \mathds{N}$ $\&$ $\exists x_n \in X:$ $|f_{n_0+p_0}(x_n) - f_{n_0}(x_n)| \geq \varepsilon_0$ 
+\\[5mm] 
+\textit{Для функционального ряда:}
+\newline
+$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n \text{ }\& $ $\exists x_n \in X:$ $|\sum\limits_{k = n+1}^{n+p}f_k(x)| \geq \varepsilon_0$ 
+
+\subsection{Критерии равномерной сходимости функциональной последовательности и функционального ряда }
+
+\noindent \textbf{Теорема 1}[$\sup$-критерий для функциональной последовательности]:\newline 
+$f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ тогда и только тогда, когда $$\lim\limits_{n \rightarrow \infty} \sup_{X}|f_n(x)-f(x)| = 0$$
+
+\noindent \textbf{Доказательство:} 
+\newline
+Обозначим $M_n = \sup\limits_{x \in X}{|f_n(x)-f(x)|}$. \newline
+Тогда запишем  наше равенство в виде: \newline
+\hspace*{40mm}$\forall \varepsilon > 0$ $\exists N = N(\varepsilon):$ $\forall n \geq N \mapsto 0 \leq M_n < \varepsilon$ \newline
+
+ 1. \textit{Необходимость $\Rightarrow$:} \newline
+ 
+ $[f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)]$ $\stackrel{def}{=}$ $\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$  $\forall x \in X$ $\longmapsto$ $|f_n(x) -f(x)| < {\varepsilon \over 2} \big]$
+ \\[5 mm]
+ Отсюда, $M_n \leq {\varepsilon \over 2 } < \varepsilon$
+\\[ 5 mm]
+2. \textit{Достаточность $\Leftarrow$:} \newline
+\hspace*{5mm}$\forall x \in X \longmapsto |f_n(x)-f(x)|\leq M_n$ 
+\\[ 5 mm]
+То есть: \newline
+\hspace*{20mm}$\forall \varepsilon > 0$  $\exists N = N(\varepsilon):$  $\forall n \geq N$ $\&$ $\forall x \in X$ $\longmapsto |f_n(x)-f(x)| < \varepsilon$ \newline
+
+
+\noindent \textbf{Теорема 2}[$\sup$-критерий для функционального ряда]:\newline 
+Функциональный ряд $\sum\limits_{k = 1}^{\infty}  f_k(x)$ равномерно сходится к $S(x)$ на множестве $X$ тогда и только тогда, когда $$\lim_{n \rightarrow \infty} \sup_{x \in X} |r_n(x)| = 0$$
+
+\noindent \textbf{Доказательство:} 
+
+$$r_n(x) = \sum_{k = 1}^{\infty}  f_k(x) -  \sum_{k = 1}^{n}  f_k(x)= \sum_{k = n+1}^{\infty}  f_k(x)$$ \newline
+
+То есть $r_n(x)=S(x)-S_n(x)$ \newline
+
+Но $S_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} S(x)$ тогда и только тогда, когда $r_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} 0$.
+
+\noindent \textbf{Примеры:} \newline
+1. $f_n(x) = nx^2e^{-nx}$, $x \in [2, +\infty) \subset X$ \newline
+$$\lim_{n \rightarrow \infty}{nx^2 \over e^{nx}} = 0$$ \Rightarrow $y=f(x)\equiv0$ \newline
+
+$f_n'(x) = nx(2-nx)e^{-nx} = 0$ \newline
+\hspace*{5mm}$x_n = { 2\over n}$ -- точка максимума, при $x > {2 \over n}$, $n>1$ \overmapsto $f'_n(x) < 0$ \Rightarrow $f_n$ убывает на $X$;
+\newline 
+
+$$\sup_{X}f_n(x) \leq f({2\over n}) = {4\over ne^2} \underset{n \rightarrow \infty}{\longrightarrow} 0 $$ \newline
+
+Отсюда, $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} 0$.
+
+2. $f_n(x) = n^2x^2e^{-nx}$, $X = (0,2)$ \newline
+
+$$\lim_{n \rightarrow \infty}{n^2x^2 \over e^{nx}} = 0$$ \Rightarrow $y=f(x)\equiv0$ \newline
+
+$f_n'(x) = n^2x(2-nx)e^{-nx} = 0$ \newline
+
+\hspace*{5mm}$x_n = { 2\over n}$,  $n>1$-- точка максимума. \Rightarrow
+
+$$\sup_{X}f_n(x) = {4\over e^2} \underset{n \rightarrow \infty}{\nrightarrow} 0 $$ \newline
+
+3. $f_n(x) = {{\ln(nx)} \over {\sqrt{nx}}}$, $X = (0,1)$ \newline
+
+$\forall n$ $\exists n_0 = n$ $\&$ $\exists p_0 = n$ $\&$ $\exists x_n = {1 \over n}$:
+\\[5 mm]
+$|f_{2n}(x_n) - f_n(x_n)| = |{\ln{2}\over{\sqrt{2}}} - {\ln{1}\over{\sqrt{1}}}| = {\ln{2}\over{\sqrt{2}}} > \varepsilon_0 = {\ln{2}\over{2\sqrt{2}}}$ \newline
+Отсюда, равномерной сходимости нет.
+
+
+
+
+
+\subsection{Свойства равномерно сходящихся последовательностей и рядов}
+
+\noindent \textbf{Теорема 1:} если члены функционального ряда $$\sum_{k = 1}^{\infty}  f_k(x)$$   непрерывны на $[a,b]$ и ряд сходится равномерно на $[a,b]$ к функции $y = S(x)$, то сумма ряда 
+$y = S(x)$ непрерывна на $[a,b]$. 
+\\[5 mm]
+\noindent \textbf{Доказательство:} \newline
+$\big[S_n(x) \overset{x \in [a,b]}{\underset{n \rightarrow \infty}{\rightrightarrows}} S(x)\big]\stackrel{def}{=} \big[ \forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$  $\forall x \in [a,b]$ $\longmapsto$ $|S_n(x) -S(x)| < {\varepsilon \over 3} \big]$
+\\[5 mm]
+Возьмем $n_0 \geq N$ $\Rightarrow$ $|S_{n_0}(x)-S(x)| < {\varepsilon \over 3}$ \\[5 mm]
+При $x_0 \in [a,b]$ выполняется: \newline
+$|S_{n_0}(x_0)-S(x_0)| < {\varepsilon \over 3}$
+\\[5 mm]
+В силу непрерывности $f_k$ на $[a,b]$, $S_{n_0}$ непрерывна на $[a,b]$, в частности в точке $x_0 \in [a,b]$, то есть: \newline
+$\forall \varepsilon > 0$ $\exists \delta = \delta(\varepsilon)$: $\forall x \in [a,b]$:  $|x-x_0|<\delta$ $\longmapsto$ $|S_{n_0}(x) - S_{n_0}(x_0)| < {\varepsilon \over 3}$
+\newline
+
+$\forall x \in [a,b]$: $|x-x_0|<\delta$ $\longmapsto$ 
+\newline \newline
+$|S(x) - S(x_0)| = \big| [S(x)-S_{n_0}(x)] + [S_{n_0}(x)-S_{n_0}(x_0)] + [S_{n_0}(x_0)-S(x_0)]\big| \leq |S(x)-S_{n_0}(x)| + \big| S_{n_0}(x)-S_{n_0}(x_0)\big| + \big|S_{n_0}(x_0) - S(x_0)\big| < {\varepsilon \over 3} \cdot 3 = \varepsilon$
+\\[5 mm]
+ В силу произвольности выбора точки $x_0 \in [a,b]$ функция $y = S(x)$ непрерывна на $[a,b]$.
+\\[5 mm]
+\noindent \textbf{Теорема 1':} если члены функциональной последовательности $\{f_n(x)\}_{n=1}^\infty$ в каждой точке $x \in X$  непрерывны на $[a,b]$ и последовательность сходится равномерно на $[a,b]$ к функции $f(x)$, то $y = f(x)$ непрерывна на $[a,b]$. 
+\\[5 mm]
+\noindent \textbf{Замечание:} пусть ряд $$\sum_{k = 1}^{\infty}  f_k(x)$$ удовлетворяет условиям теоремы 1 и $S(x)=\sum\limits_{k = 1}^{\infty}  f_k(x)$.
+\newline 
+$$\forall x_0 \in [a,b] \longmapsto \lim_{x\rightarrow x_0} S(x) = S(x_0)$$ \newline
+Отсюда, $$\lim_{x\rightarrow x_0} \sum_{k = 1}^{\infty}  f_k(x) = \sum_{k = 1}^{\infty}  \lim_{x\rightarrow x_0}f_k(x) $$
+
+При выполнении условий теоремы 1 возможен почленный переход к пределу под знаком суммы для  равномерно сходяшегося функционального ряда, члены которого есть непрерывные функции.
+\newline
+
+\noindent \textbf{Теорема 2:} если члены функционального ряда $\sum\limits_{k = 1}^{\infty}  f_k(x)$   непрерывны на $[a,b]$ и ряд сходится равномерно на $[a,b]$ к функции $y = S(x)$, то функциональный ряд $\sum\limits_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt$ также сходится равномерно на $[a,b]$ к функции $y = \int\limits_{a}^{x}S(t)dt $.
+\\[5 mm]
+\noindent \textbf{Доказательство:} \newline
+$\sum\limits_{k = 1}^{\infty}  f_k(x)$  сходится равномерно на $[a,b]$ к $y = S(x)$:
+\\[5 mm]
+$\forall \varepsilon > 0$  $\exists N = N(\varepsilon)$: $\forall n \geq N$ $\& $ $\forall x \in [a,b]$ $\longmapsto$ $|S_n(x)-S(x)| < {\big\varepsilon \over \big{b-a}}$
+\newline
+По теореме 1 $S$ непрерывны на $[a,b]$, следовательно $S$ и $f_k $ --- интегрируемые функции ($\forall k$) на $[a,b]$. Обозначим:
+\newline
+$$I(x) = \int\limits_{a}^{x}S(t)dt$$ и $$I_{n}(x) = \sum_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum_{k = 1}^{\infty}  f_k(t) ]dt = \int\limits_{a}^x S_n(t)dt$$
+\\[5 mm]
+$$|I(x)-I_n(x)| = \big|\int\limits_{a}^x[S(t)-S_n(t)]dt\big| \leq \int\limits_{a}^x|S_n(t)-S(t)|dt \leq {\varepsilon \over {b-a}} (x-a) < \varepsilon$$
+\\[5 mm]
+Итак: 
+\newline
+$\forall \varepsilon > 0 $ $\exists N=N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall x \in [a,b]$ $\longmapsto |I(a)-I_n(x)| < \varepsilon$, то есть функциональный ряд $$\sum_{k = 1}^{\infty} \int\limits_{a}^{x}f_k(t)dt$$ сходится равномерно на $[a,b]$ к функции $$\int\limits_a^xS(t)dt = \int\limits_{a}^{x}[ \sum_{k = 1}^{\infty}  f_k(t) ]dt$$ и $$\sum_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum_{k = 1}^{\infty}  f_k(t) ]dt$$
+\\[5 mm]
+\noindent \textbf{Теорема 2':} если члены функциональной последовательности  $\{f_n(x)\}_{n=1}^\infty$ непрерывны на $[a,b]$. и $f_n(x) \overset{[a,b]}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$, то $\int\limits_a^x f_n(t)dt \overset{[a,b]}{\underset{n \rightarrow \infty}{\rightrightarrows}} \int\limits_a^x f(t)dt$
+
+\noindent \textbf{Замечания:}
+\begin{enumerate}
+    \item В теоремах 2,2' отрезок $[a,x]$ можно заменить отрезком $[x_0,x] \subset [a,b].$
+    
+    \item Теоремы 2 и 2' остаются справедливыми, если функции $y=f_k(x)$ интегрируемы на $[a,b]$.
+\end{enumerate}
+
+\noindent \textbf{Теорема 3:} если члены функционального ряда $\sum\limits_{k = 1}^{\infty}  f_k(x)$   непрерывно-дифференцируемы  на $[a,b]$ и функциональный ряд $\sum\limits_{k = 1}^{\infty}  f_k'(x)$ сходится равномерно на $[a,b]$, а числовой ряд $\sum\limits_{k = 1}^{\infty}  f_k(x_0)$ ($x_0 \in [a,b])$ сходится, то функциональный ряд $\sum\limits_{k = 1}^{\infty}  f_k(x)$ сходится равномерно на $[a,b]$ к функции $y = S(x)$ и $S'(x) = \sum\limits_{k = 1}^{\infty}  f_k'(x)$
+
+\noindent \textbf{Доказательство:}
+
+Обозначим: $$\widetilde{S}(x)= \sum_{k = 1}^{\infty}  f_k'(x)$$
+
+Из условия теорем 3 и 1 $y = \widetilde{S}(x)$ непрерывна на $[a,b]$.
+\\[5 mm]
+Ряд $\sum\limits_{k = 1}^{\infty}  f_k'(x)$ можно почленно интегрировать(по теореме 2), то есть:
+\\[5 mm]
+$$\int\limits_{x_0}^x \widetilde{S}(t)dt = \sum_{k = 1}^{\infty}  \big[\int\limits_{x_0}^{x}f_k'(t)dt\big]$$. \newline
+Согласно теореме 2 ряд сходится равномерно на $[a,b]$. 
+
+Но $\int\limits_{x_0}^{x}f_k'(t)dt = f_k(x)-f_k(x_0)$, следовательно: $$\sum_{k = 1}^{\infty}  \big[\int\limits_{x_0}^{x}f_k'(t)dt\big] = \sum_{k=1}^\infty f_k(x)-\sum_{k=1}^\infty f_k(x_0)$$. \newline
+Ряды слева и справа равномерно-сходящиеся, а значит, $\sum\limits_{k=1}^\infty f_k(x)$ сходится равномерно на $[a,b]$.
+
+$$\int\limits_{x_0}^x \widetilde{S}(t)dt = S(x)-S(x_0)$$
+
+Левая часть -- интеграл с переменным верхним пределом и его производная равна $\widetilde{S}(x)$ $\Rightarrow$ правая часть -- дифференцируемая функция и $S'(x) = \widetilde{S}(x)$, то есть 
+$$\bigg(\sum_{k = 1}^{\infty}  f_k(x)\bigg)' = \sum_{k = 1}^{\infty}  f_k'(x)$$
+\newline
+\noindent \textbf{Замечания:}
+\begin{enumerate}
+    \item По условию теоремы 3: $\widetilde{S}(x) = S'(x)$ -- непрерывная функция $\Rightarrow$ $S$ -- непрерывно-дифференцируемая на $[a,b]$.
+    
+    \item Теорема 3 остается справедливой, если функции $y=f_k(x)$ являются дифференцируемыми функцими.
+\end{enumerate}
+
+\noindent \textbf{Теорема 3':} если члены функциональной последовательности $\{f_n(x)\}_{n=1}^\infty$ являются непрерывно-дифференцируемыми функциями на $[a,b]$, числовая последовательность $\{f_n(x_0)\}_{n=1}^\infty$ сходится, где $x_0 \in [a,b]$; а функциональная последовательность $\{f_n'(x)\}_{n=1}^\infty$ равномерно сходится на $[a,b]$, то $\{f_n(x)\}_{n=1}^\infty$ сходится равномерно на $[a,b]$ к функции $y = f(x)$ и справедливо равенство $$f'(x)= \lim_{n\rightarrow \infty} f'_n(x) \text{, }x \in [a,b]$$.
+
+\noindent \textbf{Замечение:} можно сделать важный вывод: равномерная сходимость не выводит из класса непрерывных функций, а в случае равномерной сходимости производных -- из класса непрерывно дифференцируемых функций.
+
+\subsection{Достаточные признаки сходимости функциональных рядов}
+
+\noindent \textbf{Теорема 1}[Признак Вейерштрасса]:
+\newline
+Если для функционального ряда $$\sum_{k = 1}^{\infty}  f_k(x)$$ можно указать такой числовой ряд с неотрицательными членами $\sum\limits_{k = 1}^{\infty}a_k < \infty$, что $\forall k \geq k_0$ и $\forall x \in X$ выполняется: $0 \leq |f_k(x)| \leq a_k$, то функциональный ряд  $$\sum_{k = 1}^{\infty}  f_k(x)$$ сходится абсолютно и равномерно на $X$.
+
+\noindent \textbf{Доказательство:}
+
+$$\sum_{k = 1}^{\infty}a_k < \infty \Leftrightarrow \forall \varepsilon > 0 \text{ }\exists N_1 = N_1(\varepsilon)\text{: } \forall n \geq N_1 \text{ }\&\text{ } \forall p \in \mathds{N} \longmapsto \sum_{k = n+1}^{n+p}a_k < \varepsilon$$ 
+
+$$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& \text{ } \forall x \in X \text{ } \& \text{ } \forall p \in \mathds{N}\longmapsto$$ $$|\sum_{k = n+1}^{n+p}f_k(x)| \leq \sum_{k = n+1}^{n+p}|f_k(x)| \leq \sum_{k = n+1}^{n+p}a_k < \varepsilon$$
+\\[5 mm]
+\noindent \textbf{Следствие:} если сходится числовой ряд $$\sum_{k = 1}^{\infty}a_k$$, где $a_k = \sup\limits_{x \in X}|f_k(x)|$, то функциональный ряд $\sum\limits_{k = 1}^{\infty}  f_k(x)$ сходится абсолютно и равномерно на $X$. 
+
+\noindent \textbf{Теорема 2}[Признак Дирихле]: 
+\newline
+Если:
+\begin{enumerate}
+    \item $$\sum_{k = 1}^{\infty}  u_k(x)$$ имеет равномерно ограниченную на $X$ последовательность частичных сумм $\{S_n(x)\}_{n=1}^\infty$: 
+    \newline
+    
+    $\exists M > 0 \text{: } \forall x \in X \text{ }\& \text{ } \forall n \in \mathds{N} \longmapsto |S_n(x)| \leq M$
+    
+    \item $\sum\limits_{k = 1}^{\infty}  v_k(x)$ монотонна на $X$ и $v_k(x) \overset{x \in X}{\underset{k \rightarrow \infty}{\rightrightarrows}} 0$: \newline
+    \\[5 mm]
+    $v_k(x) \leq v_{k+1}(x) \text{ } \forall x \in X \text{} \& \text{ } \forall k$
+    \newline
+    $[v_k(x) \geq v_{k+1}(x)]$
+    
+\end{enumerate}
+
+\hspace*{40 mm}то $\sum\limits_{k=1}^{\infty} u_k v_k$ сходится равномерно на $X$.
+\\[5 mm]
+\noindent \textbf{Теорема 2}[Признак Абеля]: 
+Если:
+\begin{enumerate}
+    \item  $\sum\limits_{k=1}^\infty u_k(x)$ равномерно сходится на $X$.
+    
+    \item ${\{v_k(x)\}_{k=1}^\infty}$ равномерно ограничена и монотонна на $X$.
+\end{enumerate}
+
+\hspace*{40 mm}то $\sum\limits_{k=1}^{\infty} u_k v_k$ сходится равномерно на $X$.
+
+\end{document} 
