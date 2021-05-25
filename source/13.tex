@@ -1,0 +1,242 @@
+\input{packages_13}
+\usepackage{upgreek}
+
+
+\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\ryad}{\sum^{\infty}_{k = 0}}
+
+\begin{document}
+
+
+
+\section*{Билет 13.}
+\subsection*{Разложение в ряд Тейлора основных элементарных функций: $e^x$, $\cos x$, $\sin x$, $\ln (1 + x)$, $(1 + x)^{\alpha}$ }
+
+
+\subsubsection*{1. Показательная и гиперболические функции.}
+
+
+
+\begin{center}
+$y = e^x, \; x \in \mathbb{R}$
+\vspace{8pt}
+
+$x \in (-\rho, \, \rho), \; \rho > 0$
+\end{center}
+
+Поскольку $(e^x)^{(k)} = e^x $, то $0 < f(x) < e^{\rho}$ и $0 < f(x)^{(k)} < e^{\rho}$. Ряд Тейлора функции $y = e^x$ сходится к ней на $( - \rho, \, \rho)$ по теореме о достаточном условии представимости функции её рядом Тейлора.
+
+$\forall \rho > 0 \Rightarrow R = + \infty$
+
+\[ e^x = \sum^{+\infty}_{k = 0} \frac{x^k}{k!}\]
+
+\[y = \sh x, \; y = \ch x, \; x \in \mathbb{R} \]
+
+\[ \sh x = \frac{e^x - e^{-x}}{2}, \; \ch x = \frac{e^x + e^{-x}}{2} \]
+
+\[ \sh x = \ryad \frac{x^{2k + 1}}{(2k + 1)!} \,, \; \ch x = \ryad \frac{x^{2k}}{(2k)!}, \; R = +\infty\]
+
+
+\subsubsection*{2. Тригонометрические фунции.}
+
+\begin{center}
+$y = \sin x, \; y = \cos x, \; x \in \mathbb{R}$
+\vspace{8pt}
+
+$| f^{(k)} (x) | \le 1$, $\forall k = 0, \, 1, \, 2, \, \ldots$
+\end{center}
+ 
+$$ 
+\sin x = \ryad \frac{(-1)^k x^{2k + 1}}{(2k + 1)!}, \; \cos x = \ryad \frac{(-1)^k x^{2k}}{(2k)!}, \;R = + \infty
+$$
+
+
+\subsubsection*{3. Степенная функция.}
+
+$$y = (1 + x)^{\alpha}, \; \alpha \in \mathbb{R}$$
+
+
+1) $\alpha = 0, \; y = 1$
+
+2) $\alpha = n, \; n \in \mathbb{N}, \; f(x) = \ryad C^k_n x^k$ - бином Ньютона
+
+3) $\alpha$ - произвольное, $\alpha \in \mathbb{R}$
+
+$$ 
+	f^{(n + 1)}(x) = \alpha (\alpha - 1) \ldots (\alpha - n) (1 + x)^{\alpha - (n + 1)} $$
+
+$$
+\mathrm{r}_n(x) = \frac{\alpha(\alpha - 1) \ldots (\alpha - n)}{n!} \int_0^x \left(\frac{x - t}{1 + t} \right)^n (1 + t)^{\alpha - 1} dt
+$$
+
+Пусть $t = x \tau$, $0 \leqslant \tau \leqslant 1$, тогда $dt = x d \tau$
+
+$$
+\mathrm{r}_n(x) =  \frac{\alpha(\alpha - 1) \ldots (\alpha - n)}{n!} x^{n + 1} \int_0^1 \left( \frac{1 - \tau}{1 + x\tau} \right)^n ( 1 + x \tau)^{\alpha - 1} d \tau
+$$
+
+Пусть $|x| < 1$, тогда $|1 + \tau x| \geqslant 1 - \tau$
+
+
+
+\begin{equation*}
+(1+x \tau)^{\alpha-1} \leqslant \beta(x)=
+ \begin{cases}
+   (1+|x|)^{\alpha-1}, & \alpha \geq 1 \\
+   (1-|x|), & \alpha<1
+ \end{cases}
+\end{equation*}
+
+$ | \alpha | \leqslant m $, $m \in \mathbb{N}$. Тогда $\forall n > m$
+
+\begin{multline*}
+\left| \frac{\alpha(\alpha - 1) \ldots (\alpha - n)}{n!} \right| \leqslant \frac{m (m + 1) \ldots (m + n}{n!} \leqslant \frac{(m + n)!}{n!} = \\
+= (n + 1)(n + 2) \ldots (n + m)\leqslant (2n)^m
+\end{multline*}
+
+В итоге
+
+$$ 
+\left| \mathrm{r}_n (x) \right| \leqslant 2^m \beta (x) |x| \cfrac{n^m}{\left(\cfrac{1}{|x|}\right)^n} \xrightarrow{n \rightarrow + \infty} 0
+$$
+
+Так как 
+$$
+a = \frac{1}{|x|} > 1 \hspace{0.5cm} \lim_{n \rightarrow + \infty} \frac{n^m}{a^n} = 0$$
+
+Следовательно 
+
+$$
+(1 + x)^{\alpha} = \ryad C_{\alpha}^k x^k, \; C_{\alpha}^k = \frac{\alpha (\alpha - 1) \ldots (\alpha - (k -1))}{k!}, \; |x| < 1, \; R = 1 
+$$
+
+\underline{В частности:}
+
+$$
+\frac{1}{1 - x} = \ryad x^k, \; \frac{1}{1 + x} = \ryad (-1)^k x^k, \; |x| < 1
+$$
+
+\subsubsection*{4. Логарифмические функции.}
+
+
+
+$$
+y = \ln(1 - x), \; y' = - \frac{1}{1 - x} = - \ryad x^k
+$$
+
+$$
+y = \ln(1 + x), \; y' = - \frac{1}{1 + x} = \ryad (-1)^k x^k
+$$
+
+Раскладываем в интервалах сходимости каждую функцию в ряд Тейлора, а потом почленно интегрируем, и помним, что при почленном интегрировании радиус сходимости не меняется. 
+
+$$ 
+y = \ln(1 - x) = - \ryad \frac{x^{k + 1}}{k + 1} = - \sum^{\infty}_{k = 1} \frac{x^k}{k}, \; |x| < 1
+$$
+
+$$
+y = \ln(1 + x) = \ryad \frac{(-1)^k x^{k + 1}}{k + 1} = - \sum^{\infty}_{k = 1} \frac{(-1)^{k - 1} x^k}{k}, \; |x| < 1
+$$
+\subsubsection*{5. Обратные тригонометрические функции.}
+
+Обратные тригонометрические функции можно разложить в ряд Тейлора, сначала продифференцировав и воспользовавшись известными результатами.
+
+\subsection*{Разложение в степенной ряд комплекснозначной функции $e^z$}
+
+\textbf{Докажем, что} 
+
+$$
+e^z = \ryad \frac{z^k}{k!}, \; R = + \infty
+$$
+
+$$
+\cos z = \ryad \frac{(-1)^k z^{2k}}{(2k)!}, \;\; \sin z = \ryad \frac{(-1)^k z^{2k + 1}}{(2k + 1)!}, \;\;\; R = + \infty
+$$
+
+\textbf{Доказательство:}
+
+Так как $z = x + iy$ и по формуле Эйлера: $e^{i \varphi} = \cos(\varphi) + i \sin(\varphi)$, то 
+
+$$
+e^z = e^{x + iy} = e^x \left( \cos y + i \sin y \right)
+$$
+
+$$
+e^x = \ryad \frac{x^k}{k!}, \; \cos y = \ryad (-1)^k \frac{y^{2k}}{(2k)!}, \; \sin y = \ryad (-1)^k \frac{y^{2k + 1}}{(2k + 1)!}
+$$
+
+\begin{multline*}
+e^{iy} = cos y + i \sin y = \ryad (-1)^k \frac{y^{2k}}{(2k)!} + i \ryad (-1)^k \frac{y^{2k + 1}}{(2k + 1)!} =  \\ = \ryad \frac{(iy)^{2k}}{(2k)!} + \ryad \frac{(iy)^{2k + 1}}{(2k + 1)!} = \ryad \frac{(iy)^{k}}{k!} = e^{iy}
+\end{multline*}
+
+$$
+e^z = \ryad \frac{x^k}{k!} \cdot \ryad \frac{(iy)^{k}}{k!}
+$$
+
+Докажем, что
+
+$$
+\ryad \frac{(z_1 + z_2)^k}{k!} = \ryad \frac{z_1^k}{k!} \cdot \ryad \frac{z_2^k}{k!}
+$$
+
+\begin{multline*}
+\ryad \frac{(z_1 + z_2)^k}{k!} = \ryad \frac{1}{k!} \cdot \sum_{j = 0}^k C_k^j z_1^j z_2^{k - j} = \ryad  \sum_{j = 0}^k \frac{1}{k!} \cdot \frac{k!}{j! \cdot (k - j)!} z_1^j z_2^{k - j} = \\ = \ryad  \sum_{j = 0}^k \frac{z_1^j}{j!} \cdot \frac{z_2^{k - j}}{(k - j)!} = \frac{z_1^0}{0!} \cdot \frac{z_2^0}{0!} + \left(\frac{z_1^0}{0!} \cdot \frac{z_2^1}{1!} + \frac{z_1^1}{1!} \cdot \frac{z_2^0}{0!} \right) + \\ + \left( \frac{z_1^0}{0!} \cdot \frac{z_2^2}{2!} + \frac{z_1^1}{1!} \cdot \frac{z_2^1}{1!} + \frac{z_1^2}{2!} \cdot \frac{z_2^0}{0!} \right) + \ldots
+\end{multline*}
+
+Это можно проиллюстрировать следующим образом:
+
+\begin{table}[h!]
+\centering
+\resizebox{0.6\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+     & $u_0$      & $u_1$      & $u_2$      & $u_3$ & ... \\ \hline
+$v_0$ & $u_0 \cdot v_0$ & $u_1 \cdot v_0$ & $u_2 \cdot v_0$ & ...  &     \\ \hline
+$v_1$ & $u_0 \cdot v_1$ & $u_1 \cdot v_0$ & ...       &      &     \\ \hline
+$v_2$ & $u_0 \cdot v_2$ & ...       &           &      &     \\ \hline
+$v_3$ & ...       &           &           &      &     \\ \hline
+...  &           &           &           &      &     \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+Мы обходим таблицу по диагоналям, так что сумма индексов элементов была константа для каждой группы слагаемых. Тогда действительно:
+
+$$
+\ryad \frac{(z_1 + z_2)^k}{k!} = \ryad  \sum_{j = 0}^k \frac{z_1^j}{j!} \cdot \frac{z_2^{k - j}}{(k - j)!} = \ryad \frac{z_1^k}{k!} \cdot \ryad \frac{z_2^k}{k!}
+$$
+
+Тогда по доказанной выше лемме:
+
+$$
+e^z = \ryad \frac{x^k}{k!} \cdot \ryad \frac{(iy)^k}{k!} = \ryad \frac{(x + iy)^k}{k!} = \ryad \frac{z^k}{k!}
+$$
+
+Теперь 
+
+\begin{multline*}
+e^{iz} = \ryad \frac{(iz)^k}{k!} = \ryad \frac{(iz)^{2k}}{(2k)!} + \ryad \frac{(iz)^{2k + 1}}{(2k + 1)!} = \\ = \ryad (-1)^k \frac{z^{2k}}{(2k)!} + i \ryad (-1)^k \frac{z^{2k + 1}}{(2k + 1)!}
+\end{multline*}
+
+
+\begin{multline*}
+e^{-iz} = \ryad \frac{(-iz)^k}{k!} = \ryad \frac{(-iz)^{2k}}{(2k)!} + \ryad \frac{(-iz)^{2k + 1}}{(2k + 1)!} = \\ = \ryad (-1)^k \frac{z^{2k}}{(2k)!} - i \ryad (-1)^k \frac{z^{2k + 1}}{(2k + 1)!}
+\end{multline*}
+
+$$
+\frac{e^{iz} + e^{-iz}}{2} = \cos z = \ryad (-1)^k \frac{z^{2k}}{(2k)!}
+$$
+
+
+$$
+\frac{e^{iz} - e^{-iz}}{2} = \sin z = \ryad (-1)^k \frac{z^{2k + 1}}{(2k + 1)!}
+$$
+
+\textbf{Что и требовалось доказать.}
+
+
+
+
+
+
+\end{document}

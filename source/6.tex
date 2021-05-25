@@ -1,0 +1,272 @@
+\documentclass[a4paper,12pt]{article} % тип документа
+
+% Русский язык
+\usepackage[T2A]{fontenc} % кодировка
+\usepackage[utf8]{inputenc} % кодировка исходного текста
+\usepackage[english,russian]{babel} % локализация и переносы
+
+\usepackage{graphicx} % импорт изображений
+\usepackage{wrapfig} % обтекаемые изображения
+\graphicspath{{pictures/}} % обращение к подкаталогу с изображениями
+\usepackage[14pt]{extsizes} % для того чтобы задать нестандартный 14-ый размер шрифта
+\usepackage{amsfonts} % буквы с двойными штрихами
+\usepackage[warn]{mathtext} % русский язык в формулах
+\usepackage{indentfirst} % indent first
+\usepackage[margin = 25mm]{geometry}% отступы полей
+\usepackage{amsmath} % можно выводить фигурные скобочки — делать системы уравнений
+\usepackage[table,xcdraw]{xcolor} % таблицы
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools} % Математика
+\usepackage{wasysym} % ???
+\usepackage{upgreek} % ???
+
+\usepackage{gensymb} % degree symbol
+\usepackage{mathrsfs} % для прописных английских букв
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Шрифты
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+
+%% Поля
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+%% Интервалы
+\linespread{1}
+\usepackage{multirow}
+
+%% TikZ
+\usepackage{tikz}
+\usetikzlibrary{graphs,graphs.standard}
+
+\usepackage{cancel} % перечеркивания
+
+\begin{document} % начало документа
+\section*{Билет №6.}
+\section*{Определенный интеграл Римана.}
+\noindent \textbf{Обозначения}:\\
+\noindent$y = f(x)$ некоторая функция, $x \in [a,b]\\T$ -- разбиение отрезка $[a,b]: T = \{a = x_0 < x_1 < {\dots} < x_n = b \}\\\Delta x_j = x_j - x_{j-1},~\Delta_T = \max\limits_{1\leq j\leq n}\Delta x_j$ -- мелкость разбиения\\ $\xi_j \in [x_{j-1},x_j],~j = \overline{1,n}$\\
+
+\noindent \textbf{Определение}: Число $I\{T,\xi\} =  \sum_{j = 1}^{n} {f(\xi_j)\Delta x_j}$ называется интегральной суммой.\\
+
+\noindent \textbf{Определение}: Число $I$ называется пределом интегральных сумм $I\{T,\xi\}$ при $\Delta_T \longrightarrow 0$, Если $\forall\varepsilon>0~\exists\delta = \delta(\varepsilon)>0: \forall T:\Delta_{T}<\delta~\&~ \forall\{\xi\} \longmapsto|I\{T, \xi\}-I|<\varepsilon$.\\
+
+\noindent \textbf{Определение}: Функция $y = f(x)$ называется интегрируемой на $[a,b]$, если существует конечный предел $I$ интегральных сумм $I\{T,\xi\}$\\ при $\Delta_T \longrightarrow 0$.\\
+Указанный предел $I$ называется определенным интегралом функции $f$ на $[a,b]$.\\
+\noindent \textbf{Обозначение}: $I = \int_{a}^{b} {f(x)dx}$\\
+
+\noindent \textbf{Пример}: $y(x)\equiv C,~x\in[a,b]\\
+I\{T,\xi\} = C(b-a) \Rightarrow I = \int_{a}^{b} {Cdx} = C(b-a)$\\
+
+\noindent \textbf{Предложение}[Необходимое условие интегрируемости функции]:\\
+$[ \,f$--интегрируема на $[a,b]~] \, \Rightarrow$ [ $f$--ограничена на $[a,b]$ ]\\
+\noindent \textbf{Доказательство}: от противного\\
+Пусть $f$ не является ограниченной на $[a,b]$ это означает, что $\exists k:$ на $[x_{k-1},x_k]$
+функция не является ограниченной, то есть, $|f(\xi_k)|\Delta x_k$ может быть как угодно большим за счет выборки точки $\xi_k~\Rightarrow I\{T,\xi\}$ неограчена и предел $I\{T,\xi\}~\Delta_T\rightarrow 0$ не существует--противоречие.\\
+\noindent \textbf{Замечание}: Не всякая ограниченная функция является интегрируемой на отрезке.\\
+\noindent \textbf{Пример}: функция Дирихле на любом отрезке $[a,b]$ ограничена
+$$y=D(x)=\left\{\begin{array}{ll}
+1, & x \in \mathbb{Q} \\
+0, & x \in \mathbb{J}
+\end{array}\right.$$\\
+Однако:\\
+$\xi_j^{\prime} \in \mathbb{Q},~j = \overline{1,n}\\
+\xi_j^{\prime \prime} \in \mathbb{J},~j = \overline{1,n}\\
+I\{T,\xi^{\prime}\} = b-a\neq 0\\
+I\{T,\xi^{\prime \prime}\} = 0$, отсюда $D(x)$ не является интегрируемой\\
+
+\section*{Верхние и нижние суммы Дарбу, их свойства.}
+\noindent \textbf{Определение}: Пусть $y = f(x),~x\in [a,b]$, ограничена на данном отрезке; T--разбиение отрезка$[a,b]$.\\
+$ T = \{a = x_0 < x_1 < {\dots} < x_n = b\},~\Delta x_j = x_j - x_{j-1}\\
+m_j = \inf\limits_{[x_{j-1},x_j]}f(x),~M_j = \sup\limits_{[x_{j-1},x_j]}f(x),~j = \overline{1,n}$, тогда:\\
+
+$\underline{S}_T = \sum_{j = 1}^{n}{m_j \Delta x_j}$--нижняя сумма Дарбу по разбиению T\\
+
+$\overline{S}_T = \sum_{j = 1}^{n}{M_j \Delta x_j}$--верхняя сумма Дарбу по разбиению T\\
+
+\noindent Очевидно, что при фиксированном T выполняется $\underline{S}_T \leq  I\{T,\xi\} \leq \overline{S}_T$\\
+
+\noindent \textbf{Свойство 1}: Для фиксированного T выполняется:\\
+$\forall\varepsilon>0~\exists \xi^{\prime}, \xi^{\prime \prime}: \overline{S}_T - I\{T,\xi^{\prime}\}<\varepsilon,~I\{T,\xi^{\prime\prime}\}-\underline{S}_T<\varepsilon$\\
+\noindent \textbf{Доказательство}: из определения $M_j = \sup\limits_{[x_{j-1},x_j]}f(x)$\\
+$\forall\varepsilon>0~\exists \xi^{\prime}_j \in [x_{j-1},x_j]:~f(\xi^{\prime}_j)>M_j-\frac{\varepsilon}{b-a}~\Rightarrow~M_j-f(\xi^{\prime}_j)<\frac{\varepsilon}{b-a}$\\
+
+\noindent$\sum_{j = 1}^{n} {(M_j-f(\xi^{\prime}_j))\Delta x_j}<\sum_{j = 1}^{n} {\frac{\varepsilon}{b-a}\Delta x_j} = \varepsilon~\Rightarrow~\sum_{j = 1}^{n} {(M_j-f(\xi^{\prime}_j))\Delta x_j}=\\$
+
+\noindent$\overline{S}_T - I\{T,\xi^{\prime}\}<\varepsilon$ \\
+Второе неравество доказывается аналогично.\\
+
+\noindent \textbf{Определение}: $T^{\prime}$--измельчение разбиения $T$, если $T^{\prime}=T\cup \{b_1{\dots}b_k\}$, то есть, мы добавляем еще $k$ точек, таким образом $\Delta_{T^{\prime}}\leq \Delta_T$\\
+
+\noindent \textbf{Свойство 2}: При измельчении разбиения $T$ нижние суммы Дарбу не уменьшаются, а верхние не увеличиваются.\\
+$T^{\prime}$--измельчение разбиения $T,~\underline{S}_T\leq \underline{S}_{T^{\prime}}\leq \overline{S}_{T^{\prime}}\leq \overline{S}_T$\\
+\noindent \textbf{Доказательство}: Добавим одну точку на $[x_{j-1},x_j]:~b\in (x_{j-1},x_j), \Delta x_j = \Delta x^{\prime}_j +\Delta x^{\prime\prime}_j,~M^{\prime}_j\leq M_j;~M^{\prime\prime}_j\leq M_j$, тогда:\\
+$$\overline{S}_T-\overline{S}_{T^{\prime}}=M_j\Delta x_j-(M^{\prime}_j\Delta x^{\prime}_j+M^{\prime\prime}_j\Delta x^{\prime\prime}_j)=(M_j-M^{\prime}_j)\Delta x^{\prime}+(M_j-M^{\prime\prime}_j)\Delta x^{\prime\prime}\geq0$$
+$\Rightarrow~\overline{S}_{T^{\prime}}\leq \overline{S}_T$\\
+Аналогично доказывается для нижних сумм.\\
+
+\noindent \textbf{Свойство 3}: Пусть $T^{\prime}$ и $T^{\prime\prime}$ произвольные разбиения отрезка $[a,b]$, тогда:
+$\underline{S}_{T^{\prime}}\leq \overline{S}_{T^{\prime\prime}},~\underline{S}_{T^{\prime\prime}}\leq \overline{S}_{T^{\prime}}$\\
+\noindent \textbf{Доказательство}: $T = T^{\prime}\cup T^{\prime\prime}$--измельчение разбиений $T^{\prime},~ T^{\prime\prime}$\\
+Тогда из свойства 2 следует, что $\underline{S}_{T^{\prime}}\leq \underline{S}_T\leq \overline{S}_T\leq \overline{S}_{T^{\prime\prime}}$ и\\
+$\underline{S}_{T^{\prime\prime}}\leq \underline{S}_T\leq \overline{S}_T\leq \overline{S}_{T^{\prime}}$\\
+
+\noindent \textbf{Свойство 4}: существуют числа $\underline{I},~\overline{I}$:\\
+$\underline{I}=\sup\limits_{T}{\underline{S}_T,~\overline{I}=\inf\limits_{T}{\overline{S}_T}}$ такие, что для произвольных разбиений $T^{\prime},~T^{\prime\prime}$ выполняется: 
+$\underline{S}_{T^{\prime}}\leq \underline{I}\leq \overline{I}\leq \overline{S}_{T^{\prime\prime}}$\\
+$\overline{I}$--верхний интеграл Дарбу\\
+$\underline{I}$--нижний интеграл Дарбу.\\
+\noindent \textbf{Доказательство}: следует из свойства 3 и теоремы об отделимости множеств.\\
+
+\noindent \textbf{Свойство 5}[Лемма Дарбу]:\\
+1)[$\underline{I}=\lim\limits_{\Delta_T\rightarrow 0}{\underline{S}_T}$] $\stackrel{\text { def }}{=}$ [$\forall\varepsilon>0~\exists\delta = \delta(\varepsilon)>0: \forall T:\Delta_{T}<\delta \longmapsto \underline{I}-\underline{S}_T<\varepsilon$]\\
+2)[$\overline{I}=\lim\limits_{\Delta_T\rightarrow 0}{\overline{S}_T}$] $\stackrel{\text { def }}{=}$ [$\forall\varepsilon>0~\exists\delta = \delta(\varepsilon)>0: \forall T:\Delta_{T}<\delta \longmapsto \overline{S}_T-\overline{I}<\varepsilon$]\\
+\noindent \textbf{Доказательство}: 2)\\
+$M=\sup\limits_{[a,b]}{f(x)},~m=\inf\limits_{[a,b]}{f(x)}$\\
+a)$M=m$--тривиальный случай;\\
+b)$M>m;~\overline{I}=\inf\limits_{T}{\overline{S}_T}$ из определения $inf$\\
+$\forall \varepsilon>0~\exists T^{*}:~\overline{S}_{T^{*}}<\overline{I}+\frac{\varepsilon}{2}~\Rightarrow~\overline{S}_{T^{*}}-\overline{I}<\frac{\varepsilon}{2}$\\
+$T$--произвольное разбиение: $\Delta_T=\max\limits_{j}{\Delta x_j}<\frac{\varepsilon}{2(M-m)k}$\\
+$k$--количество точек разбиения $T^{*}$, лежащих на $(a,b)$\\
+рассмотрим $T^{\prime}=T\cup T^{*}$\\
+$0\leq \overline{S}_T-\overline{S}_{T^{\prime}}\leq (M-m)k\Delta_T<\frac{\varepsilon}{2}$ (оценили сверху) отсюда:\\
+$0\leq \overline{S}_T-\overline{S}_{T^{\prime}}\leq \frac{\varepsilon}{2}$ (1)\\
+Из свойств 3 и 4: $\overline{I}\leq \overline{S}_{T^{\prime}}\leq  \overline{S}_{T^{*}}$\\
+$0\leq  \overline{S}_{T^{\prime}}-\overline{I}\leq \overline{S}_{T^{*}}-\overline{I}<\frac{\varepsilon}{2}~\Rightarrow$\\
+$\overline{S}_{T^{\prime}}-\overline{I}<\frac{\varepsilon}{2}$ (2)\\
+Складываем (1) и (2), получаем $ \overline{S}_T-\overline{I}<\varepsilon$\\
+Итак:$\forall \varepsilon>0 \quad \exists \delta=\delta(\varepsilon)=\frac{\varepsilon}{2(M-m) k}>0$
+$\forall T: \Delta_{T}<\delta \longmapsto\overline{S}_T-\overline{I}<\varepsilon$\\
+\section*{Критерий интегрируемости функции.}
+
+\noindent \textbf{Теорема 1}: Пусть функция $f$ ограничена на $[a,b]$\\
+$[\,f$ интегрируема на $[a,b]~]\, \Leftrightarrow [\,\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon]\,$\\
+\noindent \textbf{Доказательство [Необходимость]}: $\Rightarrow$\\
+$[\,f$ интегрируема на $[a,b]~] \stackrel{\text{def}}{=}[\,\forall\varepsilon>0~\exists\delta=\delta(\varepsilon)>0: \forall T:\\\Delta_{T}<\delta~\&~ \forall\{\xi\} \longmapsto|I-I\{T, \xi\}|<\frac{\varepsilon}{4}]\,$\\
+из свойства 1: $\exists \xi^{\prime},~\xi^{\prime\prime}$:\\
+$ \overline{S}_T - I\{T,\xi^{\prime}\}<\frac{\varepsilon}{4},~I\{T,\xi^{\prime\prime}\}-\underline{S}_T<\frac{\varepsilon}{4}$, тогда\\
+$\overline{S}_T-\underline{S}_T=|\overline{S}_T-I\{T,\xi^{\prime}\}+I\{T,\xi^{\prime}\}-I+I-I\{T,\xi^{\prime\prime}\}+I\{T,\xi^{\prime\prime}\}-\underline{S}_T|\leq \overline{S}_T-I\{T,\xi^{\prime}\}+|I\{T,\xi^{\prime}\}-I|+|I-I\{T,\xi^{\prime\prime}\}|+I\{T,\xi^{\prime\prime}\}-\underline{S}_T<4\cdot \frac{\varepsilon}{4}=\varepsilon~\Rightarrow$\\
+$\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon$\\
+\noindent \textbf{Доказательство [Достаточность]}: $\Leftarrow$\\
+$\forall\varepsilon>0~\exists T^{*}_{\varepsilon}:~\overline{S}_{T^{*}}-\underline{S}_{T^{*}}<\varepsilon$\\
+Из свойства 4: существуют числа $\underline{I},~\overline{I}:~\forall T\longmapsto \underline{S}_{T}\leq \underline{I}\leq \overline{I}\leq \overline{S}_{T}~\Rightarrow$\\
+$0\leq \overline{I}-\underline{I}\leq \overline{S}_{T^{*}}-\underline{S}_{T^{*}}<\varepsilon$ так как это выполняется для любых $\varepsilon>0~\Rightarrow$ это возможно лишь при $\overline{I}-\underline{I}=0$, $\overline{I}=\underline{I}=I$\\
+По Лемме Дарбу:\\
+$\forall\varepsilon>0~\exists\delta_1 = \delta_{1}(\varepsilon)>0: \forall T:\Delta_{T}<\delta_1 \longmapsto \overline{S}_T-\overline{I}<\varepsilon$\\
+для этого же $\varepsilon~\exists\delta_2 = \delta_{2}(\varepsilon)>0: \forall T:\Delta_{T}<\delta_2 \longmapsto \underline{I}-\underline{S}_T<\varepsilon$\\
+$\delta=min\{\delta_1,\delta_2\}\Rightarrow$
+$\forall T~\Delta_T<\delta \longmapsto$\\
+$\overline{S}_T-I<\frac{\varepsilon}{2},~I-\underline{S}_T<\frac{\varepsilon}{2}$\\
+$\forall T~\Delta_T<\delta~\&~\forall \xi=\{\xi_j\}\longmapsto$\\
+$\underline{S}_T\leq I\leq \overline{S}_T$ (1)\\
+также используем то, что $\underline{S}_T\leq I\{T,\xi\}\leq \overline{S}_T\Rightarrow$\\
+$-\overline{S}_T\leq -I\{T,\xi\}\leq -\underline{S}_T$ (2)\\
+Сложим (1) и (2) $\Rightarrow |I-I\{T,\xi\}|\leq \overline{S}_T-\underline{S}_T<\varepsilon$\\
+\section*{Классы интегрируемых функций.}
+
+\noindent \textbf{Теорема 2}: Если $y=f(x)$ непрерывна на отрезке $[a,b]$, то $f$ интегрирума на $[a,b]$.\\
+\noindent \textbf{Доказательство}: $f$ ограничена на $[a,b]$ по первой теореме Вейерштрасса, $f$ равномерно непрерывна на $[a,b]$ по теореме Кантора $\Rightarrow$\\
+$\forall\varepsilon>0~\exists\delta=\delta(\varepsilon)>0: \forall x^{\prime},~x^{\prime\prime} \in [a,b]:~|x^{\prime}-x^{\prime\prime}|<\delta \longmapsto\\|f(x^{\prime})-f(x^{\prime\prime})|<\frac{\varepsilon}{b-a}$\\
+Для этого же $\varepsilon~\exists T:~\Delta_T<\delta,~T=\{a=x_0<x_1<{\dots}<x_n=b\}$\\
+По 2 теореме Вейерштрасса $\forall j~\exists x^{\prime}_j,~x^{\prime\prime}_j\in [x_{j-1},x_j]:~\\
+M_j=\max\limits_{[x_{j-1},x_j]}{f(x)}=f(x^{\prime}_j),~m_j=\min\limits_{[x_{j-1},x_j]}{f(x)}=f(x^{\prime\prime}_j)$\\
+тогда из р.н. получаем, что $\forall j~M_j-m_j<\frac{\varepsilon}{b-a}\Rightarrow$\\
+$\overline{S}_T-\underline{S}_T=\sum^{n}_{j=1}{(M_j-m_j)\Delta x_j}<\frac{\varepsilon}{b-a}\sum^{n}_{j=1}{\Delta x_j}=\frac{\varepsilon(b-a)}{b-a}=\varepsilon\Rightarrow$\\
+$\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon$\\
+
+\noindent \textbf{Теорема 3}: Если функция $y=f(x)$ определена на отрезке $[a,b]$ и монотонна на отрезке, то $f$ интегрируема на $[a,b]$.\\
+\noindent \textbf{Доказательство}: для неубывающей функции: $\forall x\in[a,b]\longmapsto\\
+f(a)\leq f(x) \leq f(b)\Rightarrow$ ограничена\\
+$\forall\varepsilon>0~\exists T:~\Delta_T<\frac{\varepsilon}{f(b)-f(a)},~T=\{a=x_0<x_1<{\dots}<x_n=b\}$\\
+$j=\overline{1,n}~[x_{j-1},x_j]\longmapsto
+M_j=f(x_j),~m_j=f(x_{j-1})$\\
+$\overline{S}_T-\underline{S}_T=\sum^{n}_{j=1}{(M_j-m_j)\Delta x_j}<\frac{\varepsilon}{f(b)-f(a)}(f(x_1)-f(x_0)+f(x_2)-\\
+-f(x_1)+{\dots}+f(x_n)-f(x_{n-1}))=\frac{\varepsilon(f(b)-f(a))}{f(b)-f(a)}=\varepsilon\Rightarrow$\\
+$\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon$\\
+
+\noindent \textbf{Теорема 4}: Если функция $y=f(x)$ ограничена на $[a,b]$ и $\forall\varepsilon>0$ существует конечное число интервалов, покрывающих точки разрыва функции $f$, сумма длин которых не превосходит $\varepsilon\Rightarrow~f$ интегрируема на $[a,b]$\\
+\noindent \textbf{Доказательство}: Пусть $M=\sup\limits_{[a,b]}{f(x)},~m=\inf\limits_{[a,b]}{f(x)}$\\
+$\forall \varepsilon>0~\exists X_1=\cup^{n}_{j=1}{\delta^{1}_j}$ -- интервал, покрывающий точки разрыва и $|\delta^{1}_j|$ -- его длина $\Rightarrow~\sum^{n}_{j=1}{|\delta^{1}_j|}<\frac{\varepsilon}{2(M-m)}$\\
+$X_2=(a,b)\setminus\overline{X_1}$ \\
+$(a,b)$ -- открытое, $\overline{X_1}$ -- замкнутое $\Rightarrow~X_2$ -- открытое, то есть, мы отбросили интервалвы с точками разрыва.\\
+$X_2=\cup^{k}_{j=1}{\delta^{2}_j}$ на каждом $\delta^{2}_j$ -- $f$ непрерывна $\Rightarrow~f$ равномерно непрерывна на $\overline{X_2}$ (Замыкание, то есть $\overline{X_2}$ компакт -- ограниченное и замкнутое)\\
+
+Тогда из опр. р.н. $\exists\delta=\delta(\varepsilon)>0: \forall x^{\prime},~x^{\prime\prime} \in \overline{X_2}~ \longmapsto\\|f(x^{\prime})-f(x^{\prime\prime})|<\frac{\varepsilon}{2(b-a)}$, $T=\{\delta^{1}_j,~\delta^{2}_i\}^{n~~~~k}_{j=1,~i=1}$\\
+$\overline{S}_T-\underline{S}_T=\sum^{n}_{j=1}{(M_j-m_j)|\delta^{1}_j|}+\sum^{k}_{i=1}{(M_i-m_i)|\delta^{2}_i|}\leq(M-m)\sum^{n}_{j=1}{|\delta^{1}_j|}+
++\frac{\varepsilon}{2(b-a)}\sum^{k}_{i=1}{|\delta^{2}_i|}<\frac{\varepsilon}{2}+\frac{\varepsilon(b-a)}{2(b-a)}=\varepsilon\Rightarrow$\\
+$\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon\Rightarrow~f$ интегрируема на $[a,b]$\\
+
+\noindent \textbf{Следствие}: Если функция $y=f(x)$ ограничена на $[a,b]$ и имеет на нем конечное число точек разрыва, то $f$ интегрируема на $[a,b]$\\
+
+Рассмотрим пример функции, имеющей на отрезке бесконечное число точек разрыва:\\
+\noindent \textbf{Пример}: $f(x)=\left\{\begin{array}{ll}~~1,~x \in\left(\frac{1}{2 n}, \frac{1}{2 n-1}\right], n \in \mathbb{N} \\ -1,~x \in\left(\frac{1}{2 n+1}, \frac{1}{2 n}\right], n \in \mathbb{N}\end{array}\right.$\\
+$$x\in[0,1]$$\\ \begin{tikzpicture}
+		\draw [white!90!black] (0.1, 0.1) grid (15.9, 9.9);
+		\draw [->,>=stealth] (1, 5) -- (15, 5) node[below] {$x$};
+		\draw [->,>=stealth] (2, 1) -- (2, 9) node[left] {$y$};
+		\draw [dashed, white!60!black] (12, 5) -- (12, 8);
+		\draw [dashed, white!60!black] (7, 2) -- (7, 8);
+		\draw [dashed, white!60!black] (5.33, 2) -- (5.33, 8);
+		\draw [dashed, white!60!black] (4.5, 2) -- (4.5, 8);
+		\draw [dashed, white!60!black] (4, 2) -- (4, 8);
+		\draw [dashed, white!60!black] (3.66, 2) -- (3.66, 8);
+		\draw [dashed, white!60!black] (3.428, 2) -- (3.428, 5);
+		\draw [dashed, white!60!black] (3.428, 2) -- (2, 2);
+		\draw [dashed, white!60!black] (3.66, 8) -- (2, 8);
+		\draw [fill=black] (2, 8) circle (2pt) node[left]{$1$};
+		\draw [fill=black] (2, 2) circle (2pt) node[left]{$-1$};
+		\draw [fill=black] (12, 5) circle (2pt) node[below]{$1$};
+		\draw [fill=black] (7, 5) circle (2pt) node[below]{$\frac{1}{2}$};
+		\draw [fill=black] (5.33, 5) circle (2pt) node[below]{$\frac{1}{3}$};
+		\draw [fill=black] (4.5, 5) circle (2pt) node[below]{$\frac{1}{4}$};
+		\draw [fill=black] (4, 5) circle (2pt) node[below]{$\frac{1}{5}$};
+		\draw [fill=black] (3.66, 5) circle (2pt) node[below]{$\frac{1}{6}$};
+		\draw [fill=black] (3.428, 5) circle (2pt) node[below]{$\frac{1}{7}$};
+		\draw [->,>=stealth, line width=1.5] (12, 8) -- (7, 8);
+		\draw [->,>=stealth, line width=1.5] (7, 2) -- (5.33, 2);
+		\draw [->,>=stealth, line width=1.5] (5.33, 8) -- (4.5, 8);
+		\draw [->,>=stealth, line width=1.5] (4.5, 2) -- (4, 2);
+		\draw [->,>=stealth, line width=1.5] (4, 8) -- (3.66, 8);
+		\draw [->,>=stealth, line width=1.5] (3.66, 2) -- (3.428, 2);
+		\draw [fill=red] (2.7, 5) circle (2pt) node[below]{$\frac{\varepsilon}{4}$};
+		\draw [fill=blue] (2.57, 5) circle (1pt);
+		\draw [fill=blue] (2.47, 5) circle (1pt);
+		\draw [fill=blue] (2.37, 5) circle (1pt);
+		\draw [fill=blue] (2.27, 5) circle (1pt);
+		\draw [fill=blue] (2.17, 5) circle (1pt);
+		\draw [fill=blue] (2.07, 5) circle (1pt);
+	\end{tikzpicture}\\
+
+\noindentТочки разрыва $\frac{1}{n},~n>1$ на $[0,1]$\\
+$\forall\varepsilon>0~\exists N=N(\varepsilon):~\forall n\geq N\longmapsto 0<\frac{1}{n}<\frac{\varepsilon}{4}$\\
+Оставшиеся N точек вне данного интервала покрываем интервалами длины $\frac{\varepsilon}{4N}$, тогда сумма длин итервалов покрытия равна $\frac{\varepsilon}{4}+N\frac{\varepsilon}{4N}=\frac{\varepsilon}{2}<\varepsilon\Rightarrow$ интегрируема по теореме 4.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,604 @@
+\documentclass[a4paper,14pt]{extreport}
+
+%%% Работа с русским языком
+\usepackage{cmap}					% поиск в PDF
+\usepackage{mathtext} 				% русские буквы в формулах
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+%%% Дополнительная работа с математикой
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} % AMS
+\usepackage{icomma} % "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+
+%% Шрифты
+\usepackage{euscript}	 % Шрифт Евклид
+\usepackage{mathrsfs} % Красивый матшрифт
+
+%% Перенос знаков в формулах (по Львовскому)
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+	{\hbox{$\mathsurround=0pt #1$}}{}}
+
+%% Русские списки
+\usepackage{enumitem}
+\makeatletter
+\AddEnumerateCounter{\asbuk}{\russian@alph}{щ}
+\makeatother
+
+%% Поля
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+%% Интервалы
+\linespread{1}
+\usepackage{multirow}
+
+%% TikZ
+\usepackage{tikz}
+\usetikzlibrary{graphs,graphs.standard}
+
+\usepackage{cancel} % перечеркивания
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\series}{\sum\limits_{k=1}^{\infty}}
+\newcommand{\useries}{\sum\limits_{k=1}^{\infty} u_k}
+\newcommand{\useriesl}{\sum\limits_{k=1}^{\infty} u_k < \infty}
+\newcommand{\useriese}{\sum\limits_{k=1}^{\infty} u_k = \infty}
+\newcommand{\auseries}{\sum\limits_{k=1}^{\infty} |u_k|}
+\newcommand{\auseriesl}{\sum\limits_{k=1}^{\infty} |u_k| < \infty}
+\newcommand{\auseriese}{\sum\limits_{k=1}^{\infty} |u_k| = \infty}
+\newcommand{\sn}{\sum\limits_{k=1}^{n} u_k}
+\newcommand{\eqdef}{\stackrel{\mathrm{def}}{=}}
+
+\begin{document}
+
+\section*{Билет №9.}
+
+\subsection*{Числовые ряды.}
+
+\textbf{Определение:}
+Пусть задана числовая последовательность $\{{u_k}\}_{k=1}^{\infty}$. Выражение $u_1 + u_2 + \ldots + u_k + \ldots$ будем называть \textit{числовым рядом}.\\
+
+\textbf{Обозначение:} $\useries$
+
+$u_k$ -- член ряда
+
+$S_n = \sn$ -- $n$-я частичная сумма ряда\\
+
+\textbf{Определение:}
+Ряд $\useries$ \textit{сходится}, если последовательность $\{{S_n}\}_{n=1}^{\infty}$ сходится и $S = \lim\limits_{n \to \infty} S_n$ -- \textit{сумма ряда}. Если $\{{S_n}\}_{n=1}^{\infty}$ расходится, то и ряд $\useries$ \textit{расходится}.\\
+
+\textbf{Обозначения:}
+
+$\useriesl$ -- ряд сходится
+
+$\useriese$ -- ряд расходится\\
+
+\textbf{Примеры:}
+
+\begin{enumerate}
+	\item $\sum\limits_{k=1}^{\infty} (-1)^{k-1} = 1 - 1 + 1 - 1 + \ldots + 1 - 1 + \ldots$
+	
+	$S_1 = 1, S_2 = 0, S_3 = 1, S_4 = 0, \ldots$
+	
+	$S_{2k-1} = 1, S_{2k} = 0 \Rightarrow \{{S_n}\}_{n=1}^{\infty} \text{ расходящаяся } \Rightarrow \useriese$
+	\item $\sum\limits_{k=1}^{\infty} q^{k-1} = 1 + q + \ldots + q^{n-1} + \ldots$
+	
+	$S_n = 1 + q + \ldots + q^{n-1} = \dfrac{1 - q^n}{1 - q} = \dfrac{1}{1 - q} - \dfrac{q^n}{1 - q}$
+	
+	\begin{enumerate}[label=\asbuk*),ref=\asbuk*]
+		\item $|q|<1 \Rightarrow \lim\limits_{n \to \infty} q^n = 0 \Rightarrow \lim\limits_{n \to \infty} S_n = \dfrac{1}{1 - q} = S$
+		\item $|q|>1 \Rightarrow \lim\limits_{n \to \infty} |q|^n = \infty \Rightarrow \sum\limits_{k=1}^{\infty} q^{k-1} = \infty$
+		\item $q=1 \Rightarrow S_n = n \xrightarrow[n \to \infty]{} +\infty \Rightarrow \sum\limits_{k=1}^{\infty} q^{k-1} = \infty$
+		\item $q=-1 \Rightarrow \text{ пример 1) } \Rightarrow \sum\limits_{k=1}^{\infty} q^{k-1} = \infty$
+	\end{enumerate}
+
+	\item $\sum\limits_{k=1}^{\infty} \dfrac{x^{k-1}}{(k-1)!} = 1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \ldots + \dfrac{x^k}{k!} + \ldots$
+	
+	$e^x = 1 + \dfrac{x}{1!} + \dfrac{x^2}{2!} + \ldots + \dfrac{x^{n-1}}{(n-1)!} + e^{\xi x} \cdot \dfrac{x^n}{n!}, \hspace{1em} 0<\xi<1$
+	
+	$|e^x - S_n| \leqslant e^x \cdot \dfrac{x^n}{n!} \xrightarrow[n \to \infty]{} 0$
+\end{enumerate}
+
+\subsection*{Критерий Коши сходимости ряда.}
+
+\textbf{Теорема:}
+\[ \left[\useriesl \right] \Leftrightarrow \left[\forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n \geqslant N \ \& \ \forall p \in \N \mapsto \left|\sum\limits_{k=n+1}^{n+p} u_k \right| < \varepsilon \right] \]
+
+\textbf{Доказательство:}
+
+$|S_{n+p} - S_n| = \left|\sum\limits_{k=n+1}^{n+p} u_k \right|$
+
+Условие теоремы означает, что $\{ S_n \}$ -- фундаментальна $\Leftrightarrow$ $\{ S_n \}$ сходится\\
+
+\textbf{Обозначение:}
+$r_n = \sum\limits_{k=n+1}^{\infty} u_k$ -- $n$-й \textit{остаток числового ряда}\\
+
+\textbf{Следствие:}
+\[ \left[ \useriesl \right] \Leftrightarrow \left[ \{ r_n \}_{n=1}^{\infty} \text{ сходится} \right] \]
+
+\textbf{Доказательство:}
+\[ \left[ \{ r_n \}_{n=1}^{\infty} \text{ сходится} \right] \Leftrightarrow \left[ \{ r_n \}_{n=1}^{\infty} \text{ фундаментальна} \right] \Leftrightarrow \left[ \text{условие критерия Коши} \right] \]
+
+\textbf{Следствие [Необходимое условие сходимости числового ряда]:}
+\[ \left[ \useriesl \right] \Rightarrow \left[ \lim\limits_{k \to \infty} u_k = 0 \right] \]
+
+\textbf{Доказательство:}
+
+Следует из условия критерия Коши при $p = 1$.
+\[ \left[ \forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n \geqslant N \mapsto |u_{n+1}|<\varepsilon \right] \eqdef \left[ \lim\limits_{k \to \infty}  u_k = 0 \right] \]
+
+\textbf{Отрицание условия Коши:}
+\[ \left[ \exists \varepsilon_0 > 0: \forall n \ \exists n_0 \geqslant n \ \& \ \exists p_0 \in \N: \left| \sum\limits_{k = n_0 + 1}^{n_0 + p_0} u_k \right| \geqslant \varepsilon_0 \right] \]
+
+\textbf{Пример:}
+
+$\sum\limits_{k=1}^{\infty} \dfrac{1}{k}$ -- гармонический ряд
+
+$\lim\limits_{k \to \infty} \dfrac{1}{k} = 0$, \underline{\textbf{но}}
+
+\begin{multline*}
+	\exists \varepsilon_0 = \dfrac{1}{4}: \forall n \ \exists n_0 = n \ \& \ \exists p_0 = n: \sum\limits_{k = n+1}^{2n} \dfrac{1}{k} = \\ = \dfrac{1}{n+1}+ \dfrac{1}{n+2} + \ldots + \dfrac{1}{2n} \geqslant \dfrac{1}{2n} \cdot n = \dfrac{1}{2} > \dfrac{1}{4} = \varepsilon_0
+\end{multline*}
+
+\textbf{Предложение 1:}
+
+Добавление (отбрасывание) \underline{конечного} числа членов ряда не влияет на его поведение.\\
+
+\textbf{Доказательство:}
+
+$\useries \pm \sum\limits_{k=1}^{k_0} \alpha_k = \sum\limits_{k=1}^{\infty} \tilde{u}_k$
+
+$\forall n > n_0 \mapsto \tilde{S}_n = S_n + A, \hspace{1em} A = \sum\limits_{k=1}^{k_0} \alpha_k$
+
+Если $\{ S_n \}$ сходится [расходится], то $\{ \tilde{S}_n \}$ сходится [расходится].\\
+
+\textbf{Предложение 2:}
+
+$\tilde{u}_k = cu_k, c \in \R, c \neq 0 \Rightarrow \useries \text{ и } \sum\limits_{k=1}^{\infty} \tilde{u}_k$ ведут себя одинаково.
+
+\subsection*{Знакопостоянные ряды: признак сравнения сходимости, признаки Даламбера и Коши, интегральный признак.}
+
+$\useries, u_k \geqslant 0 \hspace{1em} \forall k, \hspace{1em} \{ S_n \}_{n=1}^{\infty} $ -- неубывающая
+
+\textbf{Теорема 2 [Критерий сходимости числового ряда с неотрицательными членами]:}
+\[ \left[ \useriesl \right] \Leftrightarrow \left[ \{ S_n \}_{n=1}^{\infty} \text{ ограничена} \right] \]
+
+\textbf{Доказательство:}
+\[ \left[ \{ S_n \}_{n=1}^{\infty} \text{ сходится} \right] \Leftrightarrow \left[ \{ S_n \}_{n=1}^{\infty} \text{ ограничена} \right] \text{ (т.к. монотонная)} \]
+
+\textbf{Теорема 3 [Признак сравнения]:}
+
+$\forall k \mapsto 0 \leqslant u_k \leqslant \tilde{u}_k$
+
+\begin{enumerate}
+	\item $\sum\limits_{k=1}^{\infty} \tilde{u}_k < \infty \Rightarrow \useriesl$
+	\item $\useriese \Rightarrow \sum\limits_{k=1}^{\infty} \tilde{u}_k = \infty$
+\end{enumerate}
+
+\textbf{Доказательство:}
+
+\begin{enumerate}
+	\item $\sum\limits_{k=1}^{\infty} \tilde{u}_k < \infty, \text{ т.е. } \exists \lim\limits_{n \to \infty} \tilde{S}_n = \tilde{S} \in \R$
+	
+	$\forall n \mapsto S_n \leqslant \tilde{S}_n \leqslant \tilde{S} \Rightarrow \{ S_n \} \text{ ограничена } \xRightarrow{Т.2} \useriesl$
+	\item $\useriese \xRightarrow{1)} \sum\limits_{k=1}^{\infty} \tilde{u}_k = \infty$
+\end{enumerate}
+
+\textbf{Замечание:}
+
+\begin{enumerate}
+	\item В \textbf{Теореме 3} \fbox{$\forall k$} можно заменить на \fbox{$\forall k \geqslant k_0, k_0 \in \N$}, т.к. отбрасывание конечного числа членов ряда не влияет на его поведение.
+	\item Неравенство $0 \leqslant u_k \leqslant \tilde{u}_k$ можно заменить $0 \leqslant u_k \leqslant c\tilde{u}_k, c > 0$, т.к. умножение на действительное число $c$ не влияет на поведение числового ряда.
+\end{enumerate}
+
+\textbf{Следствие:}
+\begin{multline*}
+	\left[\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0, \tilde{u}_k > 0 \text{ и } u_k \sim \tilde{u}_k \right] \Rightarrow \\ \Rightarrow \left[ \useries, \sum\limits_{k=1}^{\infty} \tilde{u}_k \text{ ведут себя одинаково} \right]
+\end{multline*}
+
+\textbf{Доказательство:}
+\begin{multline*}
+	\left[ \lim_{k \to \infty} \dfrac{u_k}{\tilde{u}_k} = 1 \right] \eqdef \left[ \forall \varepsilon > 0 \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \left| {\dfrac{u_k}{\tilde{u}_k}} - 1 \right | < \varepsilon \right] \Rightarrow \\ \Rightarrow \forall k \geqslant K \mapsto (1 - \varepsilon)\tilde{u}_k < u_k < (1 + \varepsilon)\tilde{u}_k
+\end{multline*}
+
+$0 < \varepsilon < \dfrac{1}{2}$
+
+Утверждение следует из \textbf{Теоремы 3} и \textbf{Замечания 2}.\\
+
+\textbf{Примеры:}
+
+\begin{enumerate}
+	\item $\useries, u_k = \dfrac{1}{3 + b^k}$
+	\begin{enumerate}[label=\asbuk*),ref=\asbuk*]
+		\item $b \leqslant 1 \Rightarrow \lim\limits_{k \to \infty} u_k \neq 0 \Rightarrow \text{не выполнено \textbf{НУС}} \Rightarrow \useriese$
+		\item $b > 1$
+		
+		$u_k = \dfrac{1}{3 + b^k} \leqslant \left( \dfrac{1}{b} \right)^k = q^k, \hspace{1em} 0 < q < 1$
+		
+		$\sum\limits_{k=1}^{\infty} q^k < \infty \xRightarrow{Т.3} \useriesl$
+	\end{enumerate}
+	\item $\sum\limits_{k=1}^{\infty} \dfrac{1}{k^{\alpha}}, \hspace{1em} 0 < \alpha \leqslant 1$
+	
+	$\dfrac{1}{k^{\alpha}} \geqslant \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k} = \infty \xRightarrow[]{Т.3} \series \dfrac{1}{k^{\alpha}} = \infty$
+	\item $\series \dfrac{1}{k^2} = \useries \hspace{2em} k > 1 \Rightarrow \dfrac{1}{k^2} \leqslant \dfrac{1}{k(k-1)} = \tilde{u}_k$
+	
+	$\dfrac{1}{k(k-1)} = \dfrac{1}{k-1} - \dfrac{1}{k} \Rightarrow \tilde{S}_n = 1 - \dfrac{1}{2} + \dfrac{1}{2} - \dfrac{1}{3} + \ldots + \dfrac{1}{n-1} - \dfrac{1}{n} = 1 - \dfrac{1}{n} \xrightarrow[n \to \infty]{} 1$
+	
+	$\series \tilde{u}_k < \infty \xRightarrow{Т.3} \series \dfrac{1}{k^2} < \infty$
+	
+	$\forall \alpha \geqslant 2 \mapsto \dfrac{1}{k^{\alpha}} \leqslant \dfrac{1}{k^2} \Rightarrow \series \dfrac{1}{k^{\alpha}} < \infty$ при $\alpha \geqslant 2$ 
+\end{enumerate}
+
+	\textbf{Теорема 4 [Признак сравнения]:}
+
+$\left[ \forall k \mapsto u_k > 0, \tilde{u}_k > 0 \text{ и } \dfrac{u_{k+1}}{u_k} \leqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} \right] \Rightarrow$
+
+\begin{enumerate}
+	\item $\series \tilde{u}_k < \infty \Rightarrow \useriesl$
+	\item $\useriese \Rightarrow \series \tilde{u}_k = \infty$
+\end{enumerate}
+
+\textbf{Доказательство:}
+\begin{equation*}
+	\times
+	\begin{cases}
+		\dfrac{u_2}{u_1} \leqslant \dfrac{\tilde{u}_2}{\tilde{u}_1} \\
+		\dfrac{u_3}{u_2} \leqslant \dfrac{\tilde{u}_3}{\tilde{u}_2} \\
+		\dots \\
+		\dfrac{u_k}{u_{k-1}} \leqslant \dfrac{\tilde{u}_k}{\tilde{u}_{k-1}} \\
+	\end{cases}
+	\Rightarrow \dfrac{u_k}{u_1} \leqslant \dfrac{\tilde{u}_k}{\tilde{u}_1} \Rightarrow u_k \leqslant c\tilde{u}_k, c = \dfrac{u_1}{\tilde{u}_k} > 0
+\end{equation*}
+
+Утверждение \textbf{Теоремы 4} следует из \textbf{Теоремы 3} и \textbf{Замечания 2}.\\
+
+\textbf{Теорема 5 [Признак Даламбера]:}
+
+$\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0$
+
+\begin{enumerate}
+	\item $ \left[ \dfrac{u_{k+1}}{u_k} \leqslant q < 1 \right] \Rightarrow \left[ \useriesl \right]$
+	\item $ \left[ \dfrac{u_{k+1}}{u_k} \geqslant 1 \right] \Rightarrow \left[ \useriese \right]$
+\end{enumerate}
+
+\textbf{Доказательство:}
+\begin{enumerate}
+	\item $\tilde{u}_k = q^k$
+	
+	$\dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = q \Rightarrow \dfrac{u_{k+1}}{u_k} \leqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = q < 1$
+	
+	$\series \tilde{u}_k = \series q^k \xRightarrow{Т.4} \useriesl$
+	\item $\tilde{u}_k = 1$
+	
+	$\dfrac{u_{k+1}}{u_k} \geqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = 1, \hspace{1em} \series \tilde{u}_k = \infty \xRightarrow[]{Т.4} \useriese$
+\end{enumerate}
+
+\textbf{Теорема 6 [Признак Даламбера в предельной форме]:}
+
+$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[ \lim\limits_{k \to \infty} \dfrac{u_{k+1}}{u_k} = L \in \R \right] \Rightarrow$
+
+\begin{enumerate}
+	\item $\left[ L < 1 \right] \Rightarrow \left[ \useriesl \right]$
+	\item $\left[ L > 1 \right] \Rightarrow \left[ \useriese \right]$
+\end{enumerate}
+
+\textbf{Доказательство:}
+\begin{enumerate}
+	\item $L < 1 \Rightarrow \exists \alpha > 0: L = 1 - 2\alpha \Rightarrow L + \alpha = 1 - \alpha = q < 1$
+	
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 < \dfrac{u_{k+1}}{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{Т.5} \useriesl$
+	\item $L > 1 \Rightarrow \exists \alpha > 0: L = 1 + \alpha \Rightarrow L - \alpha = 1$
+	
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \dfrac{u_{k+1}}{u_k} > L - \alpha = 1 \xRightarrow[]{Т.5} \useriese$
+\end{enumerate}
+
+\textbf{Замечание:}
+\begin{enumerate}
+	\item В \textbf{Теореме 5} неравенство $\dfrac{u_{k+1}}{u_k} \leqslant q < 1$ \underline{\textbf{нельзя}} заменить неравенством $\dfrac{u_{k+1}}{u_k} < 1$.
+	
+	$\series \dfrac{1}{k} \mapsto \dfrac{k}{k+1} < 1 \ \forall k$, \underline{\textbf{но}} $\series \dfrac{1}{k} = \infty$
+	\item Для $L = 1$ (в \textbf{Теореме 6}) признак Даламбера в предельной форме <<не работает>>.
+	
+	$\series \dfrac{1}{k} = \infty, \hspace{1em} \lim\limits_{k \to \infty} \dfrac{k}{k+1} = 1$
+	
+	$\series \dfrac{1}{k^2} < \infty, \hspace{1em} \lim\limits_{k \to \infty} \dfrac{k^2}{(k+1)^2} = 1$
+\end{enumerate}
+
+\textbf{Теорема 7 [Признак Коши]:}
+
+$\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0$
+
+\begin{enumerate}
+	\item $ \left[ \sqrt[k]{u_k} \leqslant q < 1 \right] \Rightarrow \left[ \useriesl \right]$
+	\item $ \left[ \sqrt[k]{u_k} \geqslant 1 \right] \Rightarrow \left[ \useriese \right]$
+\end{enumerate}
+
+\textbf{Доказательство:}
+
+\begin{enumerate}
+	\item $\tilde{u}_k = q^k \Rightarrow \sqrt[k]{u_k} \leqslant \sqrt[k]{\tilde{u}_k} = q < 1 \Rightarrow u_k \leqslant \tilde{u}_k$
+	
+	$\series \tilde{u}_k < \infty \xRightarrow[]{Т.3} \useriesl$
+	\item $\tilde{u}_k = 1 \Rightarrow \sqrt[k]{u_k} \geqslant \sqrt[k]{\tilde{u}_k} = 1 \Rightarrow u_k \geqslant \tilde{u}_k$
+	
+	$\series \tilde{u}_k = \infty \xRightarrow[]{Т.3} \useriese$
+\end{enumerate}
+
+\textbf{Теорема 8 [Признак Коши в предельной форме]:}
+
+$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[ \lim\limits_{k \to \infty} \sqrt[k]{u_k} = L \in \R \right] \Rightarrow$
+
+\begin{enumerate}
+	\item $\left[ L < 1 \right] \Rightarrow \left[ \useriesl \right]$
+	\item $\left[ L > 1 \right] \Rightarrow \left[ \useriese \right]$
+\end{enumerate}
+
+\textbf{Доказательство:}
+
+\begin{enumerate}
+	\item $L < 1 \Rightarrow \exists \alpha > 0: L = 1 - 2\alpha \Rightarrow L + \alpha = 1 - \alpha = q < 1$
+	
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 < \sqrt[k]{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{Т.7} \useriesl$
+	\item $L > 1 \Rightarrow \exists \alpha > 0: L = 1 + \alpha \Rightarrow L - \alpha = 1$
+	
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \sqrt[k]{u_k} > L - \alpha = 1 \xRightarrow[]{Т.7} \useriese$
+\end{enumerate}
+
+\textbf{Замечание:}
+\begin{enumerate}
+	\item В \textbf{Теореме 7} неравенство $\sqrt[k]{u_k} \leqslant q < 1$ \underline{\textbf{нельзя}} заменить неравенством $\sqrt[k]{u_k} < 1$.
+	\item Для $L = 1$ (в \textbf{Теореме 8}) признак Коши в предельной форме <<не работает>>.
+	\item Предельный признак Коши более сильный, чем предельный признак Даламбера.
+	
+	$\useries, \ u_k = \dfrac{3 + (-1)^k}{2^{k+1}}, \ \dfrac{u_{k+1}}{u_k} = \dfrac{1}{2} \cdot \dfrac{3 + (-1)^{k+1}}{3 + (-1)^k}$
+	
+	\begin{equation*}
+		\begin{cases}
+			k = 1: \dfrac{u_2}{u_1} = \dfrac{1}{2} \cdot 2 = 1 \\
+			k = 2: \dfrac{u_3}{u_2} = \dfrac{1}{2} \cdot \dfrac{1}{2} = \dfrac{1}{4} 
+		\end{cases}
+	\Rightarrow \lim\limits_{k \to \infty} \dfrac{u_{k+1}}{u_k} \text{ не существует}
+	\end{equation*}
+\end{enumerate}
+
+\textbf{Теорема 9 [Признак Коши"--~Маклорена][интегральный признак]:}
+
+Пусть $f$ -- неотрицательная и невозрастающая на $[m; +\infty), \ m \in \N$. Тогда
+\[ \left[ \sum\limits_{k=m}^{\infty} f(k) < \infty \right] \Leftrightarrow \left[ \exists \lim\limits_{n \to \infty} \alpha_n = \alpha \in \R, \ \alpha_n = \int\limits_{m}^{n}f(x)dx \right],  \ n \geqslant m + 1 \]
+\[\left(\lim\limits_{n \to \infty} \alpha_n = \int\limits_{m}^{+\infty} f(x) dx \right)\]
+
+\textbf{Доказательство:}
+
+$\forall k \geqslant m + 1 \mapsto k-1 \leqslant x \leqslant k \Rightarrow f(k) \leqslant f(x) \leqslant f(k-1)$
+
+$[k-1; k]$: $f$ -- монотонная и ограниченная $\Rightarrow$ $f$ интегрируема
+
+\[f(k) \leqslant \int\limits_{k-1}^{k} f(x)dx \leqslant f(k-1), \ k \geqslant m+1\]
+
+\begin{equation*}
+	+
+	\begin{cases}
+		f(m+1) \leqslant \int\limits_{m}^{m+1} f(x)dx \leqslant f(m)\\
+		f(m+2) \leqslant \int\limits_{m+1}^{m+2} f(x)dx \leqslant f(m+1)\\
+		\dots\\
+		f(n) \leqslant \int\limits_{n-1}^{n} f(x)dx \leqslant f(n-1)\\
+	\end{cases}
+\end{equation*}
+
+$S_n = \sum\limits_{k=m}^{n} f(k)$
+
+\[S_n - f(m) \leqslant \int\limits_{m}^{n} f(x)dx \leqslant S_{n-1} \Rightarrow \{ \alpha_n \} \text{ сходится} \Leftrightarrow \{ S_n \} \text{ ограничена} \]
+
+\textbf{Примеры:}
+
+\begin{enumerate}
+	\item $\series \dfrac{1}{k^{\alpha}}, \ \alpha > 1$
+	
+	$\int\limits_{1}^{+\infty} \dfrac{1}{x^{\alpha}}dx < \infty$, если $\alpha > 1 \Rightarrow \series \dfrac{1}{k^{\alpha}} < \infty$ при $\alpha > 1$. 
+	\item $\sum\limits_{k=2}^{\infty} \dfrac{1}{k \ln^{\beta}k}$
+	
+	$\int\limits_{2}^{+\infty} \dfrac{dx}{x \ln^{\beta}x} < \infty \text{ при } \beta > 1 \Rightarrow \sum\limits_{k=2}^{\infty}\dfrac{1}{k \ln^{\beta}k} < \infty \text{ при } \beta > 1$.
+\end{enumerate}
+
+\subsection*{Знакопеременные ряды, абсолютная и условная сходимость, признаки Лейбница, Дирихле и Абеля.}
+
+$\useries$
+
+\textbf{Определение:}
+Если $\auseriesl \Rightarrow \useries$ -- \textit{абсолютно сходящийся} ряд.\\
+
+\textbf{Предложение:}
+
+\[ \left[ \auseriesl \right] \Rightarrow \left[ \useriesl \right] \]
+
+\textbf{Доказательство:}
+
+По Критерию Коши сходимости числового ряда:
+
+\[\forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n \geqslant N \ \& \ \forall p \in \N \mapsto \sum\limits_{k=n+1}^{n+p} |u_k| < \varepsilon \]
+\[\left| \sum\limits_{k=n+1}^{n+p} u_k \right| \leqslant \sum\limits_{k=n+1}^{n+p} |u_k| < \varepsilon\]
+
+\textbf{Определение:}
+Если $\auseriese$ и $\useriesl$, то $\useries$ -- \textit{условно сходящийся} ряд.\\
+
+\textbf{Примеры:}
+
+\begin{enumerate}
+	\item $\series \dfrac{(-1)^{k-1}}{k^{\alpha}}, \ \alpha > 1$
+	
+	$\left| \dfrac{(-1)^{k-1}}{k^{\alpha}} \right| = \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k^{\alpha}} < \infty \text{ при } \alpha > 1 \Rightarrow \series \dfrac{(-1)^{k-1}}{k^{\alpha}} \text{ сходится абсолютно}$.
+	\item $\series \dfrac{(-1)^{k-1}}{k} = \useries$
+	
+	$|u_k| = \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k} = \infty$
+	
+	$\useries = 1 - \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{4} + \ldots + \dfrac{1}{2n-1} - \dfrac{1}{2n} + \ldots$
+	
+	$\ln(1+x) = x - {\dfrac{x}{2}} + \dfrac{x}{3} - \ldots + \dfrac{(-1)^n x^n}{n} + R_{n+1}(x)$
+	
+	$R_{n+1}(x) = \left[ \ln(1+x) \right]^{(n+1)}(\theta x) \cdot \dfrac{x^{n+1}}{(n+1)!}, \ 0<\theta<1$
+	
+	$\left[ \ln(1+x) \right]^{(n+1)}(\theta x) = \dfrac{(-1)^n n!}{(1+\theta x)^{n+1}}$
+	
+	$\ln2 = 1 - \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{4} + \ldots + \dfrac{(-1)^n}{n} + R_{n+1}(1)$
+	
+	$\left| R_{n+1}(x) \right| \leqslant \dfrac{|x|^{n+1}}{n+1}$
+	
+	$\left| S_n - \ln2 \right| = \left| R_{n+1}(x) \right| \leqslant \dfrac{1}{n+1} \xrightarrow[n \to \infty]{} 0$
+	
+	$\series \dfrac{(-1)^{k-1}}{k} = \ln2 \Rightarrow \series \dfrac{(-1)^{k-1}}{k} \text{ сходится условно}$
+\end{enumerate}
+
+\textbf{Тождество Абеля:}
+
+$\{u_k\}_{k=1}^{\infty}, \{v_k\}_{k=1}^{\infty}, \hspace{1em} S_n = u_1 + \ldots + u_n, \hspace{1em} u_k = S_k - S_{k-1}, \ k = 2, 3, \ldots $
+
+\begin{multline*}
+	\sum\limits_{k=n}^{n+p} u_k v_k = \sum\limits_{k=n}^{n+p} S_k v_k - \sum\limits_{k=n}^{n+p} S_{k-1} v_k = \sum\limits_{k=n}^{n+p} S_k v_k - \sum\limits_{k=n-1}^{n+p-1} S_ k v_{k+1} = \\ = \sum\limits_{k=n}^{n+p-1} S_k(v_k - v_{k+1}) + S_{n+p} v_{n+p} - S_{n-1} v_n
+\end{multline*}
+
+\[ \sum\limits_{k=n}^{n+p}(S_k - S_{k-1}) v_k = S_{n+p}v_{n+p} - S_{n-1}v_n - \sum\limits_{k=n}^{n+p-1}S_k(v_{k+1} - v_k) \]
+
+\textbf{Теорема [Признак Лейбница]:}
+\[ \left[ \series (-1)^{k-1} v_k, \ 0 \leqslant v_{k+1} \leqslant v_k, \ v_k \xrightarrow[k \to \infty]{} 0 \right] \Rightarrow \left[ \series (-1)^{k-1} v_k < \infty \right] \]
+
+\textbf{Доказательство:}
+
+$S_{2n} = v_1 - v_2 + v_3 - v_4 + \ldots + v_{2n-1} - v_{2n} \geqslant 0$
+
+$\{S_{2n}\}$ -- неубывающая и ограниченная $\Rightarrow \lim\limits_{n \to \infty} S_{2n} = S \in \R$
+
+$S_{2n} = v_1 - \underbrace{(v_2 - v_3)}_{\geqslant 0} -  \underbrace{(v_4 - v_5)}_{\geqslant 0} - \ldots - \underbrace{(v_{2n-2} - v_{2n-1})}_{\geqslant 0} - v_{2n} \Rightarrow S_{2n} \leqslant v_1 \ \forall n$
+
+$S_{2n-1} = S_{2n} + v_{2n} \Rightarrow S_{2n-1} \xrightarrow[n \to \infty]{} S$\\
+
+\textbf{Теорема [Признак Дирихле]:} Пусть
+\begin{enumerate}
+	\item $\{ \mathscr{U}_n \}$ -- послед. частичных сумм $\useries$ ограниченна, $U_n = \sn$
+	\item $\{v_k\}$ -- монотонна и $v_k \xrightarrow[k \to \infty]{} 0$
+\end{enumerate}
+Тогда $\sum\limits_{k=1}^{\infty} u_k v_k < \infty$\\
+
+\textbf{Доказательство:}
+
+$\exists C > 0: \forall n \in \N \mapsto \left| \mathscr{U}_n \right| \leqslant C$
+
+$\{v_k\}$ -- невозрастающая и $v_k \xrightarrow[k \to \infty]{} 0$
+ $\Rightarrow$ $\forall \varepsilon > 0 \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 \leqslant v_k \leqslant \dfrac{\varepsilon}{2C}$
+
+$\forall p \in \N \mapsto \left| \sum\limits_{k=n}^{n+p} u_k v_k \right| \leqslant C v_{n+p} + C v_n + C \sum\limits_{k=n}^{n+p-1}(v_k - v_{k+1}) \leqslant 2Cv_n < \varepsilon$\\
+
+\textbf{Следствие [Признак Абеля]:} Пусть
+\begin{enumerate}
+	\item $\useriesl$
+	\item $\{v_k\}$ -- монотонна и ограниченна
+\end{enumerate}
+Тогда $\sum\limits_{k=1}^{\infty} u_k v_k < \infty$\\
+
+\textbf{Доказательство:}
+
+$\{v_k\}$ монотонна и ограниченна $\Rightarrow$ $\{v_k\}$ сходится $\Rightarrow$ $\lim\limits_{k \to \infty} v_k = v \in \R$
+
+$\tilde{v}_k = v_k - v$ монотонна и $\tilde{v}_k \xrightarrow[k \to \infty]{} 0$
+
+$\{\mathscr{U}_n\}$ сходится $\Rightarrow$ $\{\mathscr{U}_n\}$ ограниченна
+
+$\underbrace{\series u_k \tilde{v}_k}_{< \infty \text{ по пр. Дирихле}} = \series u_k v_k - v \underbrace{\useries}_{< \infty \text{ по усл.}} \Rightarrow \series u_k v_k < \infty$\\
+
+\textbf{Примеры:}
+
+\begin{enumerate}
+	\item $\series \dfrac{(-1)^k}{\sqrt{k}}, \hspace{1em} \dfrac{1}{\sqrt{k}} \text{ убывает и } \dfrac{1}{\sqrt{k}} \xrightarrow[k \to \infty]{} 0 \Rightarrow \series \dfrac{(-1)^k}{\sqrt{k}} < \infty$ (по признаку Лейбница) 
+	\item $\series \dfrac{\cos kx}{k}, \hspace{1em} x$ -- фиксированное число, $x \neq 2 \pi m$, т.к. получится гармонический ряд
+	
+	$v_k = \dfrac{1}{k}, \ u_k = \cos kx, \ S_n = \sum\limits_{k=1}^{n} \cos kx$
+	
+	\begin{multline*}
+		\sin{\frac{x}{2}} \cdot S_n = \sum\limits_{k=1}^{n} \sin{\frac{x}{2}} \cdot \cos kx = \dfrac{1}{2} \sum\limits_{k=1}^{n} \left[ \sin{\left(\frac{2k+1}{2}\right)x} - \sin{\left(\frac{2k-1}{2}\right)x} \right] = \\ = \dfrac{1}{2} \left[ \sin{\frac{3x}{2}} - \sin{\frac{x}{2}} + \ldots + \sin{\left(\frac{2n+1}{2}\right)x} - \sin{\left(\frac{2n-1}{2}\right)x} \right]
+	\end{multline*}
+
+	$\left| S_n \right| = \left| \dfrac{\sin{\left(\frac{2n+1}{2}\right)x} - \sin \frac{x}{2}}{2 \sin\frac{x}{2}} \right| \leqslant \dfrac{1}{\left| \sin \frac{x}{2} \right|} \ \forall n, \ x \neq 2 \pi m \Rightarrow \series \dfrac{\cos kx}{k} < \infty$ (по признаку Дирихле)
+	\item $1 + \dfrac{1}{2} - \dfrac{2}{3} + \dfrac{1}{4} + \dfrac{1}{5} - \dfrac{2}{6} + \dfrac{1}{7} + \dfrac{1}{8} - \dfrac{2}{9} + \ldots = \series \left( \dfrac{1}{3k-2} + \dfrac{1}{3k-1} - \dfrac{2}{3k}  \right)$
+	
+	$v_k = \dfrac{1}{k}$
+	
+	$u_1 = 1, u_2 = 1, u_3 = -2, u_4 = 1, u_5 = 1, u_6 = -2, \ldots$
+	
+	$S_1 = 1, S_2 = 2, S_3 = 0, S_4 = 1, S_5 = 2, S_6 = 0, \ldots$
+	
+	$S_n \leqslant 2 \ \forall n \Rightarrow \useriesl$ (по признаку Дирихле)
+\end{enumerate}
+
+\subsection*{Независимость суммы абсолютно сходящегося ряда от порядка слагаемых.}
+
+\textbf{Теорема [Коши]:}
+
+Если $\useries$ сходится абсолютно и $\useries = S$, то любой $\sum\limits_{k=1}^{\infty} \tilde{u}_k$, полученный из исходного перестановкой членов, является абсолютно сходящимся и $\sum\limits_{k=1}^{\infty} \tilde{u}_k = S$.\\
+
+\textbf{Доказательство:}
+
+$\circledast$ $S_n = \sn, \hspace{1em} \tilde{S}_n = \sum\limits_{k=1}^{n} \tilde{u}_k$
+	
+\[\left[ \useries \text{ сх. абс.} \right] \Leftrightarrow \left[ \forall \varepsilon > 0 \ \exists N_1 = N_1(\varepsilon): \forall n \geqslant N_1 \ \& \ \forall p \in \N \mapsto \sum\limits_{k = n+1}^{n+p}|u_k| < \dfrac{\varepsilon}{2} \right] \]
+\[ \left[ \useries = S \right] \eqdef \left[ \forall \varepsilon > 0 \ \exists N_2 = N_2(\varepsilon): \forall n \geqslant N_2 \mapsto \left| S_n - S \right| < \dfrac{\varepsilon}{2} \right] \]
+
+$N_0 = \max \{ N_1; N_2 \}$
+
+\[ \forall p \in \N \mapsto \sum\limits_{k = N_0 + 1}^{N_0 + p} |u_k| < \dfrac{\varepsilon}{2}, \hspace{1em} \left| S_{N_0} - S \right| < \dfrac{\varepsilon}{2} \]
+\[\tilde{S}_n: \forall n \geqslant N: S_N \text{ содержит все } N_0 \text{ первых членов исходного ряда} \]
+\[ |\tilde{S}_n - S| = |(\tilde{S}_n - S_{N_0}) + (S_{N_0} - S)| \leqslant \underbrace{|\tilde{S}_n - S_{N_0}|}_{n - N_0 \text{ членов}} + \dfrac{\varepsilon}{2} \]
+
+Число $p \in \N$ выбираем таким образом, чтобы $N_0 + p$ был больше номеров членов ряда, содержащихся в $\tilde{S}_n - S_{N_0} \Rightarrow |\tilde{S}_n - S_{N_0}| \leqslant \sum\limits_{k=N_0 + 1}^{N_0 + p} |u_k| < \dfrac{\varepsilon}{2}$, тогда
+
+\[ |\tilde{S}_n - S| < \dfrac{\varepsilon}{2} + \dfrac{\varepsilon}{2} = \varepsilon\]
+
+Для доказательства абсолютной сходимости повторяем $\circledast$ для рядов $\auseries$ и $\sum\limits_{k=1}^{\infty}|\tilde{u}_k|$.
+
+\subsection*{Теорема Римана о перестановках членов условно сходящегося ряда.}
+
+$\series \dfrac{(-1)^{k-1}}{k} = 1 - \dfrac{1}{2} + \dfrac{1}{3} - \dfrac{1}{4} + \dfrac{1}{5} - \dfrac{1}{6} + \ldots = \ln 2 = \useries$
+
+$1 - \dfrac{1}{2} - \dfrac{1}{4} + \dfrac{1}{3} - \dfrac{1}{6} - \dfrac{1}{8} + \ldots + \dfrac{1}{2n-1} - \dfrac{1}{4n-2} - \dfrac{1}{4n} + \ldots = \sum\limits_{k=1}^{\infty} \tilde{u}_k$
+
+\begin{equation*}
+	\begin{cases}
+		\tilde{S}_{3m} = \frac{1}{2} \sum\limits_{k=1}^{3m}\left( \frac{1}{2k-1} - \frac{1}{2k} \right) = \frac{1}{2} S_{n}, \ n=3m \xrightarrow[m \to \infty]{} \frac{1}{2} \ln 2\\
+		\tilde{S}_{3m - 1} = \frac{1}{2} S_n + \frac{1}{4n} \xrightarrow[m \to \infty]{} \frac{1}{2} \ln 2 \\
+		\tilde{S}_{3m - 2} = \frac{1}{2} S_n + \frac{1}{4n} + \frac{1}{4n-2} \xrightarrow[m \to \infty]{} \frac{1}{2} \ln 2 \\
+	\end{cases}
+	\Rightarrow \sum\limits_{k=1}^{\infty} \tilde{u}_k = \dfrac{1}{2} \ln 2
+\end{equation*}
+
+\textbf{Теорема [Риман]:}
+
+Если числовой ряд сходится условно, то каково бы ни было число $S$, члены ряда можно переставить так, что полученный ряд сходится к $S$.
+
+\subsection*{Произведение абсолютно сходящихся рядов.}
+
+\textbf{Теорема [О сумме абсолютно сходящихся рядов]:} Если
+
+$\useries = \mathscr{U} \in \R, \hspace{2em} \series v_k = \mathscr{V} \in \R$, то
+
+\[ \series (u_k \pm v_k) = \mathscr{U} \pm \mathscr{V} \]
+
+\textbf{Доказательство:}
+
+\[ \mathscr{U}_n = \sn, \hspace{2em} \mathscr{V}_n = \sum\limits_{k=1}^{n}v_k \]
+\[ S_n = \sum\limits_{k=1}^{n}(u_k \pm v_k) = \mathscr{U}_n \pm \mathscr{V}_n \xrightarrow[n \to \infty]{} \mathscr{U} \pm \mathscr{V} \]
+
+\textbf{Теорема [О произведении абсолютно сходящихся рядов]:}
+\begin{multline*}
+	\left[ \useries = \mathscr{U} \text{ -- абс. сход.}, \sum\limits_{k=1}^{\infty}v_k = \mathscr{V} \text{ -- абс. сход.} \right] \Rightarrow \\ \Rightarrow \left[ \sum\limits_{k, l =1}^{\infty}u_k v_l = \sum\limits_{j=1}^{\infty} w_j \text{ сход. абс. и } \sum\limits_{j=1}^{\infty} w_j = \mathscr{U} \cdot \mathscr{V} \right]
+\end{multline*}
+
+\textbf{Доказательство:}
+
+$\bar{S}_n = \sum\limits_{j=1}^{\infty} w_j$
+
+Пусть $m$ -- наибольший индекс из индексов $k$ и $l$, входящих в $\bar{S}_n$ $\Rightarrow$ $\bar{S}_n \leqslant (|u_1| + |u_2| + \ldots + |u_m|)(|v_1| + |v_2| + \ldots + |v_m|)$
+
+$\useries$ и $\series v_k$ сход. абс. $\Rightarrow$ $\{ \bar{\mathscr{U}}_m \}, \{ \bar{\mathscr{V}}_m \}$ ограничены $\Rightarrow$ $\{\bar{S}_n\}$ ограничена $\Rightarrow$ $\sum\limits_{j=1}^{\infty} |w_j| < \infty$ $\Rightarrow$ $\sum\limits_{j=1}^{\infty} w_j$ сход. абс.
+
+$\mathscr{W}_n = (u_1 + \ldots + u_n)(v_1 + \ldots + v_n) \xrightarrow[n \to \infty]{} \mathscr{U} \cdot \mathscr{V} \Rightarrow \sum\limits_{j=1}^{\infty} w_j = \mathscr{U} \cdot \mathscr{V}$
+
+\end{document}
