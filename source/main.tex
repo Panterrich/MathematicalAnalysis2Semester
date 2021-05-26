@@ -125,7 +125,7 @@
 
 \vfill
 
-Version 4.4\\
+Version 4.5\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -1456,8 +1456,7 @@ $Q_1$ и $Q_2$ - клетки. $Q = Q_1 \cap Q_2$ - клетка (свойств
 
 $Q_1 \backslash Q_2 = Q_1 \backslash Q$.
 
-Существует такое разбиение клетки $Q_1$ на более мелкие клетки, что $Q$ является одной из них $\Rightarrow$
-
+Существует такое разбиение клетки $Q_1$ на более мелкие клетки, что $Q$ является одной из них
 $\Rightarrow Q_1 \backslash Q_2$ - клеточное множество.
 
 \begin{figure}[h!]
@@ -1483,15 +1482,15 @@ $\textbf{5}^\circ$ Разность двух клеточных множеств
 
 $G_{i1}$ - клеточное множество (свойство $\textbf{4}^\circ$).
 
-$G_{i1} \cap G_{j1} = \varnothing$, если $i \neq j \Rightarrow$
+$G_{i1} \cap G_{j1} = \varnothing$, если $i \neq j \Rightarrow G_1 \backslash Q_1^2$ - клеточное множество (свойство $\textbf{1}^\circ$). 
 
-$\Rightarrow G_1 \backslash Q_1^2$ - клеточное множество (свойство $\textbf{1}^\circ$).
+Аналогично для других клеток $G_2$
 
 \begin{equation*}
-	G_1 \backslash G_2 = G_1 \backslash \left( \bigcup_{j = 1}^n Q_j^2\right) = \bigcap_{j = 1}^n\left(G_1 \backslash Q_j^2\right) = \bigcap_{j = 1}^n\left(\bigcup_{i = 1}^k G_{ij}\right)
+	G_1 \backslash G_2 = G_1 \backslash \left( \bigcup_{j = 1}^n Q_j^2\right) = \bigcap_{j = 1}^n\left(G_1 \backslash Q_j^2\right)
 \end{equation*}
 
-Последнее является клеточным множеством, так как $G_{ij} \cap G_{sl} = \varnothing$, если $i \neq s$ или $j \neq l$. Откуда получаем, что $G_1 \backslash G_2$ - клеточное множество.
+Последнее является клеточным множеством по свойству $\textbf{3}^\circ$. Откуда получаем, что $G_1\backslash G_2$ - клеточное множество.
 
 \vspace{5mm}
 
@@ -1592,14 +1591,14 @@ $G_1 \cap G = \varnothing \stackrel{\text{пр.1}}{\Longrightarrow} m(G_2) = m(G
 \end{figure}
 
 \[m(Q_a) = \prod\limits_{j = 1}^m (b_j - a_j - 2a) \text{, }  Q_a \subset Q \]
-\[S_j = \prod\limits_{\substack{i = 1,\\ i \neq j}}^m (b_j - a_j);\]
+\[S_j = \prod\limits_{\substack{i = 1,\\ i \neq j}}^m (b_i - a_i);\]
 
 Тогда
-\[m(Q) < m(Q_a) + 2a\cdot\sum\limits_{j = 1}^m S_j = m(Q_a) + 2aS \Rightarrow m(Q) - m(Q_a) < 2aS = \varepsilon\]
+\[m(Q) \leqslant m(Q_a) + 2a\cdot\sum\limits_{j = 1}^m S_j = m(Q_a) + 2aS \Rightarrow m(Q) - m(Q_a) \leqslant 2aS = \frac{\varepsilon}{2} < \varepsilon \]
 
-Тогда для одной клетки $a = \frac{\varepsilon}{2S}$.
+Тогда для одной клетки $a = \frac{\varepsilon}{4S}$.
 
-Так как $G = Q_1 \cup Q_2 \cup \ldots \cup Q_k$, то $a = \frac{\varepsilon}{2Sk}$.
+Так как $G = Q_1 \cup Q_2 \cup \ldots \cup Q_k$, то $a = \frac{\varepsilon}{4Sk}$.
 
 Получаем $G_{\varepsilon} = \bigcup\limits_{i = 1}^k (Q_a)_i$.
 
@@ -3790,7 +3789,7 @@ $$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& 
 \section{Билет 11}
 	\subsection{Степенные ряды с комплексными числами}
 	
-	\underline{\textbf{Определение:}} $\sum\limits_{k = 0}^\infty c_k(\zeta - a)$; $c_k, a \in \mathbb{C} -$ фиксированные числа, $\zeta \in \mathbb{C}$  - переменная.
+	\underline{\textbf{Определение:}} $\sum\limits_{k = 0}^\infty c_k(\zeta - a)^k$; $c_k, a \in \mathbb{C} -$ фиксированные числа, $\zeta \in \mathbb{C}$  - переменная.
 	
 	Такой функциональные ряд называется \textit{степенным}.
 	
