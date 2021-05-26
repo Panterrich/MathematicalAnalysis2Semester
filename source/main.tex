@@ -76,6 +76,11 @@
 \newcommand{\auseriese}{\sum\limits_{k=1}^{\infty} |u_k| = \infty}
 \newcommand{\sn}{\sum\limits_{k=1}^{n} u_k}
 
+\renewcommand {\ge}{\geqslant}
+\renewcommand {\le}{\leqslant}
+\renewcommand {\geq}{\geqslant}
+\renewcommand {\leq}{\leqslant}
+
 \usepackage{titlesec}
 \titlelabel{\thetitle.\quad}
 %%% Для точек после названий секций
@@ -125,7 +130,7 @@
 
 \vfill
 
-Version 4.6\\
+Version 4.7\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -550,7 +555,7 @@ $$ \forall \varepsilon > 0 ~ \exists N = N(\varepsilon) : ~ \forall n \geqslant 
 \newpage
 \section{Билет 2}
 
-\subsection{Предел числовой функции нелскольких переменных.}
+\subsection{Предел числовой функции нескольких переменных.}
 
 \underline{\textbf{Обозначения:}}
 $\mathscr{M} = (\mathbb{M}, \rho)$, $a \in \mathscr{M}$, $\mathscr{U}(a)$,
@@ -2147,7 +2152,7 @@ $$\int \limits_a^b f(x)dx = -\int \limits_b^a f(x)dx$$
 Если $ f $, $ g $ интегрируемы на $ [a, b] $, то $\forall{\alpha, \beta} \in \mathbb{R} $ функция $ h = \alpha f + \beta g $ интегрируема на $ [a, b] $.\\
 
 \textbf{Доказательство:} \\[5 mm]
-$ I_h \{ \tau, \xi \} = \sum\limits_{j = 1}^n   [\alpha f(\xi_j) + \beta g(\xi_j)] \Delta x_j  =  \alpha \cdot \sum\limits_{j = 1}^n f(\xi_j)\Delta x_j + \beta \cdot \sum\limits_{j = 1}^n g(\xi_j)\Delta x_j = $ \\ [2 mm] $ \alpha I_f \{\tau, \xi \} + \beta I_g \{\tau, \xi \} $.\\
+$ I_h \{ \tau, \xi \} = \sum\limits_{j = 1}^n   [\alpha f(\xi_j) + \beta g(\xi_j)] \Delta x_j  =  \alpha \cdot \sum\limits_{j = 1}^n f(\xi_j)\Delta x_j + \beta \cdot \sum\limits_{j = 1}^n g(\xi_j)\Delta x_j = \alpha I_f \{\tau, \xi \} + \beta I_g \{\tau, \xi \} $.\\
 
 \textbf{Свойство 4:}
 
@@ -2156,12 +2161,13 @@ $ I_h \{ \tau, \xi \} = \sum\limits_{j = 1}^n   [\alpha f(\xi_j) + \beta g(\xi_j
 \textbf{Доказательство:}
 
 $ \exists A > 0 \wedge  \exists B > 0: |f(x)| \leq A, \hspace*{1mm} |g(x)| \leq B \hspace*{2mm} \forall x \in [a, b]$ $\Rightarrow$ $ h $ ограничена на $ [a, b]$ \\ [2 mm]
-$| h(x') - h(x'') | = | f(x')g(x') - f(x'')g(x'')| = |f(x')g(x') - f(x'')g(x') + $ \\ [2 mm] $|f(x'')g(x') - f(x'')g(x'') | \leq |g(x')| \cdot |f(x') - f(x'')| + |f(x'')| \cdot | g(x') - $ \\ [2 mm] $ g(x'') | \leq B|f(x') - f(x'')| + A|g(x') - g(x'')| $ $\Rightarrow$  $[ M_j(h) - m_j(h)] \leq $ \\ [2mm] $  B[M_j(f) - m_j(f)] + A[M_j(g) - m_j(g)] $ \\ [3 mm]
-$ f, g $ интегрируемы на $ [a, b] $ $ \Rightarrow $ $ \forall \varepsilon > 0 \hspace*{2mm} \exists T' : \overline{S}_{T'}(f) - \underline{S}_{T'} (f) < \frac {\varepsilon}{2B} \\ [2 mm] \hspace*{83mm} \exists T'' : \overline{S}_{T''}(g) - \underline{S}_{T''} (g) < \frac {\varepsilon}{2A} $ \\ [3 mm]
+$| h(x') - h(x'') | = | f(x')g(x') - f(x'')g(x'')| = |f(x')g(x') - f(x'')g(x') + $ \\ [2 mm] $+ f(x'')g(x') - f(x'')g(x'') | \leq |g(x')| \cdot |f(x') - f(x'')| + |f(x'')| \cdot | g(x') - $ \\ [2 mm] $ - g(x'') | \leq B|f(x') - f(x'')| + A|g(x') - g(x'')| $ $\Rightarrow$  $[ M_j(h) - m_j(h)] \leq $ \\ [2mm] $  B[M_j(f) - m_j(f)] + A[M_j(g) - m_j(g)] $ \\ [3 mm]
+$ f, g $ интегрируемы на $ [a, b] $ $ \Rightarrow $ $ \forall \varepsilon > 0 \hspace*{2mm} \exists T' : \overline{S}_{T'}(f) - \underline{S}_{T'} (f) < \frac {\varepsilon}{2B} \\ [2 mm] \hspace*{70mm} \exists T'' : \overline{S}_{T''}(g) - \underline{S}_{T''} (g) < \frac {\varepsilon}{2A} $ \\ [3 mm]
 $ T = T' \cup T''$ \\ [2 mm]
-$ \underline{S}_{T'}(f) \leq \underline{S}_{T}(f) \leq \overline{S}_{T}(f) \leq \overline{S}_{T'}(f) $ $ \Rightarrow $ $\overline{S}_{T}(f) - \underline{S}_{T} (f)  \leq \overline{S}_{T'}(f) - $ \\ [2mm] $\underline{S}_{T'} (f) < \frac {\varepsilon}{2B} $ \\ [2 mm]
-$ \underline{S}_{T''}(g) \leq \underline{S}_{T}(g) \leq \overline{S}_{T}(g) \leq \overline{S}_{T''}(f) $ $ \Rightarrow $ $\overline{S}_{T}(g) - \underline{S}_{T} (g)  \leq \overline{S}_{T''}(g) - $ \\ [2mm] $\underline{S}_{T''} (g) < \frac {\varepsilon}{2A} $ $ \Rightarrow $ \\ [3 mm]
-$\overline{S}_{T}(h) - \underline{S}_{T} (h) < A \cdot \frac {\varepsilon}{2A} + B \cdot \frac{\varepsilon}{2B} = \varepsilon$ $\Rightarrow$ $ h $ интегрируемая на $ [a, b] $.\\
+$ \underline{S}_{T'}(f) \leq \underline{S}_{T}(f) \leq \overline{S}_{T}(f) \leq \overline{S}_{T'}(f) $ $ \Rightarrow $ $\overline{S}_{T}(f) - \underline{S}_{T} (f)  \leq \overline{S}_{T'}(f) - \underline{S}_{T'} (f) < \frac {\varepsilon}{2B} $ \\ [2 mm]
+$ \underline{S}_{T''}(g) \leq \underline{S}_{T}(g) \leq \overline{S}_{T}(g) \leq \overline{S}_{T''}(f) $ $ \Rightarrow $ $\overline{S}_{T}(g) - \underline{S}_{T} (g)  \leq \overline{S}_{T''}(g) - \underline{S}_{T''} (g) < \frac {\varepsilon}{2A} $ \\
+
+$\Rightarrow  \overline{S}_{T}(h) - \underline{S}_{T} (h) < A \cdot \frac {\varepsilon}{2A} + B \cdot \frac{\varepsilon}{2B} = \varepsilon$ $\Rightarrow$ $ h $ интегрируемая на $ [a, b] $.\\
 
 \textbf{Свойство 5:}
 
@@ -2175,7 +2181,7 @@ $T' = T \cup \{c,d\}$
 
 $\overline{S_{T'}}-\underline{S_{T'}}\leq \overline{S_T}-\underline{S_T} < \varepsilon$
 
-$T^*$ порожденное разбиением $T' \Rightarrow \overline{S_{T^*}}- \underline{S_{T^*}}\leq  \overline{S_T}-\underline{S_T} < \varepsilon$\\
+Рассмотрим разбиение $T^*$ отрезка $[c, d]$, порождаемое разбиением $T'$, то есть в $T^*$ включены все точки разбиения $T'$, лежащие на отрезке $[c, d]$.  \Rightarrow \overline{S_{T^*}}- \underline{S_{T^*}}\leq  \overline{S_T}-\underline{S_T} < \varepsilon$\\
 
 \textbf{Свойство 6:}
 
@@ -2193,7 +2199,7 @@ $ \underline{S}_{T'} =  \underline{S}_{T}^1 \leq \overline{S}_{T}^1 = \overline{
 
 $ \underline{S}_{T''} =  \underline{S}_{T}^2 \leq \overline{S}_{T}^2 = \overline{S}_{T''} $
 
-$ \overline{S}_{T} -  \underline{S}_{T} = \overline{S}_{T}^1 + \overline{S}_{T}^2 - \underline{S}_{T}^1 + \underline{S}_{T}^2 < \varepsilon $ $ \Rightarrow f $ интегируема на $ [a, b]$ $ \Rightarrow $ интегральная сумма на $ [a, b] $ есть сумма интегральных сумм на $ [a,c] $ и $ [c, b] $.\\
+$ \overline{S}_{T} -  \underline{S}_{T} = \overline{S}_{T}^1 + \overline{S}_{T}^2 - \underline{S}_{T}^1 - \underline{S}_{T}^2 < \varepsilon $ $ \Rightarrow f $ интегируема на $ [a, b]$ $ \Rightarrow $ интегральная сумма на $ [a, b] $ есть сумма интегральных сумм на $ [a,c] $ и $ [c, b] $.\\
 
 Пусть $ c < a < b $ или $ a < b < c $: \\[2 mm]
 $ [a, b] $ есть часть отрезка $ [c, b] $ или $ [a, c] $ $ \Rightarrow $ ввиду того, что интегрируемая на отрезке интегрируема на любом его участке, то $ f $ интегрируема на $ [a, b] $. \\
@@ -2206,7 +2212,7 @@ $$\int\limits_a^b f(x)dx = \int\limits_a^c f(x)dx - \int\limits_b^c f(x)dx  \Rig
 
 \textbf{Свойство 7:}
 
-Пусть $f$ ограничена на $(a,b], \forall \alpha > 0: 0<\alpha<b-a, f $ интегрируема на $[\alpha+a, b]$,тогда при любом доопределении $f$ в точке $a$, получится функция, интегрируемая на $[a,b]$ и $\int\limits_a^b f(x) dx = \lim \limits_{\alpha \rightarrow 0} \int\limits_{a+\alpha}^b f(x)dx$.\\
+Пусть $f$ ограничена на $(a,b], \forall \alpha > 0: 0<\alpha<b-a, f $ интегрируема на $[\alpha+a, b]$, тогда при любом доопределении $f$ в точке $a$, получится функция, интегрируемая на $[a,b]$ и $\int\limits_a^b f(x) dx = \lim \limits_{\alpha \rightarrow 0} \int\limits_{a+\alpha}^b f(x)dx$.\\
 
 \textbf{Доказательство:}
 
@@ -2214,7 +2220,7 @@ $$\exists A>0: \forall x \in (a,b] \longmapsto |f(x)|\leq A, f(a) = B$$
 
 $$M = max\{A, |B|\} \Rightarrow \forall x \in [a,b], |f(x)|\leq M$$
 
-$$\forall\varepsilon > 0 ~\exists \alpha = \alpha(\varepsilon):2M\alpha< \varepsilon/2$$
+$$\forall\varepsilon > 0 ~\exists \alpha = \alpha(\varepsilon)>0:~2M\alpha< \varepsilon/2$$
 
 Для $[a+\alpha, b]$ найдется такое  $\exists T: \overline{S_T}- \underline{S_T}< \varepsilon/2$
 
@@ -2228,37 +2234,37 @@ $$\exists T' = T \cup \{a\}, \overline{S_{T'}}- \underline{S_{T'}}= \overline{S_
     
 \textbf{Доказательство:}
 
-    $f(x)\geq 0 \forall x \in [a,b]\Rightarrow \forall T \And \forall \{\upxi\}\mapsto I\{T,\upxi \}\geq 0, I ~-~$ предел интегральных сумм.
+    $f(x)\geq 0 ~ \forall x \in [a,b]\Rightarrow \forall T \And \forall \{\upxi\}\mapsto I\{T,\upxi \}\geq 0, I ~-~$ предел интегральных сумм.
     
     Теперь надо доказать, что при $\Delta_T \rightarrow 0 \mapsto I\geq 0$
     
     От противного:
     
-    $I<0 \Rightarrow \varepsilon = \frac{|I|}{2} \exists\delta(\varepsilon)>0: \forall T, \Delta_T< \delta \mapsto |I\{T,\upxi\}-I|< \frac{|I|}{2}\Rightarrow I-\frac{|I|}{2}<I\{T,\upxi\}<I+\frac{|I|}{2}<0\Rightarrow I\{T,\upxi\}<0 ~-~ $ противоречие.\\
+    $I<0 \Rightarrow \varepsilon = \frac{|I|}{2} ~\exists\delta(\varepsilon)>0: \forall T, \Delta_T< \delta \mapsto |I\{T,\upxi\}-I|< \frac{|I|}{2}\Rightarrow I-\frac{|I|}{2}<I\{T,\upxi\}<I+\frac{|I|}{2}<0\Rightarrow I\{T,\upxi\}<0 ~-~ $ противоречие.\\
     
 \textbf{Оценка 2:}
     
-    $f$ непрерывна на $[a,b] ~ \& ~ f(x) \geqslant 0 \forall \in [a,b] ~ \& ~ \not \equiv 0 \Rightarrow \int \limits_a^b f(x) dx \geqslant j>0$.\\
+    $f$ непрерывна на $[a,b] ~ \& ~ f(x) \geqslant 0, ~\forall x \in [a,b] ~ \& ~ f(x) \not \equiv 0 \Rightarrow \int \limits_a^b f(x) dx \geqslant \gamma >0$.\\
     
     \textbf{Доказательство:}
     
-    $\exists x_0 \in (a,b): f(x_0) = 2\alpha>0 \Rightarrow$ [по теореме о сохранении знака непрерывной функции] $\Rightarrow \exists [c,d] \subset [a,b], x  \in [c,d]: f(x)\geq \alpha > 0 $ на $[c,d]\Rightarrow f(x)-\alpha \geq 0$ на $[c,d]\stackrel{\text{св-во 5 и оц-ка 1}}{\Rightarrow}\int \limits_c^d (f(x)-\alpha) dx\geq 0 \Rightarrow \int \limits_c^d f(x)dx\geq \int\limits_c^d\alpha dx = \alpha(d-c) = j > 0$\\[2mm]
-    $\int \limits_c^d f(x) dx \geq j > 0 \Rightarrow \int \limits_a^c  f(x) dx  + \int \limits_c^d  f(x) dx+ \int \limits_d^b  f(x) dx \geq 0+j+0>0$
+    $\exists x_0 \in (a,b): f(x_0) = 2\alpha>0 \Rightarrow$ [по теореме о сохранении знака непрерывной функции] $\Rightarrow \exists [c,d] \subset [a,b], x  \in [c,d]: f(x)\geq \alpha > 0 $ на $[c,d]\Rightarrow f(x)-\alpha \geq 0$ на $[c,d]\stackrel{\text{св-во 5 и оц-ка 1}}{\Rightarrow}\int \limits_c^d (f(x)-\alpha) dx\geq 0 \Rightarrow \int \limits_c^d f(x)dx\geq \int\limits_c^d\alpha dx = \alpha(d-c) = \gamma > 0$\\[2mm]
+    $\int \limits_c^d f(x) dx \geq \gamma > 0 \Rightarrow \int \limits_a^c  f(x) dx  + \int \limits_c^d  f(x) dx+ \int \limits_d^b  f(x) dx \geq 0+\gamma+0>0$
     
     \textbf{Оценка 3:}
     
-    $f,g$ интегрируемы на $[a,b] \And \forall x \in [a,b]\mapsto f(x)\geq g(x) \Rightarrow\int \limits_a^b f(x) dx \geq \int \limits_a^b g(x) dx$.\\
+    $f,~g$ интегрируемы на $[a,b] \And \forall x \in [a,b]\mapsto f(x)\geq g(x) \Rightarrow\int \limits_a^b f(x) dx \geq \int \limits_a^b g(x) dx$.\\
     
     \textbf{Доказательство:}
     
-    $f(x)-g(x) \geq 0 \forall x \in [a,b] \stackrel{\text{оц-ка 1}}{\Rightarrow} \int \limits_a^b [f(x)-g(x)]dx\geq 0 \stackrel{\text{св-во 2}}{\Rightarrow}\int \limits_a^b f(x)dx - \int \limits_a^b g(x) \geq 0 $\\[2mm]
+    $f(x)-g(x) \geq 0 ~\forall x \in [a,b] \stackrel{\text{оц-ка 1}}{\Rightarrow} \int \limits_a^b [f(x)-g(x)]dx\geq 0 \stackrel{\text{св-во 3}}{\Rightarrow}\int \limits_a^b f(x)dx - \int \limits_a^b g(x) \geq 0 $\\[2mm]
     
     \textbf{Оценка 4:}
     Если $ y = f (x) $ интегрируема на $ [a,b] $, то $ y = |f(x)| $ интегрируема на $ [a, b]$ и \vspace*{1mm} \hspace*{50mm} $$\bigg|\int\limits_a^b f(x)dx\bigg| \leq \int\limits_a^b |f(x)|dx $$
     
     \textbf{Доказательство:}
     
-    Пусть $ |f| $ --- интегрируема.
+    Пусть $f$ --- интегрируема.
     $$ T = \{ a = x_0 < x_1 < \dots < x_n = b \}$$
     
     $$ M_j = \sup\limits_{[x_{j - 1}, x_j]} f(x) \text{, }m_j =  \inf\limits_{[x_{j - 1}, x_j]} f(x) $$
@@ -2342,7 +2348,7 @@ $$ \int\limits_a^b f(x) \cdot g(x)dx = f(\xi) \cdot \int\limits_a^b g(x)dx$$
      
      \underline{\textbf{Предложение:}}
      
-     Пусть $f$ интегрируема на $[a,b], m = \inf\limits_{[a,b]}f, M = \sup \limits_{[a,b]}f \Rightarrow \exists \mu : m\leq \mu \leq M: \int \limits_a^b f(x)g(x)dx = \mu(b-a),$ если $f$ непрерывна на $[a,b]$, то $\exists \upxi \in [a,b]: \int \limits_a^b f(x)dx = f(\upxi)(b-a)$  $[g\equiv 1]$.
+     Пусть $f$ интегрируема на $[a,b], m = \inf\limits_{[a,b]}f, M = \sup \limits_{[a,b]}f \Rightarrow \exists \mu : m\leq \mu \leq M: \int \limits_a^b f(x)dx = \mu(b-a),$ если $f$ непрерывна на $[a,b]$, то $\exists \upxi \in [a,b]: \int \limits_a^b f(x)dx = f(\upxi)(b-a)$  $[g\equiv 1]$.
 
 
 \subsection{Интегралы с переменным верхним пределом. Вычисление определеннных интегралов.}
@@ -2380,7 +2386,7 @@ $$\frac{d}{dx} \int\limits_a^x f(t)dt = f(x)$$
 
 \textbf{Доказательство:}
 
-$\forall x \in [a,b], x+\Delta x\in [a,b]$, $F (x+ \Delta x ) - F(x) = \Delta F(x+\Delta x)$.
+$\forall x \in [a,b], x+\Delta x\in [a,b]$, $F (x+ \Delta x ) - F(x) = \Delta F(x, \Delta x)$.
 
 $\Delta F(x, \Delta x) = \int\limits_x^{x + \Delta x} f(t)dt = \mu \Delta x : m \leq \mu \leq M $ (Формула среднего значения)
 
@@ -2388,13 +2394,13 @@ $\Delta x \rightarrow 0 \Rightarrow \Delta F(x, \Delta x) \rightarrow 0 \Rightar
 
 \textbf{Замечание:}
 
-Если $f$ непрерывна на $[a,b] \Rightarrow \forall \upphi(x) =\int\limits_a^{x} f(t)dt +C $.
+Если $f$ непрерывна на $[a,b] \Rightarrow \forall \Phi(x) =\int\limits_a^{x} f(t)dt +C $.
 
-$\upphi(a) = C,~ \upphi(b)= \int\limits_a^{b} f(x)dx + C ~~\Rightarrow\int\limits_a^b f(x)dx = \upphi(b)-  \upphi(a) $.\\
+$\Phi(a) = C,~ \Phi(b)= \int\limits_a^{b} f(x)dx + C ~~\Rightarrow\int\limits_a^b f(x)dx = \Phi(b)-  \Phi(a) $.\\
 
 \underline{\textbf{Теорема [Формула Ньютона-Лейбница]:}}
 
-Если $f$ непрерывна на $[a,b]$, то $\int\limits_a^{b} f(x)dx = \upphi(b)-  \upphi(a) $, где $\upphi ~-~$ любая перавообразная функции $f$.\\
+Если $f$ непрерывна на $[a,b]$, то $\int\limits_a^{b} f(x)dx = \Phi(b)-  \Phi(a) $, где $\Phi ~-~$ любая первообразная функции $f$.\\
 
 \textbf{Доказательство:}
 
@@ -2406,18 +2412,18 @@ $\upphi(a) = C,~ \upphi(b)= \int\limits_a^{b} f(x)dx + C ~~\Rightarrow\int\limit
 
 1) интегрируема на $[a,b]$;
 
-2) обладает на $[a,b]$ первообразной $\upphi $;
+2) обладает на $[a,b]$ первообразной $\Phi $;
 
-то справедлива формула $\int\limits_a^{b} f(x)dx = \upphi(b)-  \upphi(a) $.\\
+то справедлива формула $\int\limits_a^{b} f(x)dx = \Phi(b)-  \Phi(a) $.\\
 
 \textbf{Замечание:}
 
-1) $y = sgn x, x \in [-1,1]$ интегрируема на $[-1,1]$, но не обладает первообразной.
+1) $y = sgn x, ~x \in [-1,1]$ интегрируема на $[-1,1]$, но не обладает первообразной.
 
-2) $F(x)= \begin {cases} x^2 \sin \frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, x = 0
+2) $F(x)= \begin {cases} x^2 \sin \frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, ~x = 0
 \end{cases}$ является первообразной для
 
-$f(x) = \begin{cases} 2x \sin\frac{1}{x^2} - \frac{2}{x} \cos\frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, x =0
+$f(x) = \begin{cases} 2x \sin\frac{1}{x^2} - \frac{2}{x} \cos\frac{1}{x^2}, ~|x|\leq 1, ~x \neq 0\\ 0, ~x =0
 \end{cases}$
 
 $F'(0) =  \lim\limits_{x\rightarrow 0}\cfrac{x^2 sin\frac{1}{x^2}}{x} = 0$, но $f$ не является интегрируемой на $[-1,1]$  (не ограничена).\\\\
@@ -2428,7 +2434,7 @@ $F'(0) =  \lim\limits_{x\rightarrow 0}\cfrac{x^2 sin\frac{1}{x^2}}{x} = 0$, но
 
 1) $y = f(x)$ непрерывна на $[a,b]$
 
-2) $x = g(t)$ непрерывно дифференцируема на $[a,b]$
+2) $x = g(t)$ непрерывно дифференцируема на $[\alpha,\beta]$
 
 3) $g(\alpha) = a, g(\beta) = b$ и $\forall t \in [\alpha, \beta] \longmapsto a \leq g(t)\leq b $
 
@@ -2436,18 +2442,18 @@ $F'(0) =  \lim\limits_{x\rightarrow 0}\cfrac{x^2 sin\frac{1}{x^2}}{x} = 0$, но
 
 \textbf{Доказательство:}
 
-$\upphi ~-~$ первообразная функции $f\Rightarrow \int\limits_a^b f(x)dx = \upphi(b)- \upphi(a)$.
+$\Phi ~-~$ первообразная функции $f\Rightarrow \int\limits_a^b f(x)dx = \Phi(b)- \Phi(a)$.
 
-Т.к. $\upphi$ и $g$ дифференцируемы на $[a,b]$ и $[\alpha, \beta]$ соответственно, то
+Т.к. $\Phi$ и $g$ дифференцируемы на $[a,b]$ и $[\alpha, \beta]$ соответственно, то
 
-$\frac{d}{dt}\Big[\upphi(g(t))\Big]= \upphi'(g(t))\cdot g'(t),$ но $\upphi'(x) = f(x) \rightarrow \upphi'(g(t))= f(g(t))\Rightarrow$
+$\frac{d}{dt}\Big[\Phi(g(t))\Big]= \Phi'(g(t))\cdot g'(t),$ но $\Phi'(x) = f(x) \rightarrow \Phi'(g(t))= f(g(t))\Rightarrow$
 
-$\frac{d}{dt}\Big[\upphi(g(t))\Big]=f(g(t))\cdot g'(t)$
+$\frac{d}{dt}\Big[\Phi(g(t))\Big]=f(g(t))\cdot g'(t)$
 
 По условию $f(g(t))\cdot g'(t)$ непрерывна на $[\alpha, 
-\beta]$ и $\upphi(g(t))~-~$ её первообразная.
+\beta]$ и $\Phi(g(t))~-~$ её первообразная.
 
-$$\int\limits_\alpha^\beta f(g(t))g'(t)dt = \upphi(g(\beta))- \upphi(g(\alpha))= \upphi(b) - \upphi(a) = \int\limits_a^b f(x)dx $$\\
+$$\int\limits_\alpha^\beta f(g(t))g'(t)dt = \Phi(g(\beta))- \Phi(g(\alpha))= \Phi(b) - \Phi(a) = \int\limits_a^b f(x)dx $$\\
 
 \underline{\textbf{Теорема [Формула интегрирования по частям]:}}
 
@@ -2607,31 +2613,64 @@ $P_T=2\pi \sum\limits_{i=1}^n \frac{f(x_{i-1})+f(x_i)}{2}l_i=\pi \sum\limits_{i=
 
 \textbf{Без доказательства}.\\
 
-\subsection{Криволинейные интегралы первого рода.}
+\subsection{Криволинейные интегралы.}
 
-\underline{\textbf{Определение:}} Если существует предел $I$ интегральной суммы $\sigma_T$ при $\Delta S_T \rightarrow 0$, то этот предел называют \textit{криволинейным интегралом первого рода} функции $f$ по кривой $\Gamma$.\\
+\fbox{$\mathbb{E}^2$} \hspace{2em} $\Gamma = \{ \vec{r} = \vec{r}(t), \alpha \leqslant t \leqslant \beta \}$ -- спрямляемая кривая, $\vec{r}(t) = \{ x = \varphi(t), y = \psi(t) \}$
 
-\textbf{Обозначение:} $I =\int\limits_{\text{Г}} f(x,y) d S}$
+\hspace{4em} $f, P, Q$ -- непрерывные на $\Gamma$ функции
 
-\underline{\textbf{Определение:}} Если существует предел $I$ интегральной суммы $\sigma_T^x\; [\sigma_T^y]$  при $\Delta S_T \rightarrow 0$, то этот предел называют криволинейным интегралом второго рода функции $P(Q)$ по кривой $\Gamma$.\\
+\hspace{4em} T $= \{\alpha = t_0 < t_1 < \ldots < t_k = \beta\}$ -- разбиение
 
-\underline{\textbf{Обозначение:}} $I = \int\limits_\Gamma P(x,y)dx, \int\limits_\Gamma Q(x,y)dy$.
+\hspace{4em} $M_j (x_j, y_j)$ -- точка, $ \ x_j = \varphi(t_j), \ y_j = \psi(t_j), j = 0, 1, \ldots, k$
 
-Сумму $\int\limits_{\text{Г}} P(x,y)dx + Q(x,y) dy$ называют \textit{криволинейный интеграл второго рода}.\\
+\hspace{4em} $\Delta s_j = \int\limits_{t_{j-1}}^{t_j} \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt, \ \Delta s_T = \max\limits_{1\leqslant j \leqslant k} \Delta s_j$
 
-\textbf{Физический смысл крив. инт. 1-го рода} - это масса кривой $\Gamma$, плотность которой задана функцией $\rho = f(x,y)$.\\
+\hspace{4em} $\tau_j \in [t_{j-1}, t_j], \ N_j (\xi_j, \eta_j)$ -- точка, $ \ \xi_j = \varphi(\tau_j), \ \eta_j = \psi(\tau_j)$
 
-\textbf{Физический смысл крив. инт. 2-го рода} - это это работа по перемещению материальной точки вдоль кривой $\Gamma$ под действием силы, имеющей компоненты $u=P(x,y),\; v=Q(x,y)$.\\
+\hspace{4em} $\Delta x_j = x_j - x_{j-1} = \int\limits_{t_{j-1}}^{t_j} \varphi'(t) dt = \varphi(t_j) - \varphi(t_{j-1})$
 
-\textbf{Замечание:} Значение криволинейного интеграла 1-го рода не зависит от направления обхода кривой $\Gamma$.
+\[ \sigma_T = \sum\limits_{j=1}^{k} f(N_j) \Delta s_j \]
+\[ \sigma_T^x = \sum\limits_{j=1}^{k} P(N_j) \Delta x_j \]
+\[ \sigma_T^y = \sum\limits_{j=1}^{k} Q(N_j) \Delta y_j \]
 
-Для криволинейного интеграла $2$-го рода изменение направления обхода меняет знак. \newpage
+\underline{\textbf{Определение:}} число $I$ является пределом $\sigma_T$ при $\Delta s_T \to 0$, если
+\[ \left[ \forall \varepsilon > 0 \ \exists \delta = \delta(\varepsilon) > 0: \forall T: \Delta s_T < \delta \ \& \ \forall \{ N_j \}_{j=1}^{k} \mapsto \left|\sigma_T - I \right| < \varepsilon \right] \]
 
+\underline{\textbf{Определение:}} число $I_{x, y}$ является пределом $\sigma_T^{x, y}$ при $\Delta s_T \to 0$, если
+\[ \left[ \forall \varepsilon > 0 \ \exists \delta = \delta(\varepsilon) > 0: \forall T: \Delta s_T < \delta \ \& \ \forall \{ N_j \}_{j=1}^{k} \mapsto \left| \sigma_T^{x, y} - I_{x, y} \right| < \varepsilon \right] \]
+
+Число $I$ называется \textit{криволинейным интегралом 1-го рода}:
+\[ \int\limits_{\Gamma} f(x, y)ds = I \]
+
+Числа $I_{x, y}$ называются \textit{криволинейными интегралами 2-го рода}:
+\[ \int\limits_{\Gamma} P(x, y)dx = I_x \hspace{3em} \int\limits_{\Gamma} Q(x, y)dy = I_y \]
+
+\[ \int\limits_{\Gamma} P(x, y)dx + Q(x, y)dy \text{ -- \textit{общий криволинейный интеграл 2-го рода}} \]
+
+\textbf{Замечание:} криволинейные интегралы 2-го рода зависят от направления обхода кривой, и при его изменении у этих интегралов меняется знак.
+
+\subsection{Существование криволинейных интегралов, их вычисление.}
+
+\underline{\textbf{Теорема:}} Пусть $\Gamma = \{ x = \varphi(t), y = \psi(t), \alpha \leqslant t \leqslant \beta \}$ -- гладкая кривая, функции $f, P, Q$ непрерывны на $\Gamma$. Тогда криволинейные интегралы 1-го и 2-го рода от этих функций по кривой $\Gamma$ существуют и вычисляются по формулам
+\[ \int\limits_{\Gamma} f(x, y)ds = \int\limits_{\alpha}^{\beta} f(\varphi(t), \psi(t)) \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt = I \]
+\[ \int\limits_{\Gamma} P(x, y)dx = \int\limits_{\alpha}^{\beta} P(\varphi(t), \psi(t)) \varphi'(t)dt = I_x \]
+\[ \int\limits_{\Gamma} Q(x, y)dy = \int\limits_{\alpha}^{\beta} Q(\varphi(t), \psi(t)) \psi'(t)dt = I_y \]
+
+\textbf{Доказательство:} 
+
+\[ \sigma_T = \sum\limits_{j=1}^{k} f(N_j) \Delta s_j = \sum\limits_{j=1}^{k} f(\varphi(\tau_j), \psi(\tau_j))  \int\limits_{t_{j-1}}^{t_j} \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt \]
+\[ \sigma_T - I = \sum\limits_{j=1}^{k} \int\limits_{t_{j-1}}^{t_j} \left[ f(\varphi(\tau_j), \psi(\tau_j)) - f(\varphi(t), \psi(t)) \right] \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt \]
+\[ \Phi (t) = \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2} > 0 \ \forall t \in [\alpha, \beta] (\text{т.к. гладкая кривая}) \]
+\[ M = \max\limits_{[\alpha, \beta]} \Phi(t), \ m = \min\limits_{[\alpha, \beta]} \Phi(t) > 0 \Rightarrow m \Delta t_j \leqslant \Delta s_j \leqslant M \Delta t_j \]
+\[ \dfrac{\Delta s_j}{M} \leqslant \Delta t_j \leqslant \dfrac{\Delta s_j}{m} \Rightarrow \Delta s_T \to 0 \Leftrightarrow \Delta_T \to 0 \]
+\[F(t) = f(\varphi(t), \psi(t)) \text{ непрерывна на } [\alpha, \beta] \Rightarrow F(t) \text{ РН на } [\alpha, \beta] \ \text{(т. Кантора), т.е.} \]
+\[ \left[ \forall \varepsilon > 0 \ \exists \delta = \delta (\varepsilon) > 0: \forall t', t'' \in [\alpha, \beta]: |t' - t''| < \delta \mapsto |F(t') - F(t'')| < \dfrac{\varepsilon}{L} \right] \text{(L -- длина кривой)} \]
+\[ \forall T: \Delta_T < \delta \Rightarrow \dfrac{\Delta s_T}{M} < \Delta_T < \delta \Rightarrow \left| \sigma_T - I \right|< \dfrac{\varepsilon}{L} \int\limits_{\alpha}^{\beta} \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2} dt = \dfrac{\varepsilon}{L} \cdot L = \varepsilon \]
 \subsection{Несобственный интеграл.}
 
 \underline{\textbf{Определение:}} 
 
-Пусть $y=f(x)$ интегр на $[a, \xi]$ $\forall \xi:\xi>a $. Символ $\int\limits_a^{\infty} f(x) dx   $ наз. несобств. интегралом функции $y=f(x)$ по промежутку $[a; +\infty]$.
+Пусть $y=f(x)$ интегр на $[a, \xi]$ $\forall \xi:\xi>a $. Символ $\int\limits_a^{\infty} f(x) dx   $ наз. несобств. интегралом функции $y=f(x)$ по промежутку $[a; +\infty)$.
 
 Если существует и конечен предел $\lim\limits_{\xi \rightarrow \infty} I(\xi) = A, \; A\in R$, то несобственный интеграл $I=\int\limits_a^{\infty} f(x) dx$ назовается сходящимся и равен числу $A$.
 
@@ -2675,7 +2714,7 @@ $$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \int\limits_c^{
 
 \textbf{Доказательство:} 
 
-Необходимость: $\int\limits_a^{b} f(x) dx \Rightarrow\; I(\xi)$ ограничена на $[a, b)$.
+Необходимость: $\int\limits_a^{b} f(x) dx < \infty \Rightarrow\; I(\xi)$ ограничена на $[a, b)$.
 
 $\int\limits_a^{b} f(x) dx \stackrel{\text{def}}{=} \exists \lim\limits_{\xi \rightarrow b-0}I(\xi) = A \in R \Rightarrow A = \sup\limits_{\xi \in[a,b)} I(\xi) ~ \text{(А -- это точная верхняя грань)} $ $\Rightarrow 0 \leq I(\xi) \leq A \Rightarrow$ функция ограничена.
 
@@ -2821,6 +2860,7 @@ $g_1(x) = g(x) - g(b-0) \xrightarrow[x \to b-0]{}$ 0 $\Rightarrow(по\; Дир�
 $\int\limits_a^b f(x)g_1(x)dx = \int\limits_a^b f(x)g(x)dx+g(b-0)\int\limits_a^b f(x)dx$
 
 $\int\limits_a^b f(x)g_1(x)dx$ и $\int\limits_a^b f(x)dx$ сходятся, значит сходится и $\int\limits_a^b f(x)g(x)dx$
+
 
 %=======================================================================================
 
@@ -3022,7 +3062,7 @@ $$\left[ \forall k \mapsto u_k > 0, \tilde{u}_k > 0 \text{ и } \dfrac{u_{k+1}}{
 		\dots \\
 		\dfrac{u_k}{u_{k-1}} \leqslant \dfrac{\tilde{u}_k}{\tilde{u}_{k-1}} \\
 	\end{cases}
-	\Rightarrow \dfrac{u_k}{u_1} \leqslant \dfrac{\tilde{u}_k}{\tilde{u}_1} \Rightarrow u_k \leqslant c\tilde{u}_k, c = \dfrac{u_1}{\tilde{u}_k} > 0
+	\Rightarrow \dfrac{u_k}{u_1} \leqslant \dfrac{\tilde{u}_k}{\tilde{u}_1} \Rightarrow u_k \leqslant c\tilde{u}_k, ~c = \dfrac{u_1}{\tilde{u}_1} > 0
 \end{equation*}
 
 Утверждение \textbf{Теоремы 4} следует из \textbf{Теоремы 3} и \textbf{Замечания 2}.\\
@@ -3319,7 +3359,7 @@ $\circledast$ $S_n = \sn, \hspace{1em} \tilde{S}_n = \sum\limits_{k=1}^{n} \tild
 $N_0 = \max \{ N_1; N_2 \}$
 
 \[ \forall p \in \N \mapsto \sum\limits_{k = N_0 + 1}^{N_0 + p} |u_k| < \dfrac{\varepsilon}{2}, \hspace{1em} \left| S_{N_0} - S \right| < \dfrac{\varepsilon}{2} \]
-\[\tilde{S}_n: \forall n \geqslant N: S_N \text{ содержит все } N_0 \text{ первых членов исходного ряда} \]
+\[\tilde{S}_n: \forall n \geqslant N: \tilde{S}_N \text{ содержит все } N_0 \text{ первых членов исходного ряда} \]
 \[ |\tilde{S}_n - S| = |(\tilde{S}_n - S_{N_0}) + (S_{N_0} - S)| \leqslant \underbrace{|\tilde{S}_n - S_{N_0}|}_{n - N_0 \text{ членов}} + \dfrac{\varepsilon}{2} \]
 
 Число $p \in \N$ выбираем таким образом, чтобы $N_0 + p$ был больше номеров членов ряда, содержащихся в $\tilde{S}_n - S_{N_0} \Rightarrow |\tilde{S}_n - S_{N_0}| \leqslant \sum\limits_{k=N_0 + 1}^{N_0 + p} |u_k| < \dfrac{\varepsilon}{2}$, тогда
@@ -3343,7 +3383,7 @@ $1 - \dfrac{1}{2} - \dfrac{1}{4} + \dfrac{1}{3} - \dfrac{1}{6} - \dfrac{1}{8} + 
 	\Rightarrow \sum\limits_{k=1}^{\infty} \tilde{u}_k = \dfrac{1}{2} \ln 2
 \end{equation*}
 
-\underline{\textbf{Теорема [Риман]:}}
+\underline{\textbf{Теорема [Римана]:}}
 
 Если числовой ряд сходится условно, то каково бы ни было число $S$, члены ряда можно переставить так, что полученный ряд сходится к $S$.
 
@@ -3367,7 +3407,7 @@ $\useries = \mathscr{U} \in \R, \hspace{2em} \series v_k = \mathscr{V} \in \R$, 
 
 \textbf{Доказательство:}
 
-$\bar{S}_n = \sum\limits_{j=1}^{\infty} w_j$
+$\bar{S}_n = \sum\limits_{j=1}^{n} |w_j|$
 
 Пусть $m$ -- наибольший индекс из индексов $k$ и $l$, входящих в $\bar{S}_n$ $\Rightarrow$ $\bar{S}_n \leqslant (|u_1| + |u_2| + \ldots + |u_m|)(|v_1| + |v_2| + \ldots + |v_m|)$
 
