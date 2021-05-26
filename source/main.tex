@@ -125,7 +125,7 @@
 
 \vfill
 
-Version 4.5\\
+Version 4.6\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -407,7 +407,7 @@ $$ \forall \varepsilon > 0 ~ \exists N = N(\varepsilon) : ~ \forall n \geqslant 
 
 \[ \forall \varepsilon > 0 ~ \exists ~ x_{\varepsilon} \neq x_0 : ~ x_{\varepsilon} \in X ~ \& ~ x_{\varepsilon} \in B_{\varepsilon}(x_0) \]
 
-Тогда любой шарик $B_{\varepsilon}(x_0)$ с радиусом $r = \varepsilon$ и центром в точке $x_0$ не содержится в $CX ~ \Rightarrow$ $x_0$ не является внутренней точкой множества $CX$, но при этом $x_0 \in CX$, поскольку $x_0 \notin X$; однако, поусловию $CX$ -- открытое множество, а значит должно содержать все свои внутренние точки. Таким образом, приходим к противоречию.\\
+Тогда любой шарик $B_{\varepsilon}(x_0)$ с радиусом $r = \varepsilon$ и центром в точке $x_0$ не содержится в $CX ~ \Rightarrow$ $x_0$ не является внутренней точкой множества $CX$, но при этом $x_0 \in CX$, поскольку $x_0 \notin X$; однако, по условию $CX$ -- открытое множество, а значит должно содержать все свои внутренние точки. Таким образом, приходим к противоречию.\\
 
 \underline{\textbf{Теорема:}} замкнутые множества обладают следующими свойствами:
 
@@ -536,7 +536,7 @@ $$ \forall \varepsilon > 0 ~ \exists N = N(\varepsilon) : ~ \forall n \geqslant 
 
 \textit{Достаточность} ($\Leftarrow$)\\
 
-Пусть $X \subset \mathbb{E}^m$ -- ограниченное, замкнутое множество. Возьмём последовательность точек $\{x^n \} \subset X$, по теореме Больцано-Вейерштраса, в силу ограниченности этой последовательности, из нее можно выделить сходящуюся подпоследовательность $\{x^{k_n} \} \xrightarrow[n \to \infty]{} a$, в силу замкнутости множества $a \in X$, но тогда получается, что $X$ -- компакт.
+Пусть $X \subset \mathbb{E}^m$ -- ограниченное, замкнутое множество. Возьмём последовательность точек $\{x^n \} \subset X$, по теореме Больцано-Вейерштрасса, в силу ограниченности этой последовательности, из нее можно выделить сходящуюся подпоследовательность $\{x^{k_n} \} \xrightarrow[n \to \infty]{} a$, в силу замкнутости множества $a \in X$, но тогда получается, что $X$ -- компакт.
 
 %=======================================================================================
 
@@ -846,7 +846,7 @@ $F(\alpha) = A, ~ F(\beta) = B \Rightarrow \exists \gamma \in (\alpha, \beta): ~
 
 Однако, $f$ не является непрерывной в точке (0, 0), т.к. в этой точке у нее не существует $\lim\limits_{(x, y) \to (0, 0)} f(x, y)$.\\
 	
-3. Определение частной производной функции $w = f(x)$ дано для внутренней точки множества определения функции. Оно не пригодно для граничной предельной точки множетсва, поскольку в граничной точке не всегда можно определить частное приращение. Поэтому частная производная в граничной предельной точке множества определения функции находиться как предел частной производной по множеству.
+3. Определение частной производной функции $w = f(x)$ дано для внутренней точки множества определения функции. Оно не пригодно для граничной предельной точки множетсва, поскольку в граничной точке не всегда можно определить частное приращение. Поэтому частная производная в граничной предельной точке множества определения функции находится как предел частной производной по множеству.
 	
 Точка $a \in X$ -- предельная граничная точка. 
 \begin{figure}[h!]
@@ -909,7 +909,7 @@ $\alpha_j = 0, \; j = 1, \ldots, m$, только при $\Delta x = \bar0$.
  
  \underline{\textbf{Теорема 2.}} Пусть $w = f(x)$ определена в $\mathscr{U}(a) \subset \mathds{E}^m$
  и в этой окрестности существуют $\frac{\partial f}{\partial x_j}, \; j = 1, \ldots, m$. 
- Если  $\frac{\partial f}{\partial x_j}, \; j = 1, \ldots, m$ непрерывны в точке а, то функция f дифференцируема в точке а.\\
+ Если  $\frac{\partial f}{\partial x_j}, \; j = 1, \ldots, m$ непрерывны в точке $a$, то функция $f$ дифференцируема в точке $a$.\\
  
  \textbf{Докательство.} Проведем доказательство для $m = 2, \; w = f(x, y), \; a = (a_1, a_2)$.
  
@@ -1002,15 +1002,15 @@ $\alpha_j = 0, \; j = 1, \ldots, m$, только при $\Delta x = \bar0$.
  $\lim\limits_{(x, y) \to (0, 0)} \frac{\partial f}{\partial x}(x, y)$ не существует $\Rightarrow f'_x$ не является непрерывной в (0, 0).\\
  Пример показывает, что непрерывность частных производных в точке не является необходимым условием дифференцируемости функции.\\
  
- \textbf{Замечание.} Непрерывность частных производных функции f в точке не является необходимым условием дифференцируемости функции в точке. Это условие достаточно (Теорема 2).\\
+ \textbf{Замечание.} Непрерывность частных производных функции $f$ в точке не является необходимым условием дифференцируемости функции в точке. Это условие достаточно (Теорема 2).\\
 	 
  \subsection{Дифференцируемость сложной функции}
  
- Рассматриваем функции $x_j = \varphi_j(t)$ в окрестности точки $t^0 = (t_1^0, \ldots, t_k^0)\in \mathds{E}^k, \; j = 1, \ldots, m$. Рассматриваем функцию $w = f(x),$ которая определена в окрестности точки $a = (a_1, \ldots, a_m)$, причем $a_j = \varphi_j(t^0), \; j = 1, \ldots, m$. $F(t) = f(\varphi_1(t), \ldots, \varphi_m(t))$ -- суперпозиция функций f и функций $\varphi_1(t) \ldots$ (сложная функция)\\
+ Рассматриваем функции $x_j = \varphi_j(t)$ в окрестности точки $t^0 = (t_1^0, \ldots, t_k^0)\in \mathds{E}^k, \; j = 1, \ldots, m$. Рассматриваем функцию $w = f(x),$ которая определена в окрестности точки $a = (a_1, \ldots, a_m)$, причем $a_j = \varphi_j(t^0), \; j = 1, \ldots, m$. $F(t) = f(\varphi_1(t), \ldots, \varphi_m(t))$ -- суперпозиция функций $f$ и функций $\varphi_1(t) \ldots$ (сложная функция)\\
  
  \underline{\textbf{Теорема 3 [О дифференцируемости сложной функции]:}}
  
- Пусть функции $\varphi_j, \; j = 1, \ldots, m$ дифференцируемы в точке $t^0$, функция f дифференцируема в точке а, причем $a_j = \varphi_j(t^0), \; j = 1, \ldots,m$. Тогда $F(t) = f(\varphi_1(t), \ldots, \varphi_m(t))$ дифференцируема в точке $t^0$ и 
+ Пусть функции $\varphi_j, \; j = 1, \ldots, m$ дифференцируемы в точке $t^0$, функция $f$ дифференцируема в точке $а$, причем $a_j = \varphi_j(t^0), \; j = 1, \ldots,m$. Тогда $F(t) = f(\varphi_1(t), \ldots, \varphi_m(t))$ дифференцируема в точке $t^0$ и 
  \[\frac{\partial F}{\partial t_j}(t^0) = \frac{\partial f}{\partial x_1}(a) \frac{\partial \varphi_1}{\partial t_j}(t^0	) + \frac{\partial f}{\partial x_2}(a) \frac{\partial \varphi_2}{\partial t_j}(t^0	) + \ldots + \frac{\partial f}{\partial x_m}(a) \frac{\partial \varphi_m}{\partial t_j}(t^0), j = 1, \ldots, k\].
 	 
  \textbf{Доказательство.} $t^0 + \Delta t \in \mathscr{U}(t^0), a + \Delta x \in \mathscr{U}(a), \rho = \sqrt{(\Delta t_1)^2 + \ldots + (\Delta t_k)^2}$.\\
@@ -1282,7 +1282,7 @@ $\varphi$ дифференцируема на интервале $(a_1-r_1, a_1+
 Учитывая непрерывность в точке $a$ при $\Delta x\to0, \Delta y\to0$, получаем $f^{''}_{xy}(a) = f^{''}_{yx}(a)$.\\
 
 
-\underline{\textbf{Определение:}} Функция $\omega = f(x, y)$ называется n раз дифференцируемой в точке $x = a\in \mathbb{E}^m$, если все ее частные производные порядка $n-1$ есть дифференцируемые функции
+\underline{\textbf{Определение:}} Функция $\omega = f(x, y)$ называется $n$ раз дифференцируемой в точке $x = a\in \mathbb{E}^m$, если все ее частные производные порядка $n-1$ есть дифференцируемые функции
 \vspace{5mm}
 
 \underline{\textbf{Теорема:}} (без доказательства) Пусть $\omega = f(x, y)$ дважды дифференцируема в точке $a$, тогда
@@ -1306,7 +1306,7 @@ $\varphi$ дифференцируема на интервале $(a_1-r_1, a_1+
 	d = \left(dx_1\frac{\partial}{\partial x_1}+\cdots+dx_m\frac{\partial}{\partial x_m}\right)
 \]
 
-То дифференциал n-ого порядка можно записать в виде
+То дифференциал $n$-ого порядка можно записать в виде
 \[
 	d^n = \left(dx_1\frac{\partial}{\partial x_1}+\cdots+dx_m\frac{\partial}{\partial x_m}\right)^n
 \]
@@ -1329,7 +1329,7 @@ $\varphi$ дифференцируема на интервале $(a_1-r_1, a_1+
 
 \subsection{Формула Тейлора для функций нескольких переменных.}
 
-\underline{\textbf{Теорема [Разложение с остаточным членом в форме Лагранжа]:}} Пусть функция $\omega = f(x)$ обладает непрерывными частными производными порядка n+1 в шаре $B_\delta(a)$, $\Delta x$ таково, что $a+\Delta x\in B_\delta(a)$. Тогда найдется $0<\theta<1$ такое, что 
+\underline{\textbf{Теорема [Разложение с остаточным членом в форме Лагранжа]:}} Пусть функция $\omega = f(x)$ обладает непрерывными частными производными порядка $n+1$ в шаре $B_\delta(a)$, $\Delta x$ таково, что $a+\Delta x\in B_\delta(a)$. Тогда найдется $0<\theta<1$ такое, что 
 \[
 	f(a+\Delta x) = f(a) + \sum\limits_{k=1}^n\frac{d^k f(a)}{k!}+r_{n+1}(\theta)
 \]
@@ -1632,9 +1632,9 @@ $G_1 \cap G = \varnothing \stackrel{\text{пр.1}}{\Longrightarrow} m(G_2) = m(G
 
 Так как $G_{\varepsilon} \subset X \subset G^{\varepsilon}$, то $m(G_{\varepsilon}) \leqslant m(G^{\varepsilon}) \Rightarrow$ $\{m(G_{\varepsilon})\}$ ограничена сверху $\Rightarrow$
 
-$\Rightarrow$ $\exists \beta = \sup\limits_{G_{\varepsilon}} m(G_{\varepsilon}) = \underline{m}(X)$.
+$\Rightarrow$ $\exists \alpha = \sup\limits_{G_{\varepsilon}} m(G_{\varepsilon}) = \underline{m}(X)$.
 
-Аналогично: $\{m(G^{\varepsilon})\}$ ограничена снизу $\Rightarrow$ $\exists \alpha = \inf\limits_{G^{\varepsilon}} m(G^{\varepsilon}) = \overline{m}(X)$.
+Аналогично: $\{m(G^{\varepsilon})\}$ ограничена снизу $\Rightarrow$ $\exists \beta = \inf\limits_{G^{\varepsilon}} m(G^{\varepsilon}) = \overline{m}(X)$.
 
 \vspace{3mm}
 
@@ -1911,12 +1911,12 @@ I\{T,\xi\} = C(b-a) \Rightarrow I = \int\limits_{a}^{b} {Cdx} = C(b-a)$\\
 
 \underline{\textbf{Предложение:}}[Необходимое условие интегрируемости функции]:
 
-\[ [f \text{--интегрируема на }[a,b]~] \, \Rightarrow[ f \text{--ограничена на }[a,b] ] \]
+\[ [f \text{ -- интегрируема на }[a,b]~] \, \Rightarrow[ f \text{ -- ограничена на }[a,b] ] \]
 
 \textbf{Доказательство}: от противного:
 \\
 Пусть $f$ не является ограниченной на $[a,b]$ это означает, что $\exists k:$ на $[x_{k-1},x_k]$
-функция не является ограниченной, то есть, $|f(\xi_k)|\Delta x_k$ может быть как угодно большим за счет выборки точки $\xi_k~\Rightarrow I\{T,\xi\}$ неограчена и предел $I\{T,\xi\}~\Delta_T\rightarrow 0$ не существует--противоречие.\\
+функция не является ограниченной, то есть, $|f(\xi_k)|\Delta x_k$ может быть как угодно большим за счет выборки точки $\xi_k~\Rightarrow I\{T,\xi\}$ неограчена и предел $I\{T,\xi\}~\Delta_T\rightarrow 0$ не существует -- противоречие.\\
 
 \textbf{Замечание}: Не всякая ограниченная функция является интегрируемой на отрезке.\\
 
@@ -1995,7 +1995,7 @@ $\underline{I}$--нижний интеграл Дарбу.\\
 
 \textbf{Доказательство}: 2)\\
 $M=\sup\limits_{[a,b]}{f(x)},~m=\inf\limits_{[a,b]}{f(x)}$\\
-a)$M=m$--тривиальный случай;\\
+a)$M=m$ -- тривиальный случай;\\
 b)$M>m;~\overline{I}=\inf\limits_{T}{\overline{S}_T}$ из определения $inf$\\
 $\forall \varepsilon>0~\exists T^{*}:~\overline{S}_{T^{*}}<\overline{I}+\frac{\varepsilon}{2}~\Rightarrow~\overline{S}_{T^{*}}-\overline{I}<\frac{\varepsilon}{2}$\\
 $T$--произвольное разбиение: $\Delta_T=\max\limits_{j}{\Delta x_j}<\frac{\varepsilon}{2(M-m)k}$\\
@@ -2067,13 +2067,13 @@ $\forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon$\\
 \underline{\textbf{Теорема 4:}} Если функция $y=f(x)$ ограничена на $[a,b]$ и $\forall\varepsilon>0$ существует конечное число интервалов, покрывающих точки разрыва функции $f$, сумма длин которых не превосходит $\varepsilon\Rightarrow~f$ интегрируема на $[a,b]$\\
 
 \textbf{Доказательство}: Пусть $M=\sup\limits_{[a,b]}{f(x)},~m=\inf\limits_{[a,b]}{f(x)}$\\
-$\forall \varepsilon>0~\exists X_1=\cup^{n}_{j=1}{\delta^{1}_j}$ -- интервал, покрывающий точки разрыва и $|\delta^{1}_j|$ -- его длина $\Rightarrow~\sum\limits^{n}_{j=1}{|\delta^{1}_j|}<\frac{\varepsilon}{2(M-m)}$\\
+$\forall \varepsilon>0~\exists X_1=\bigcup\limits^{n}_{j=1}{\delta^{1}_j}$ -- интервал, покрывающий точки разрыва и $|\delta^{1}_j|$ -- его длина $\Rightarrow~\sum\limits^{n}_{j=1}{|\delta^{1}_j|}<\frac{\varepsilon}{2(M-m)}$\\
 $X_2=(a,b)\setminus\overline{X_1}$ \\
 $(a,b)$ -- открытое, $\overline{X_1}$ -- замкнутое $\Rightarrow~X_2$ -- открытое, то есть, мы отбросили интервалы с точками разрыва.\\
-$X_2=\cup^{k}_{j=1}{\delta^{2}_j}$ на каждом $\delta^{2}_j$ -- $f$ непрерывна $\Rightarrow~f$ равномерно непрерывна на $\overline{X_2}$ (Замыкание, то есть $\overline{X_2}$ компакт -- ограниченное и замкнутое)\\
+$X_2=\bigcup \limits^{k}_{j=1}{\delta^{2}_j}$ на каждом $\delta^{2}_j$ -- $f$ непрерывна $\Rightarrow~f$ равномерно непрерывна на $\overline{X_2}$ (Замыкание, то есть $\overline{X_2}$ компакт -- ограниченное и замкнутое)\\
 
-Тогда из опр. р.н. $\exists\delta=\delta(\varepsilon)>0: \forall x^{\prime},~x^{\prime\prime} \in \overline{X_2}~ \longmapsto\\|f(x^{\prime})-f(x^{\prime\prime})|<\frac{\varepsilon}{2(b-a)}$, $T=\{\delta^{1}_j,~\delta^{2}_i\}^{n~~~~k}_{j=1,~i=1}$\\
-$\overline{S}_T-\underline{S}_T=\sum\limits^{n}_{j=1}{(M_j-m_j)|\delta^{1}_j|}+\sum\limits^{k}_{i=1}{(M_i-m_i)|\delta^{2}_i|}\leq(M-m)\sum\limits^{n}_{j=1}{|\delta^{1}_j|}+
+Тогда из опр. р.н. $\exists\delta=\delta(\varepsilon)>0: \forall x^{\prime},~x^{\prime\prime} \in \overline{X_2}~ \longmapsto\\|f(x^{\prime})-f(x^{\prime\prime})|<\frac{\varepsilon}{2(b-a)}$, $T=\{\delta^{1}_j,~\delta^{2}_i\}^{n~~~~k}_{j=1,~i=1}$, то есть концы интервалов образует разбиение отрезка $[a, b]$.\\
+$\overline{S}_T-\underline{S}_T=\sum\limits^{n}_{j=1}{(M_j-m_j)|\delta^{1}_j|}+\sum\limits^{k}_{i=1}{(M_i-m_i)|\delta^{2}_i|}\leq(M-m)\sum\limits^{n}_{j=1}{|\delta^{1}_j|} 
 +\frac{\varepsilon}{2(b-a)}\sum\limits^{k}_{i=1}{|\delta^{2}_i|}<\frac{\varepsilon}{2}+\frac{\varepsilon(b-a)}{2(b-a)}=\varepsilon\Rightarrow \forall\varepsilon>0~\exists T:~\overline{S}_T-\underline{S}_T<\varepsilon\Rightarrow~f$ интегрируема на $[a,b]$.\\
 
 \textbf{Следствие}: Если функция $y=f(x)$ ограничена на $[a,b]$ и имеет на нем конечное число точек разрыва, то $f$ интегрируема на $[a,b]$\\
@@ -2147,7 +2147,7 @@ $$\int \limits_a^b f(x)dx = -\int \limits_b^a f(x)dx$$
 Если $ f $, $ g $ интегрируемы на $ [a, b] $, то $\forall{\alpha, \beta} \in \mathbb{R} $ функция $ h = \alpha f + \beta g $ интегрируема на $ [a, b] $.\\
 
 \textbf{Доказательство:} \\[5 mm]
-$ I_n \{ \tau, \xi \} = \sum\limits_{j = 1}^n   [\alpha f(\xi_j) + \beta g(\xi_j)] \Delta x_j  =  \alpha \cdot \sum\limits_{j = 1}^n f(\xi_j)\Delta x_j + \beta \cdot \sum\limits_{j = 1}^n g(\xi_j)\Delta x_j = $ \\ [2 mm] $ \alpha I_f \{\tau, \xi \} + \beta I_g \{\tau, \xi \} $.\\
+$ I_h \{ \tau, \xi \} = \sum\limits_{j = 1}^n   [\alpha f(\xi_j) + \beta g(\xi_j)] \Delta x_j  =  \alpha \cdot \sum\limits_{j = 1}^n f(\xi_j)\Delta x_j + \beta \cdot \sum\limits_{j = 1}^n g(\xi_j)\Delta x_j = $ \\ [2 mm] $ \alpha I_f \{\tau, \xi \} + \beta I_g \{\tau, \xi \} $.\\
 
 \textbf{Свойство 4:}
 
@@ -2336,7 +2336,7 @@ $$ \int\limits_a^b f(x) \cdot g(x)dx = f(\xi) \cdot \int\limits_a^b g(x)dx$$
      
      \item 2) $\int\limits_a^b g(x)dx > 0 $ \\
      $\Rightarrow$ Оценка интегрирования неравенства \\ [2mm]
-     $\displaystyle m \leq \frac{\int\limits_a^b f(x)dx}{\int\limits_a^b g(x)dx} \leq M$ и $\displaystyle \mu = \frac{\int\limits_a^b f(x)dx}{\int\limits_a^b g(x)dx} $ \\
+     $\displaystyle m \leq \frac{\int\limits_a^b f(x)g(x)dx}{\int\limits_a^b g(x)dx} \leq M$ и $\displaystyle \mu = \frac{\int\limits_a^b f(x)g(x)dx}{\int\limits_a^b g(x)dx} $ \\
      Если $ f $ непрерывна на $ [a,b] $ $\Rightarrow$ $\exists \hspace{1 mm} \xi: \mu = f(\xi) $
 \end{enumerate}
      
@@ -2414,13 +2414,13 @@ $\upphi(a) = C,~ \upphi(b)= \int\limits_a^{b} f(x)dx + C ~~\Rightarrow\int\limit
 
 1) $y = sgn x, x \in [-1,1]$ интегрируема на $[-1,1]$, но не обладает первообразной.
 
-2) $F(x)= \begin {cases} 2x \sin \frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, x = 0
+2) $F(x)= \begin {cases} x^2 \sin \frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, x = 0
 \end{cases}$ является первообразной для
 
 $f(x) = \begin{cases} 2x \sin\frac{1}{x^2} - \frac{2}{x} \cos\frac{1}{x^2}, |x|\leq 1, x \neq 0\\ 0, x =0
 \end{cases}$
 
-$F'(0) =  \lim\limits_{x\rightarrow 0}\frac{x^2 sin\frac{1}{x^2}}{x} = 0$ $f$ не является интегрируемой на $[-1,1]$  (не ограничена).\\\\
+$F'(0) =  \lim\limits_{x\rightarrow 0}\cfrac{x^2 sin\frac{1}{x^2}}{x} = 0$, но $f$ не является интегрируемой на $[-1,1]$  (не ограничена).\\\\
 
 \underline{\textbf{Теорема [Замена переменных в определенном интегрировании]:}}
 
@@ -3957,7 +3957,7 @@ $ По признаку Коши $\sum\limits_{k = 0}^\infty c_k z_1^k = \infty$
 $\sum\limits_{k = 1}^\infty z^{k^2} = z + z^4 + z^9 + z^{16} + z^{25} + .... + z^{k^2} + ...
 $
 
-$ \{c_k\} = \{ c_1 = 1, c_2 = c_3 = 0, c_4 = 1, c_5 = c_6 = c_7 = c_8 = 0, c_9 = 1, ... \} $
+$ \{c_k\} = \{ c_1 = 1, c_2 = c_3 = 0, c_4 = 1, c_5 = c_6 = c_7 = c_8 = 0, c_9 = 1, ... \} $\\
 
 $\overline{\lim\limits_{k \to \infty}} \sqrt[k]{|c_k|} = \lim\limits_{k \to \infty} \sqrt[k^2]{|c_{k^2}|} = 1 \Rightarrow R = 1$.\\ 
 
@@ -4053,9 +4053,9 @@ $\Rightarrow$ Не выполняется необходимых условий 
     Надо доказать, что $R_2 \leqslant R_3$
 
     $z \in K_2 \ \  \exists \, \rho < R_2: z \in K_{\rho} \quad |k c_k z^{k - 1}| = |k c_k z^{k - 1} \cdot \frac{k + 1}{k + 1} \cdot \frac{z^2}{z^2}|$ = 
-    $= |\frac{c_k}{k + 1} \cdot z^{k + 1} \cdot \frac{k(k+1)}{z^2}| = | \frac{c_k}{k + 1} \cdot \rho^{k + 1} \cdot \frac{k(k + 1)}{z^2} \cdot \left( \frac{z}{\rho} \right)^{k + 1}| \stackrel{\exists M > 0}{\leqslant} $
+    $|\frac{c_k}{k + 1} \cdot z^{k + 1} \cdot \frac{k(k+1)}{z^2}| = | \frac{c_k}{k + 1} \cdot \rho^{k + 1} \cdot \frac{k(k + 1)}{z^2} \cdot \left( \frac{z}{\rho} \right)^{k + 1}| \stackrel{\exists M > 0}{\leqslant} $
     
-    $\leqslant \frac{M}{|z|^2} k(k+1) \rho_1^{k + 1}, \text{ где } |q_1| < 1 \quad q_1 = \frac{z}{\rho}$
+    $\leqslant \frac{M}{|z|^2} k(k+1) q_1^{k + 1}, \text{ где } |q_1| < 1 \quad q_1 = \frac{z}{\rho}$
     
     \hspace*{3 cm} $\Downarrow$
     $\forall \in K_2 \Rightarrow \sum\limits_{k = 0}^\infty k c_k z^{k - 1} < \infty \Rightarrow R_3 \geqslant R_2$
@@ -4080,7 +4080,7 @@ $\Rightarrow$ Не выполняется необходимых условий 
       $\forall \rho: 0 < \rho < R  \text{ на } [a - \rho; a + \rho ]$ равномерная сходимость $\Rightarrow$ всё можно делать.\\
 
       \textbf{Следствие:}
-      $a_k = \frac{f^{(k)}(a)}{k!}
+      $a_k = \cfrac{f^{(k)}(a)}{k!}
 	  $
 
 %=======================================================================================
@@ -4110,7 +4110,7 @@ $\Rightarrow$ Не выполняется необходимых условий 
 
 \end{enumerate} 
 
-\textbf{Следствие}. $a_n = \frac{f^{(k)}(a)}{k!}$
+\textbf{Следствие}. $a_n = \cfrac{f^{(k)}(a)}{k!}$
 
 
 \subsection{Бесконечная дифференцируемость суммы степенного ряда на интервале сходимости.}
@@ -4124,7 +4124,7 @@ f^{\prime}(x)=\sum\limits_{n=1}^{\infty} n c_{n}\left(x-x_{0}\right)^{n-1},
 
 причём ряды $\sum\limits_{n=1}^{\infty} n c_{n}\left(x-x_{0}\right)^{n-1}$ и $\sum\limits_{n=0}^{\infty} c_{n}\left(x-x_{0}\right)^{n}$ имеют одинаковый радиус сxoдимости.
 
-\textbf{Доказательство}. Члены ряда $c_{n}\left(x-x_{0}\right)^{n}$ являются непрерывно дифференцируемыми на всей числовой прямой функциями. Пусть $R=\frac{1}{\varlimsup_{n \rightarrow \infty} \sqrt[n]{\left|c_{n}\right|}}$ радиус сходимости ряда $\sum\limits_{n=0}^{\infty} c_{n}\left(x-x_{0}\right)^{n}$ и точка $x$ принадлежит интервалу сходимости $\left(x_{0}-R, x_{0}+R\right) .$ Тогда существует отрезок $[a, b] \subset\left(x_{0}-R, x_{0}+R\right)$, включающий точку $x .$
+\textbf{Доказательство}. Члены ряда $c_{n}\left(x-x_{0}\right)^{n}$ являются непрерывно дифференцируемыми на всей числовой прямой функциями. Пусть $R=\cfrac{1}{\varlimsup\limits_{n \rightarrow \infty} \sqrt[n]{\left|c_{n}\right|}}$ радиус сходимости ряда $\sum\limits_{n=0}^{\infty} c_{n}\left(x-x_{0}\right)^{n}$ и точка $x$ принадлежит интервалу сходимости $\left(x_{0}-R, x_{0}+R\right) .$ Тогда существует отрезок $[a, b] \subset\left(x_{0}-R, x_{0}+R\right)$, включающий точку $x .$
 
 Рассмотрим ряд $\sum\limits_{n=1}^{\infty} n c_{n}\left(x-x_{0}\right)^{n-1}$, полученный почленным дифференцированием ряда $\sum\limits_{n=0}^{\infty} c_{n}\left(x-x_{0}\right)^{n} .$ Вычислим его радиус сходимости $R^{\prime}$
 
@@ -4322,7 +4322,7 @@ f^{\text{'''}}(x) = \left[ \left( \frac{2}{x^3}\right)^3 - \frac{12}{x^7} - \fra
   		du = f^{n + 1}(t)dt\ ,\ v = -\frac{(x-t)^n}{n}
  		\end{cases}
 		\end{equation*}
-		получаем, что $\Large \displaystyle f(x) = f(a)\ +\ \sum\limits_{k = 1}^{n - 1} \frac{f^{(k)}(a)}{k!}(x-a)^k\ -\ \frac{(x-t)^n f^{(n)}(t)}{n!} \bigg|_a^x + +\ \frac{1}{n!} \int\limits_a^x (x-t)^n f^{(n+1)}(t)dt$. Тогда получаем, что:
+		получаем, что $\Large \displaystyle f(x) = f(a)\ +\ \sum\limits_{k = 1}^{n - 1} \frac{f^{(k)}(a)}{k!}(x-a)^k\ -\ \frac{(x-t)^n f^{(n)}(t)}{n!} \bigg|_a^x +\ \frac{1}{n!} \int\limits_a^x (x-t)^n f^{(n+1)}(t)dt$. Тогда получаем, что:
 	\begin{equation*}
 		\Large \displaystyle f(x) = f(a)\ +\ \sum\limits_{k = 1}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k + \frac{1}{n!} \int\limits_a^x (x-t)^n f^{(n+1)}(t)dt \ \square
 	\end{equation*}
