@@ -131,7 +131,7 @@
 
 \vfill
 
-Version 4.8\\
+Version 4.9\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -320,7 +320,7 @@ $\{x_1^n \}$ ограничена, тогда по теореме Больцан
 
 Докажем, что евклидово пространство $\mathbb{E}^m$ является полным, то есть любая фундаментальная последовательность этого пространства является сходящейся.\\
 
-Рассмотрим последовательность $\{x^n \} \subset \mathscr{M}$, которая является фундаментальной. Распишем по определению:
+Рассмотрим последовательность $\{x^n \} \subset \mathbb{E}^m$, которая является фундаментальной. Распишем по определению:
 
 $$ \forall \varepsilon > 0 ~ \exists N = N(\varepsilon) : ~ \forall n \geqslant N \And \forall k \geqslant N \longmapsto \rho(x^n, x^k) < \varepsilon $$
 
@@ -332,7 +332,7 @@ $$ \forall \varepsilon > 0 ~ \exists N = N(\varepsilon) : ~ \forall n \geqslant 
 
 \[ \forall \varepsilon > 0 ~ \exists ~ N = N(\varepsilon) : ~ |x_j - a_j| < \varepsilon \]
 
-Последовательность $\{x^n \} \subset \mathscr{M}$ имеет покоординатную сходимость, а этого, как известно, достаточно для сходимости последовательности $\{x^n \}$.\\
+Последовательность $\{x^n \} \subset \mathbb{E}^m$  имеет покоординатную сходимость, а этого, как известно, достаточно для сходимости последовательности $\{x^n \}$.\\
 
 \textbf{Замечание:} Таким образом, мы доказали, что \textbf{в евклидовом пространстве} справедлив критерий Коши.\\
 
@@ -2837,12 +2837,12 @@ $$\forall \xi', \xi'' \in [a,b)$$
 
 $u = g(x), du=g'(x)dx$, $dv=f(x)dx, v=F(x)$.
 
-$$\int\limits_{\xi'}^{\xi''} g(x) dx = g(x)\cdot F(x)\bigg|_{\xi'}^{\xi''} - \int\limits_{\xi'}^{\xi''} g'(x)F(x)dx$$ 
+$$\int\limits_{\xi'}^{\xi''} f(x)g(x) dx = g(x)\cdot F(x)\bigg|_{\xi'}^{\xi''} - \int\limits_{\xi'}^{\xi''} g'(x)F(x)dx$$ 
 
 $$\left|\int\limits_{\xi'}^{\xi''} f(x)g(x)dx\right|\leq M(|g(\xi')|+|g(\xi'')|) + \left| \int\limits_{\xi'}^{\xi''} g'(x)F(x) dx \right| \leq M(|g(\xi')|+|g(\xi'')|) +  \int\limits_{\xi'}^{\xi''} |g'(x)F(x)| dx \leq $$ \\ 
 $$\leq M(|g(\xi')|+|g(\xi'')|) +  M \int\limits_{\xi'}^{\xi''} |g'(x)| dx \leq M(|g(\xi')|+|g(\xi'')|) ~\pm~ M \int\limits_{\xi'}^{\xi''} g'(x) dx \leq 2M(|g(\xi')|+|g(\xi'')|)$$
 
-$$\bigl[ \lim\limits_{x\rightarrow b-0}g(x) = 0 \bigr] \stackrel{\text{def}}{=} \bigl[ \forall \varepsilon > 0 \; \exists \delta(\varepsilon) \in (a, b) ~\forall x\in (\delta, b) \longmapsto |g(x)| \leq \frac{\varepsilon}{4M}  \Rightarrow $$
+$$\bigl[ \lim\limits_{x\rightarrow b-0}g(x) = 0 \bigr] \stackrel{\text{def}}{=} \bigl[ \forall \varepsilon > 0 \; \exists \delta(\varepsilon) \in (a, b) ~\forall x\in (\delta, b) \longmapsto |g(x)| < \frac{\varepsilon}{4M}  \Rightarrow $$
 
 $$  \Rightarrow \forall \; \xi', \xi'' \in (\delta, b) \longmapsto \left|\int\limits_{\xi'}^{\xi''} f(x)g(x)dx\right|<2M(\frac{\varepsilon}{4M}+\frac{\varepsilon}{4M}) = \varepsilon \Rightarrow $$
 
@@ -2929,7 +2929,7 @@ $\useriese$ -- ряд расходится\\
 \subsection{Критерий Коши сходимости ряда.}
 
 \underline{\textbf{Теорема:}}
-\[ \left[\useriesl \right] \Leftrightarrow \left[\forall \varepsilon > 0 \ \exists N = N(\varepsilon): \forall n \geqslant N \ \& \ \forall p \in \N \mapsto \left|\sum\limits_{k=n+1}^{n+p} u_k \right| < \varepsilon \right] \]
+\[ \left[\useriesl \right] \Leftrightarrow \left[\text{Выполнено условие Коши: } \forall \varepsilon > 0  \exists N = N(\varepsilon): \forall n \geqslant N \ \& \ \forall p \in \N \mapsto \left|\sum\limits_{k=n+1}^{n+p} u_k \right| < \varepsilon \right] \]
 
 \textbf{Доказательство:}
 
@@ -2944,7 +2944,7 @@ $r_n = \sum\limits_{k=n+1}^{\infty} u_k$ -- $n$-й \textit{остаток чис
 \[ \left[ \useriesl \right] \Leftrightarrow \left[ \{ r_n \}_{n=1}^{\infty} \text{ сходится} \right] \]
 
 \textbf{Доказательство:}
-\[ \left[ \{ r_n \}_{n=1}^{\infty} \text{ сходится} \right] \Leftrightarrow \left[ \{ r_n \}_{n=1}^{\infty} \text{ фундаментальна} \right] \Leftrightarrow \left[ \text{условие критерия Коши} \right] \]
+\[ \left[ \{ r_n \}_{n=1}^{\infty} \text{ сходится} \right] \Leftrightarrow \left[ \{ r_n \}_{n=1}^{\infty} \text{ фундаментальна} \right] \Leftrightarrow \left[ \text{условие Коши} \right] \]
 
 \underline{\textbf{Следствие [Необходимое условие сходимости числового ряда]:}}
 \[ \left[ \useriesl \right] \Rightarrow \left[ \lim\limits_{k \to \infty} u_k = 0 \right] \]
@@ -2979,7 +2979,7 @@ $\forall n > n_0 \mapsto \tilde{S}_n = S_n + A, \hspace{1em} A = \sum\limits_{k=
 
 \underline{\textbf{Предложение 2:}}
 
-$\tilde{u}_k = cu_k, c \in \R, c \neq 0 \Rightarrow \useries \text{ и } \sum\limits_{k=1}^{\infty} \tilde{u}_k$ ведут себя одинаково.
+$\tilde{u}_k = cu_k, ~c \in \R, ~c \neq 0 \Rightarrow \useries \text{ и } \sum\limits_{k=1}^{\infty} \tilde{u}_k$ ведут себя одинаково.
 
 \subsection{Знакопостоянные ряды: признак сравнения сходимости, признаки Даламбера и Коши, интегральный признак.}
 
@@ -3005,8 +3005,8 @@ $\forall k \mapsto 0 \leqslant u_k \leqslant \tilde{u}_k$
 \begin{enumerate}
 	\item $\sum\limits_{k=1}^{\infty} \tilde{u}_k < \infty, \text{ т.е. } \exists \lim\limits_{n \to \infty} \tilde{S}_n = \tilde{S} \in \R$
 	
-	$\forall n \mapsto S_n \leqslant \tilde{S}_n \leqslant \tilde{S} \Rightarrow \{ S_n \} \text{ ограничена } \xRightarrow{Т.2} \useriesl$
-	\item $\useriese \xRightarrow{1)} \sum\limits_{k=1}^{\infty} \tilde{u}_k = \infty$
+	$\forall n \mapsto S_n \leqslant \tilde{S}_n \leqslant \tilde{S} \Rightarrow \{ S_n \} \text{ ограничена } \xRightarrow{T.2} \useriesl$
+	\item $\useriese \xRightarrow{1)} \sum\limits_{k=1}^{\infty} \tilde{u}_k = \infty$ иначе в противном случае по пункту а) $\useriesl$ (противоречие)
 \end{enumerate}
 
 \textbf{Замечание:}
@@ -3017,9 +3017,9 @@ $\forall k \mapsto 0 \leqslant u_k \leqslant \tilde{u}_k$
 \end{enumerate}
 
 \textbf{Следствие:}
-\begin{multline*}
-	\left[\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0, \tilde{u}_k > 0 \text{ и } u_k \sim \tilde{u}_k \right] \Rightarrow \\ \Rightarrow \left[ \useries, \sum\limits_{k=1}^{\infty} \tilde{u}_k \text{ ведут себя одинаково} \right]
-\end{multline*}
+\[
+	\left[\forall k \mapsto u_k > 0, \tilde{u}_k > 0 \text{ и } u_k \sim \tilde{u}_k \right] \Rightarrow \left[ \useries, \sum\limits_{k=1}^{\infty} \tilde{u}_k \text{ ведут себя одинаково} \right]
+\]
 
 \textbf{Доказательство:}
 \begin{multline*}
@@ -3033,7 +3033,7 @@ $0 < \varepsilon < \dfrac{1}{2}$
 \textbf{Примеры:}
 
 \begin{enumerate}
-	\item $\useries, u_k = \dfrac{1}{3 + b^k}$
+	\item $\useries, u_k = \dfrac{1}{3 + b^k}$, $b > 0$
 	\begin{enumerate}[label=\asbuk*),ref=\asbuk*]
 		\item $b \leqslant 1 \Rightarrow \lim\limits_{k \to \infty} u_k \neq 0 \Rightarrow \text{не выполнено \textbf{НУС}} \Rightarrow \useriese$
 		\item $b > 1$
@@ -3044,12 +3044,12 @@ $0 < \varepsilon < \dfrac{1}{2}$
 	\end{enumerate}
 	\item $\sum\limits_{k=1}^{\infty} \dfrac{1}{k^{\alpha}}, \hspace{1em} 0 < \alpha \leqslant 1$
 	
-	$\dfrac{1}{k^{\alpha}} \geqslant \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k} = \infty \xRightarrow[]{Т.3} \series \dfrac{1}{k^{\alpha}} = \infty$
+	$\dfrac{1}{k^{\alpha}} \geqslant \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k} = \infty \xRightarrow[]{T.3} \series \dfrac{1}{k^{\alpha}} = \infty$
 	\item $\series \dfrac{1}{k^2} = \useries \hspace{2em} k > 1 \Rightarrow \dfrac{1}{k^2} \leqslant \dfrac{1}{k(k-1)} = \tilde{u}_k$
 	
 	$\dfrac{1}{k(k-1)} = \dfrac{1}{k-1} - \dfrac{1}{k} \Rightarrow \tilde{S}_n = 1 - \dfrac{1}{2} + \dfrac{1}{2} - \dfrac{1}{3} + \ldots + \dfrac{1}{n-1} - \dfrac{1}{n} = 1 - \dfrac{1}{n} \xrightarrow[n \to \infty]{} 1$
 	
-	$\series \tilde{u}_k < \infty \xRightarrow{Т.3} \series \dfrac{1}{k^2} < \infty$
+	$\series \tilde{u}_k < \infty \xRightarrow{T.3} \series \dfrac{1}{k^2} < \infty$
 	
 	$\forall \alpha \geqslant 2 \mapsto \dfrac{1}{k^{\alpha}} \leqslant \dfrac{1}{k^2} \Rightarrow \series \dfrac{1}{k^{\alpha}} < \infty$ при $\alpha \geqslant 2$ 
 \end{enumerate}
@@ -3092,15 +3092,15 @@ $$\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0$$
 	
 	$\dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = q \Rightarrow \dfrac{u_{k+1}}{u_k} \leqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = q < 1$
 	
-	$\series \tilde{u}_k = \series q^k \xRightarrow{Т.4} \useriesl$
+	$\series \tilde{u}_k = \series q^k < \infty \xRightarrow{T.4} \useriesl$
 	\item $\tilde{u}_k = 1$
 	
-	$\dfrac{u_{k+1}}{u_k} \geqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = 1, \hspace{1em} \series \tilde{u}_k = \infty \xRightarrow[]{Т.4} \useriese$
+	$\dfrac{u_{k+1}}{u_k} \geqslant \dfrac{\tilde{u}_{k+1}}{\tilde{u}_k} = 1, \hspace{1em} \series \tilde{u}_k = \infty \xRightarrow[]{T.4} \useriese$
 \end{enumerate}
 
 \underline{\textbf{Теорема 6 [Признак Даламбера в предельной форме]:}}
 
-$$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[ \lim\limits_{k \to \infty} \dfrac{u_{k+1}}{u_k} = L \in \R \right] \Rightarrow$$
+$$\left[ \forall k \mapsto u_k > 0 \right] \& \left[ \lim\limits_{k \to \infty} \dfrac{u_{k+1}}{u_k} = L \in \R \right] \Rightarrow$$
 
 \begin{enumerate}
 	\item $\left[ L < 1 \right] \Rightarrow \left[ \useriesl \right]$
@@ -3111,10 +3111,10 @@ $$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[
 \begin{enumerate}
 	\item $L < 1 \Rightarrow \exists \alpha > 0: L = 1 - 2\alpha \Rightarrow L + \alpha = 1 - \alpha = q < 1$
 	
-	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 < \dfrac{u_{k+1}}{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{Т.5} \useriesl$
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 < \dfrac{u_{k+1}}{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{T.5} \useriesl$
 	\item $L > 1 \Rightarrow \exists \alpha > 0: L = 1 + \alpha \Rightarrow L - \alpha = 1$
 	
-	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \dfrac{u_{k+1}}{u_k} > L - \alpha = 1 \xRightarrow[]{Т.5} \useriese$
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \dfrac{u_{k+1}}{u_k} > L - \alpha = 1 \xRightarrow[]{T.5} \useriese$
 \end{enumerate}
 
 \textbf{Замечание:}
@@ -3131,7 +3131,7 @@ $$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[
 
 \underline{\textbf{Теорема 7 [Признак Коши]:}}
 
-$$\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0$$
+$$\forall k \ [\forall k \geqslant k_0] \mapsto u_k \geqslant 0$$
 
 \begin{enumerate}
 	\item $ \left[ \sqrt[k]{u_k} \leqslant q < 1 \right] \Rightarrow \left[ \useriesl \right]$
@@ -3143,15 +3143,15 @@ $$\forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0$$
 \begin{enumerate}
 	\item $\tilde{u}_k = q^k \Rightarrow \sqrt[k]{u_k} \leqslant \sqrt[k]{\tilde{u}_k} = q < 1 \Rightarrow u_k \leqslant \tilde{u}_k$
 	
-	$\series \tilde{u}_k < \infty \xRightarrow[]{Т.3} \useriesl$
+	$\series \tilde{u}_k < \infty \xRightarrow[]{T.3} \useriesl$
 	\item $\tilde{u}_k = 1 \Rightarrow \sqrt[k]{u_k} \geqslant \sqrt[k]{\tilde{u}_k} = 1 \Rightarrow u_k \geqslant \tilde{u}_k$
 	
-	$\series \tilde{u}_k = \infty \xRightarrow[]{Т.3} \useriese$
+	$\series \tilde{u}_k = \infty \xRightarrow[]{T.3} \useriese$
 \end{enumerate}
 
 \underline{\textbf{Теорема 8 [Признак Коши в предельной форме]:}}
 
-$$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[ \lim\limits_{k \to \infty} \sqrt[k]{u_k} = L \in \R \right] \Rightarrow$$
+$$\left[ \forall k \mapsto u_k \geqslant 0 \right] \& \left[ \lim\limits_{k \to \infty} \sqrt[k]{u_k} = L \in \R \right] \Rightarrow$$
 
 \begin{enumerate}
 	\item $\left[ L < 1 \right] \Rightarrow \left[ \useriesl \right]$
@@ -3163,10 +3163,10 @@ $$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[
 \begin{enumerate}
 	\item $L < 1 \Rightarrow \exists \alpha > 0: L = 1 - 2\alpha \Rightarrow L + \alpha = 1 - \alpha = q < 1$
 	
-	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 < \sqrt[k]{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{Т.7} \useriesl$
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto 0 \leqslant \sqrt[k]{u_k} < L + \alpha = 1 - \alpha = q < 1 \xRightarrow[]{T.7} \useriesl$
 	\item $L > 1 \Rightarrow \exists \alpha > 0: L = 1 + \alpha \Rightarrow L - \alpha = 1$
 	
-	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \sqrt[k]{u_k} > L - \alpha = 1 \xRightarrow[]{Т.7} \useriese$
+	$\varepsilon = \alpha \ \exists K = K(\varepsilon): \forall k \geqslant K \mapsto \sqrt[k]{u_k} > L - \alpha = 1 \xRightarrow[]{T.7} \useriese$
 \end{enumerate}
 
 \textbf{Замечание:}
@@ -3184,6 +3184,8 @@ $$\left[ \forall k \ [\forall k \geqslant k_0] \mapsto u_k > 0 \right] \& \left[
 		\end{cases}
 	\Rightarrow \lim\limits_{k \to \infty} \dfrac{u_{k+1}}{u_k} \text{ не существует}
 	\end{equation*}
+	
+		\[\sqrt[k]{u_k} =  \cfrac{1}{2}\sqrt[k]{\cfrac{3 + (-1)^k}{2}} \xrightarrow[k \to +\infty]{} \cfrac{1}{2} < 1 \Rightarrow \text{сходится по предельному признаку Коши}\]
 \end{enumerate}
 
 \underline{\textbf{Теорема 9 [Признак Коши"--~Маклорена][интегральный признак]:}}
@@ -3227,8 +3229,6 @@ $S_n = \sum\limits_{k=m}^{n} f(k)$
 
 \subsection{Знакопеременные ряды, абсолютная и условная сходимость, признаки Лейбница, Дирихле и Абеля.}
 
-$\useries$
-
 \underline{\textbf{Определение:}}
 Если $\auseriesl \Rightarrow \useries$ -- \textit{абсолютно сходящийся} ряд.\\
 
@@ -3251,7 +3251,7 @@ $\useries$
 \begin{enumerate}
 	\item $\series \dfrac{(-1)^{k-1}}{k^{\alpha}}, \ \alpha > 1$
 	
-	$\left| \dfrac{(-1)^{k-1}}{k^{\alpha}} \right| = \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k^{\alpha}} < \infty \text{ при } \alpha > 1 \Rightarrow \series \dfrac{(-1)^{k-1}}{k^{\alpha}} \text{ сходится абсолютно}$.
+	$\left| \dfrac{(-1)^{k-1}}{k^{\alpha}} \right| = \dfrac{1}{k^{\alpha}}, \hspace{1em} \series \dfrac{1}{k^{\alpha}} < \infty \text{ при } \alpha > 1 \Rightarrow \series \dfrac{(-1)^{k-1}}{k^{\alpha}} \text{ сходится абсолютно}$.
 	\item $\series \dfrac{(-1)^{k-1}}{k} = \useries$
 	
 	$|u_k| = \dfrac{1}{k}, \hspace{1em} \series \dfrac{1}{k} = \infty$
@@ -3268,7 +3268,7 @@ $\useries$
 	
 	$\left| R_{n+1}(x) \right| \leqslant \dfrac{|x|^{n+1}}{n+1}$
 	
-	$\left| S_n - \ln2 \right| = \left| R_{n+1}(x) \right| \leqslant \dfrac{1}{n+1} \xrightarrow[n \to \infty]{} 0$
+	$\left| S_n - \ln2 \right| = \left| R_{n+1}(1) \right| \leqslant \dfrac{1}{n+1} \xrightarrow[n \to \infty]{} 0$
 	
 	$\series \dfrac{(-1)^{k-1}}{k} = \ln2 \Rightarrow \series \dfrac{(-1)^{k-1}}{k} \text{ сходится условно}$
 \end{enumerate}
@@ -3290,15 +3290,17 @@ $\{u_k\}_{k=1}^{\infty}, \{v_k\}_{k=1}^{\infty}, \hspace{1em} S_n = u_1 + \ldots
 
 $S_{2n} = v_1 - v_2 + v_3 - v_4 + \ldots + v_{2n-1} - v_{2n} \geqslant 0$
 
+$S_{2n} = v_1 - \underbrace{(v_2 - v_3)}_{\geqslant 0} -  \underbrace{(v_4 - v_5)}_{\geqslant 0} - \ldots - \underbrace{(v_{2n-2} - v_{2n-1})}_{\geqslant 0} - v_{2n} \Rightarrow S_{2n} \leqslant v_1 \ \forall n$
+
+
 $\{S_{2n}\}$ -- неубывающая и ограниченная $\Rightarrow \lim\limits_{n \to \infty} S_{2n} = S \in \R$
 
-$S_{2n} = v_1 - \underbrace{(v_2 - v_3)}_{\geqslant 0} -  \underbrace{(v_4 - v_5)}_{\geqslant 0} - \ldots - \underbrace{(v_{2n-2} - v_{2n-1})}_{\geqslant 0} - v_{2n} \Rightarrow S_{2n} \leqslant v_1 \ \forall n$
 
 $S_{2n-1} = S_{2n} + v_{2n} \Rightarrow S_{2n-1} \xrightarrow[n \to \infty]{} S$\\
 
 \underline{\textbf{Теорема [Признак Дирихле]:}} Пусть
 \begin{enumerate}
-	\item $\{ \mathscr{U}_n \}$ -- послед. частичных сумм $\useries$ ограниченна, $U_n = \sn$
+	\item $\{ \mathscr{U}_n \}$ -- послед. частичных сумм $\useries$ ограниченна, $\mathscr{U}_n = \sn$
 	\item $\{v_k\}$ -- монотонна и $v_k \xrightarrow[k \to \infty]{} 0$
 \end{enumerate}
 Тогда $\sum\limits_{k=1}^{\infty} u_k v_k < \infty$\\
@@ -3399,7 +3401,7 @@ $1 - \dfrac{1}{2} - \dfrac{1}{4} + \dfrac{1}{3} - \dfrac{1}{6} - \dfrac{1}{8} + 
 
 \subsection{Произведение абсолютно сходящихся рядов.}
 
-\underline{\textbf{Теорема [О сумме абсолютно сходящихся рядов]:}} Если
+\underline{\textbf{Теорема [О сумме сходящихся рядов]:}} Если
 
 $\useries = \mathscr{U} \in \R, \hspace{2em} \series v_k = \mathscr{V} \in \R$, то
 
@@ -3573,8 +3575,7 @@ f_n(x) =
 \underline{\textbf{Теорема [Критерий Коши для функциональной последовательности]:}} Функциональная последовательность $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ сходится тогда или только тогда, когда выполнено условие Коши
 равномерной сходимости функциональной последовательности: \newline
 
-\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\forall x \in X$ $\longmapsto$ \newline 
-\hspace*{50mm}$|f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\forall x \in X$ $\longmapsto$  $|f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
 
 \noindent \textbf{Доказательство:} \newline
 
@@ -3584,7 +3585,7 @@ f_n(x) =
 \newline \newline
 Тогда: \newline
 \hspace*{5mm}$\forall \varepsilon > 0$ $\exists N = N(\varepsilon)$:
-$\forall n \geq N$ $\&$ $x \in X$ $\longmapsto$ $|f_n(x) - f(x)| < \varepsilon / 2$ \newline
+$\forall n \geq N$ $\&$ $\forall x \in X$ $\longmapsto$ $|f_n(x) - f(x)| < \varepsilon / 2$ \newline
 Тогда и 
 \newline 
 \hspace*{5mm}$\forall p \in \mathds{N}$ $|f_{n+p}(x) - f(x)| < \varepsilon / 2$
@@ -3615,7 +3616,7 @@ $|f_{n+p}(x) - f_n(x)| \leq |f_{n+p}(x) - f(x)| + |f_n(x) - f(x)| < {\varepsilon
 \hspace*{50mm}$$|\sum\limits_{k = n+1}^{n+p}f_k(x)| < \varepsilon\big]$$
 
 \textbf{Замечание:} критерий Коши для функциональных рядов следует из критерия Коши для функциональных последовательностей, так как: \newline 
-$$|\sum\limits_{k = n+1}^{n+p}| = S_{n+p}(x) - S_n(x)|$$
+$$|\sum\limits_{k = n+1}^{n+p} f_k(x)| =| S_{n+p}(x) - S_n(x)|$$
 
 \textbf{Отрицание условия Коши:} 
 \newline 
@@ -3626,7 +3627,7 @@ $\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n$ $\& $ $\exists  p_
 \\[5mm] 
 \textit{Для функционального ряда:}
 \newline
-$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n \text{ }\& $ $\exists x_n \in X:$ $|\sum\limits_{k = n+1}^{n+p}f_k(x)| \geq \varepsilon_0$ 
+$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n ~\&  ~\exists  p_0 \in \mathds{N} ~\& $ $\exists x_n \in X:$ $|\sum\limits_{k = n+1}^{n+p}f_k(x_n)| \geq \varepsilon_0$ 
 
 \subsection{Критерии равномерной сходимости функциональной последовательности и функционального ряда.}
 
@@ -4035,7 +4036,7 @@ $\overline{\lim\limits_{k \to \infty}} \sqrt[k]{|c_k|} = \lim\limits_{k \to \inf
 
 а) $\forall z: |z| < \frac{1}{L}$ ряд сходится
 
-б) $\forall z: |z| < \frac{1}{L}$ ряд расходится
+б) $\forall z: |z| > \frac{1}{L}$ ряд расходится
 
 а) $z: \quad |z| < \frac{1}{L}$
 Тогда $\exists \, \varepsilon > 0: |z| < \frac{1}{L + \varepsilon} < \frac{1}{L} $\\
@@ -4108,7 +4109,7 @@ $\Rightarrow$ Не выполняется необходимых условий 
     $\leqslant \frac{M}{|z|^2} k(k+1) q_1^{k + 1}, \text{ где } |q_1| < 1 \quad q_1 = \frac{z}{\rho}$
     
     \hspace*{3 cm} $\Downarrow$
-    $\forall \in K_2 \Rightarrow \sum\limits_{k = 0}^\infty k c_k z^{k - 1} < \infty \Rightarrow R_3 \geqslant R_2$
+    $\forall z \in K_2 \Rightarrow \sum\limits_{k = 0}^\infty k c_k z^{k - 1} < \infty \Rightarrow R_3 \geqslant R_2$
     
     Тогда в сумме $R_1 = R_2 = R_3 = R$
     
