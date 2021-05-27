@@ -80,6 +80,7 @@
 \renewcommand {\le}{\leqslant}
 \renewcommand {\geq}{\geqslant}
 \renewcommand {\leq}{\leqslant}
+\renewcommand {\epsilon}{\varepsilon}
 
 \usepackage{titlesec}
 \titlelabel{\thetitle.\quad}
@@ -130,7 +131,7 @@
 
 \vfill
 
-Version 4.7\\
+Version 4.8\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -2478,11 +2479,11 @@ $$\int\limits_a^b[uv'+u'v]dx = [uv]|^b_a$$
 \underline{\textbf{Определение:}}
 
 
-Пусть на $[a, b]$ задана функция $f:\; \forall x \in[a, b] \rightarrow f(x) \geq 0$
+Пусть на $[a, b]$ задана непрерывная функция $f:\; \forall x \in[a, b] \rightarrow f(x) \geq 0$
 
-Множество $G=\{(x,y): a\leq x \leq b, 0 \leq y \leq f(x)\}$ называется криволинейной трапецией
+Множество $G=\{(x,y): a\leq x \leq b, 0 \leq y \leq f(x)\}$ называется криволинейной трапецией.
 
-Интегрируемость криволиенйной трапеции по Жордану была доказана ранее.\\
+Интегрируемость криволинейной трапеции по Жордану была доказана ранее. (нет $\smiley$) \\
 
 \underline{\textbf{Предложение:}}
 
@@ -2490,37 +2491,37 @@ $$\int\limits_a^b[uv'+u'v]dx = [uv]|^b_a$$
 
 \textbf{Доказательство:} 
 
-$f$ интегр. на $[a, b] \Rightarrow \; \forall \varepsilon > 0 \; \exists T: \overline{S_T} - \underline{S_T} < \varepsilon$
+$f$ интегрируема на $[a, b] \Rightarrow \; \forall \varepsilon > 0 \; \exists T: \overline{S_T} - \underline{S_T} < \varepsilon$
 
 НО $m(G_{\varepsilon}) = \underline{S_T} \leq I \leq \overline{S_T} = m(G^{\varepsilon}) $
 
-$m(G_{\varepsilon}) \leq m(x) \leq m(G^{\varepsilon})$
+$m(G_{\varepsilon}) \leq m(X) \leq m(G^{\varepsilon})$
 
-$m(x) = I = \int\limits_a^b f(x)dx$.\\
+$m(X) = I = \int\limits_a^b f(x)dx$.\\
 
 \noindent \textbf{Площадь криволинейного сектора}.\\
 
 \underline{\textbf{Определение:}}
 
-$r=r(\varphi)$ непр. на $[\alpha, \beta]$. Криволинейный сектор $Х$ измерим по Жордану.\\
+$r=r(\varphi)$ непрерывна на $[\alpha, \beta]$. Криволинейный сектор $X$ измерим по Жордану.\\
 
 \textbf{Приложение:}
 
-Площадь $m(X)$ криволинейного сектора $Х$ вычисляется по формуле $m(X) =  \frac{1}{2} \int\limits_{\alpha}^{\beta} r^2(\varphi)d\varphi$.\\
+Площадь $m(X)$ криволинейного сектора $X$ вычисляется по формуле $m(X) =  \frac{1}{2} \int\limits_{\alpha}^{\beta} r^2(\varphi)d\varphi$.\\
 
 \textbf{Доказательство:}
 
 $T = \{\alpha = \varphi_0 < \varphi_1 <\dots < \varphi_n = \beta\}$
 
-$\Delta \varphi_i = \varphi_i - \varphi_{i-1}, i = \overline{1, n}$
+$\Delta \varphi_i = \varphi_i - \varphi_{i-1}, ~i = \overline{1, n}$
 
-$R_i = \max r(\varphi)\; на\; [\varphi_i, \varphi_{i-1}]\;\;\;\;\;\;\;\;\; r_i=\min r(\varphi)\; на\; [\varphi_i, \varphi_{i-1}] $
+$R_i = \max \limits_{[\varphi_{i-1}, \varphi_{i}]} r(\varphi)\; \;\;\;\;\;\;\;\;\; r_i=\min \limits_{[\varphi_{i-1}, \varphi_{i}]} r(\varphi)\;$
 
 $\overline{S_T} = \frac{1}{2}\sum\limits_{i=1}^n R_i^2 \Delta \varphi_i,\;\;\;\;\;\;\;\;\;\;\; \underline{S_T} =\frac{1}{2}\sum\limits_{i=1}^n r_i^2 \Delta \varphi_i$.
 
 Это верхняя и нижняя сумма Дарбу функции $\frac{1}{2}r^2(\varphi)$.
 
-Это функция интегр. на $[a, b]$.
+Это функция интегрируема на $[\alpha, \beta]$.
 
 $\underline{S_T} \leq I \leq \overline{S_T}$ и $I = m(X) = \frac{1}{2}\int\limits_{\alpha}^{\beta}r^2(\varphi)d\varphi$.\\
 
@@ -2528,33 +2529,33 @@ $\underline{S_T} \leq I \leq \overline{S_T}$ и $I = m(X) = \frac{1}{2}\int\limi
 
 \underline{\textbf{Определение:}}
 
-Тело, полученное путем вращения криволинейной трапеции вокруг оси $Оx$ назовём телом вращения.\\
+Тело, полученное путем вращения криволинейной трапеции вокруг оси $Ox$ назовём телом вращения.\\
 
 \underline{\textbf{Предложение:}}
 
-Объем $m(X)$ тела вращения $X$ криволинейной трапеции вокруг $Оx$ вычисляется по формуле $m(X) = \pi \int\limits_a^b[f(x)]^2dx$.\\
+Объем $m(X)$ тела вращения $X$ криволинейной трапеции вокруг $Ox$ вычисляется по формуле $m(X) = \pi \int\limits_a^b[f(x)]^2dx$.\\
 
 \textbf{Доказательство:} $T={a=x_0<x_1<\dots<x_n = b}$
 
-$M_i = \max (f(x_{i-1}), f(x_i)), \;\;\;\;\;\;\; m_i=\min (f(x_{i-1}), f(x_i))$
+$M_i = \max \limits_{[x_{i-1}, x_i]} f(x), \;\;\;\;\;\;\; m_i=\min \limits_{[x_{i-1}, x_i]} f(x)$
 
 $\overline{S_T} = \pi \sum\limits_{i=1}^n M_i^2 \Delta x_i, \;\;\;\;\;\;\;\;\; \underline{S_T} = \pi \sum\limits_i^n m_i^2 \Delta x_i$
 
-Это суммы Дарбу функции $y = \pi f^2(x)$, которая интегрируема на $[\varepsilon_i, b]$
+Это суммы Дарбу функции $y = \pi f^2(x)$, которая интегрируема на $[a, b]$
 
 $\underline{S_T} \leq m(X) = I \leq \overline{S_T} \Rightarrow$ $m(X) = I = \pi \int\limits_a^b f^2(x)dx$.\\
 
 \noindent \textbf{Длина дуги кривой}.\\
 
-$\Gamma = \{\Vec{r} = \Vec{r}(t)S,\;\;\; \alpha \leq t \leq \beta\}$ непрерывно дифференцруема $\Rightarrow$ спрямляемая кривая.\\
+$\Gamma = \{\Vec{r} = \Vec{r}(t),\;\;\; \alpha \leq t \leq \beta\}$ непрерывно дифференцируема $\Rightarrow$ спрямляемая кривая.\\
 
 \underline{\textbf{Предложение:}}
 
-Если кривая $\Gamma$ непрерывно дифференцруема, то ее длина $L$ вычисляется по формуле $L=\int\limits_a^b |\Vec{r}\,'(t)|dt$.\\
+Если кривая $\Gamma$ непрерывно дифференцруема, то ее длина $L$ вычисляется по формуле $L=\int\limits_{\alpha}^{\beta} |\Vec{r}\,'(t)|dt$.\\
 
 \textbf{Доказательство:} $S'(t)=|\Vec{r}\,'(t)|$
 
-$L = S(\beta) - S(\alpha) = \int \limits_{\alpha}^{\beta} S'(t)dt = \int \limits_{\alpha}^{\beta} |\Vec{r}\,'(t) dt|$.
+$L = S(\beta) - S(\alpha) = \int \limits_{\alpha}^{\beta} S'(t)dt = \int \limits_{\alpha}^{\beta} |\Vec{r}\,'(t)| dt$.
 
 \begin{enumerate}
 
@@ -2562,7 +2563,7 @@ $L = S(\beta) - S(\alpha) = \int \limits_{\alpha}^{\beta} S'(t)dt = \int \limits
     $L = \int \limits_\alpha^\beta \sqrt{[x'(t)]^2+[y'(t)]^2+[z'(t)]^2}dt$
     
     \item $y=f(x)$, $\alpha \leq x \leq \beta$
-    $\L=\int\limits_\alpha^\beta \sqrt{1+[f'(x)]^2}dx$
+    $L=\int\limits_\alpha^\beta \sqrt{1+[f'(x)]^2}dx$
     
     \item $r=r(\varphi), \varphi_1 \leq \varphi \leq \varphi_2$
     
@@ -2601,7 +2602,7 @@ $L = S(\beta) - S(\alpha) = \int \limits_{\alpha}^{\beta} S'(t)dt = \int \limits
 
 $A_0 (x_0, f(x_0)), A_1 (x_1, f(x_1)) \dots A_n(x_n, f(x_n))$ .
 
-Строим ломанную $A_0, A_1\dots A_n$. При вращении ломанной вокруг оси $Оx$, получаем поверхность $\Pi_T$, составлящую одну из боковых поверхностей усеченных конусов, обозначим эту площадь за $P_T$.
+Строим ломанную $A_0, A_1\dots A_n$. При вращении ломанной вокруг оси $Ox$, получаем поверхность $\Pi_T$, составлящую одну из боковых поверхностей усеченных конусов, обозначим эту площадь за $P_T$.
 
 $P_T=2\pi \sum\limits_{i=1}^n \frac{f(x_{i-1})+f(x_i)}{2}l_i=\pi \sum\limits_{i=1}^n [f(x_{i-1})+f(x_i)]l_i,$ где $l_i$ - длина звена $A_{i-1}A_i$.\\
 
@@ -2615,13 +2616,13 @@ $P_T=2\pi \sum\limits_{i=1}^n \frac{f(x_{i-1})+f(x_i)}{2}l_i=\pi \sum\limits_{i=
 
 \subsection{Криволинейные интегралы.}
 
-\fbox{$\mathbb{E}^2$} \hspace{2em} $\Gamma = \{ \vec{r} = \vec{r}(t), \alpha \leqslant t \leqslant \beta \}$ -- спрямляемая кривая, $\vec{r}(t) = \{ x = \varphi(t), y = \psi(t) \}$
+\fbox{$\mathbb{E}^2$} \hspace{2em} $\Gamma = \{ \vec{r} = \vec{r}(t), ~\alpha \leqslant t \leqslant \beta \}$ -- спрямляемая кривая, $\vec{r}(t) = \{ x = \varphi(t), ~y = \psi(t) \}$
 
 \hspace{4em} $f, P, Q$ -- непрерывные на $\Gamma$ функции
 
 \hspace{4em} T $= \{\alpha = t_0 < t_1 < \ldots < t_k = \beta\}$ -- разбиение
 
-\hspace{4em} $M_j (x_j, y_j)$ -- точка, $ \ x_j = \varphi(t_j), \ y_j = \psi(t_j), j = 0, 1, \ldots, k$
+\hspace{4em} $M_j (x_j, y_j)$ -- точка, $ \ x_j = \varphi(t_j), \ y_j = \psi(t_j), ~j = 0, 1, \ldots, k$
 
 \hspace{4em} $\Delta s_j = \int\limits_{t_{j-1}}^{t_j} \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt, \ \Delta s_T = \max\limits_{1\leqslant j \leqslant k} \Delta s_j$
 
@@ -2651,7 +2652,7 @@ $P_T=2\pi \sum\limits_{i=1}^n \frac{f(x_{i-1})+f(x_i)}{2}l_i=\pi \sum\limits_{i=
 
 \subsection{Существование криволинейных интегралов, их вычисление.}
 
-\underline{\textbf{Теорема:}} Пусть $\Gamma = \{ x = \varphi(t), y = \psi(t), \alpha \leqslant t \leqslant \beta \}$ -- гладкая кривая, функции $f, P, Q$ непрерывны на $\Gamma$. Тогда криволинейные интегралы 1-го и 2-го рода от этих функций по кривой $\Gamma$ существуют и вычисляются по формулам
+\underline{\textbf{Теорема:}} Пусть $\Gamma = \{ x = \varphi(t), ~y = \psi(t), ~\alpha \leqslant t \leqslant \beta \}$ -- гладкая кривая, функции $f, P, Q$ непрерывны на $\Gamma$. Тогда криволинейные интегралы 1-го и 2-го рода от этих функций по кривой $\Gamma$ существуют и вычисляются по формулам
 \[ \int\limits_{\Gamma} f(x, y)ds = \int\limits_{\alpha}^{\beta} f(\varphi(t), \psi(t)) \sqrt{\left[ \varphi'(t) \right]^2 + \left[ \psi'(t) \right]^2}dt = I \]
 \[ \int\limits_{\Gamma} P(x, y)dx = \int\limits_{\alpha}^{\beta} P(\varphi(t), \psi(t)) \varphi'(t)dt = I_x \]
 \[ \int\limits_{\Gamma} Q(x, y)dy = \int\limits_{\alpha}^{\beta} Q(\varphi(t), \psi(t)) \psi'(t)dt = I_y \]
@@ -2670,22 +2671,22 @@ $P_T=2\pi \sum\limits_{i=1}^n \frac{f(x_{i-1})+f(x_i)}{2}l_i=\pi \sum\limits_{i=
 
 \underline{\textbf{Определение:}} 
 
-Пусть $y=f(x)$ интегр на $[a, \xi]$ $\forall \xi:\xi>a $. Символ $\int\limits_a^{\infty} f(x) dx   $ наз. несобств. интегралом функции $y=f(x)$ по промежутку $[a; +\infty)$.
+Пусть $y=f(x)$ интегрируема на $[a, \xi]$ $\forall \xi:\xi>a $. Символ $\int\limits_a^{+\infty} f(x) dx   $ называется несобственным интегралом функции $y=f(x)$ по промежутку $[a; +\infty)$.
 
-Если существует и конечен предел $\lim\limits_{\xi \rightarrow \infty} I(\xi) = A, \; A\in R$, то несобственный интеграл $I=\int\limits_a^{\infty} f(x) dx$ назовается сходящимся и равен числу $A$.
+Если существует и конечен предел $\lim\limits_{\xi \rightarrow +\infty} I(\xi) = A, \; A\in R$, то несобственный интеграл $I=\int\limits_a^{+\infty} f(x) dx$ назовается сходящимся и равен числу $A$.
 
-\textbf{Обозначение:} $\int\limits_a^{\infty} f(x) dx < 0 \equiv$ интеграл сходится.
+\textbf{Обозначение:} $\int\limits_a^{+\infty} f(x) dx < \infty \equiv$ интеграл сходится.
 
-\textbf{Соглашение:} несобственный интеграл будет записываться как $\int\limits_a^{b} f(x) dx$, где $b = \infty$ или $b$ - вертикальная асимптота $f(x)$.\\
+\textbf{Соглашение:} несобственный интеграл будет записываться как $\int\limits_a^{b} f(x) dx$, где $b = +\infty$ или $b$ - вертикальная асимптота $f(x)$.\\
 
 \textbf{Свойства несобственных интегралов и их вычисление:}
 
 \begin{enumerate}
     \item $\int\limits_a^{b} f(x) dx = \int\limits_a^{c} f(x) dx + \int\limits_c^{b} f(x) dx$
 
-$\forall c:\; a<c<b:$
+$\forall c:\; a \leqslant c<b:$
 
-$$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \int\limits_c^{b} f(x) dx < \infty$$
+$$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \left[\int\limits_c^{b} f(x) dx < \infty\right]$$
 
     \item $\bigl[ \bigl[ \int\limits_a^{b} f(x) dx<\infty\bigr] \And \bigl[ \int\limits_a^{b} g(x) dx<\infty \bigr]\bigr] \Rightarrow \int\limits_a^{b} \bigl[\alpha f(x) + \beta g(x)\bigr] dx = \alpha \int\limits_a^{b} f(x) dx + \beta \int\limits_a^{b} g(x) dx$
     
@@ -2696,9 +2697,12 @@ $$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \int\limits_c^{
     $$\int\limits_a^{b} f(x) dx = F(b-0) - F(a)\; ~ \text{Формула Ньютона-Лейбница}$$ 
     
     
-    \item  Интегрирование по частям работает так же как и неопределенных интегралах.
+    \item
+     $[u, ~v \text{ - непрерывно дифференцируемы на }[a, b) \text{ и } \exists \lim \limits_{\xi \to b-0}u(\xi)v(\xi) = u(b - 0)v(b-0) \in \mathbb{R},
+    ~\int \limits_{a}^{b} u'(x)v(x) dx < \infty]
+    \Rightarrow [\int \limits_a^b u(x) v'(x)dx < \infty \text{ и }\int\limits_a^b u(x)v'(x)dx = uv|^{b-0}_{a} - \int\limits_a^b u'(x)v(x)dx]$   
     
-    \item Пусть $y=f(x)$ непр. на $[a, b)$, $x=\varphi(t)$ непр. дифф. и возр на $[\alpha, \beta),\; \varphi(\alpha)=a,\; 
+    \item Пусть $y=f(x)$ непрерывна на $[a, b)$, $x=\varphi(t)$ непрерывна дифференцируема и возрастает на $[\alpha, \beta),\; \varphi(\alpha)=a,\; 
     \lim\limits_{t\rightarrow \beta - 0}\varphi(t) = b$. Тогда:
     
     $$\int\limits_a^{b} f(x) dx = \int\limits_\alpha^{\beta} f(\varphi(t))\varphi ' (t) dt$$
@@ -2710,7 +2714,7 @@ $$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \int\limits_c^{
 
 \subsection{Несобственные интегралы от неотрицательных функций:}
 
-\underline{\textbf{Теорема 1:}} $\bigl[ \int\limits_a^{b} f(x) dx <\infty \bigr] \Leftrightarrow \bigl[ I(\xi) = \int\limits_a^{\xi} f(x) dx$ \;огр.\; на\; $[a, b)$ $\bigr]$.\\
+\underline{\textbf{Теорема 1:}} $\bigl[ \int\limits_a^{b} f(x) dx <\infty \bigr] \Leftrightarrow \bigl[ I(\xi) = \int\limits_a^{\xi} f(x) dx$ \;ограничена\; на\; $[a, b)$ $\bigr]$.\\
 
 \textbf{Доказательство:} 
 
@@ -2718,16 +2722,16 @@ $$\left[\int\limits_a^{b} f(x) dx<\infty \right] \Leftrightarrow \int\limits_c^{
 
 $\int\limits_a^{b} f(x) dx \stackrel{\text{def}}{=} \exists \lim\limits_{\xi \rightarrow b-0}I(\xi) = A \in R \Rightarrow A = \sup\limits_{\xi \in[a,b)} I(\xi) ~ \text{(А -- это точная верхняя грань)} $ $\Rightarrow 0 \leq I(\xi) \leq A \Rightarrow$ функция ограничена.
 
-Достаточность: $I(\xi)$  огр. на $[a, b) \Rightarrow \int\limits_a^{b} f(x) dx < \infty$
+Достаточность: $I(\xi)$  ограничена на $[a, b) \Rightarrow \int\limits_a^{b} f(x) dx < \infty$
 
-$I(\xi)$ огр. на $[a, b) \stackrel{\text{def}}{=} \exists C>0 : \forall \xi \in[a, b) \longmapsto 0 \leq I(\xi) \leq C \Rightarrow \exists A = \sup\limits_{\xi \in [a,b)}I(\xi)$
+$I(\xi)$ ограничена на $[a, b) \stackrel{\text{def}}{=} \exists C>0 : \forall \xi \in[a, b) \longmapsto 0 \leq I(\xi) \leq C \Rightarrow \exists A = \sup\limits_{\xi \in [a,b)}I(\xi)$
 
 Из $A = \sup\limits_{\xi \in[a,b)} I(\xi)$ следует:
 
 \begin{enumerate}
     \item $\forall \xi \in [a, b) \mapsto I(\xi) \leq A$
     
-    \item $\forall \varepsilon > 0\; \exists \xi_\varepsilon \in (a, B) : I(\xi_\varepsilon)>A-\varepsilon$
+    \item $\forall \varepsilon > 0\; \exists \xi_\varepsilon \in (a, b) : I(\xi_\varepsilon)>A-\varepsilon$
     
     $\xi_\varepsilon = \delta \; \Rightarrow \; \forall \xi \in(\delta, b) \longmapsto I(\xi) \geq I(\xi_\epsilon)> A-\varepsilon$
 \end{enumerate}
@@ -2761,15 +2765,15 @@ $I(\xi)$ огр. на $[a, b) \stackrel{\text{def}}{=} \exists C>0 : \forall \xi
     
     $\bigl[\lim\limits_{x\rightarrow b-0} \frac{f(x)}{g(x)}=1 \bigr] \Rightarrow \bigl[\varepsilon = 1/2. \;\exists \delta \in(a, b): \forall x\in (\delta,  b) \mapsto |\frac{f(x)}{g(x)}-1|<\frac{1}{2}$
     
-    $\frac{1}{2}g(x)< f(x) < \frac{3}{2}g(x)$ Далее просто применяем $T_2$ и $\text{П}_2$. \\
+    $\frac{1}{2}g(x)< f(x) < \frac{3}{2}g(x)$ Далее просто применяем $T_2$. \\
 \end{enumerate}
 
 
 \subsection{Критерий Коши сходимости несобственных интегралов.} 
 
-Пусть функция интегрируема в собст. смысле на промежутке из $[a, b)$. Тогда:
+Пусть функция интегрируема в собственном смысле на промежутке из $[a, b)$. Тогда:
 
-$$\bigl[ \int \limits_a^{b} f(x) dx < \infty \bigr] \; \stackrel{\text{def}}{=} \;  \bigl[\forall \varepsilon > 0\; \exists \delta \in (a, b):\; \forall \xi',\; \xi'' \in (\delta, b) \longmapsto \Bigg|\int\limits_{\xi'}^{\xi''} f(x) dx\Bigg| < \varepsilon \bigr]$$
+$$\bigl[ \int \limits_a^{b} f(x) dx < \infty \bigr] \; \Leftrightarrow \;  \bigl[\forall \varepsilon > 0\; \exists \delta \in (a, b):\; \forall \xi',\; \xi'' \in (\delta, b) \longmapsto \Bigg|\int\limits_{\xi'}^{\xi''} f(x) dx\Bigg| < \varepsilon \bigr]$$
 
 \textbf{Доказательство:}
 
@@ -2777,32 +2781,36 @@ $$\bigl[ \int\limits_a^{b} f(x) dx < \infty \bigr] \Longleftrightarrow \bigl[ \e
 
 $$ \Longleftrightarrow \bigl[\forall \varepsilon > 0\; \exists \delta \in (a, b):\; \forall \xi',\; \xi'' \in (\delta, b) \longmapsto |I(\xi') - I(\xi'')| < \varepsilon \bigr]$$
 
-$$|\int\limits_{\xi'}^{\xi''} f(x) dx| < \varepsilon \Longleftrightarrow |\int\limits_{\xi'}^{\xi''} f(x) dx| < \varepsilon$$
+$$\left| I(\xi') - I(\xi'') \right| = \left|\int\limits_{\xi'}^{\xi''} f(x) dx\right| < \varepsilon$$
 
 
 \subsection{Абсолютная и условная сходимость несобственных интегралов.}
 
-\underline{\textbf{Определение 1}} Интеграл $\int\limits_{a}^{b} f(x) dx$ наз. абсолютно сход., если $\int\limits_{a}^{b} |f(x)| dx < \infty$.\\
+\underline{\textbf{Определение 1}} Интеграл $\int\limits_{a}^{b} f(x) dx$ называется абсолютно сходящимся, если $\int\limits_{a}^{b} |f(x)| dx < \infty$.\\
+
+\underline{\textbf{Определение 2}} Если $\int\limits_{a}^{b} |f(x)| dx = \infty$, а $\int\limits_{a}^{b} f(x) dx < \infty\;  , то$ $\int\limits_{a}^{b} f(x) dx$ называется условно сходящимся.\\
 
 \underline{\textbf{Предложение:}} Если интеграл сходится абсолютно, он сходится условно.\\
 
-\textbf{Доказательство}
+\textbf{Доказательство:}
 
 $\forall \xi' \xi'' \in (a, b)$
 
-$|\int\limits_{\xi'}^{\xi''} f(x) dx| \leq \int\limits_{\xi'}^{\xi''} |f(x)| dx$. Тогда по критерию Коши
-$|\int\limits_{\xi'}^{\xi''} f(x) dx|$ сходится 
-и из $Т_2$ сходится и $\int\limits_{\xi'}^{\xi''} |f(x)| dx$.\\
+$ \left|\int\limits_{\xi'}^{\xi''} f(x) dx\right| \leq \int\limits_{\xi'}^{\xi''} |f(x)| dx$. Тогда по критерию Коши
+$\left|\int\limits_{\xi'}^{\xi''} f(x) dx\right|$ сходится 
+и из $T_2$ сходится и $\int\limits_{\xi'}^{\xi''} |f(x)| dx$.\\
 
-\underline{\textbf{Определение 2}} Если $\int\limits_{a}^{b} |f(x)| dx = \infty$, а $\int\limits_{a}^{b} f(x) dx < \infty\;  , то$ $\int\limits_{a}^{b} f(x) dx$ наз. условно сходящимся.\\
 
-\underline{\textbf{Предложение:}} Если $\int\limits_{a}^{b} g(x) dx$ сходится абсолютно, то $\int\limits_{a}^{b} f(x) dx$ и $\int\limits_{a}^{b} f(x)+g(x) dx$ ведут себя одинаково.\\
+
+\underline{\textbf{Предложение:}} Если $\int\limits_{a}^{b} g(x) dx$ сходится абсолютно, то $\int\limits_{a}^{b} f(x) dx$ и $\int\limits_{a}^{b} [f(x)+g(x)] dx$ ведут себя одинаково.\\
 
 \textbf{Доказательство:} Абсолютная сходимость:
 
-$\int\limits_{a}^{b} |f(x)| dx < \infty \Rightarrow |f(x) +g(x)| \leq |f(x)| + |g(x)| \Rightarrow \int\limits_a^b |f(x) +g(x)| dx < \infty$ 
+$|f(x) +g(x)| \leq |f(x)| + |g(x)|$ 
 
-В другую сторону: $\int\limits_a^b |f(x) +g(x)| dx < \infty \Rightarrow f(x) = \bigl[f(x) + g(x) \bigr]-g(x) \Rightarrow |f(x)| \leq |f(x) + g(x)| \Rightarrow $ по $Т_2\; \int\limits_a^b |f(x)| dx < \infty$.\\
+Если $\int\limits_{a}^{b} |f(x)| dx < \infty   \Rightarrow \int\limits_a^b |f(x) +g(x)| dx < \infty$ 
+
+В другую сторону: $\int\limits_a^b |f(x) +g(x)| dx < \infty \Rightarrow f(x) = \bigl[f(x) + g(x) \bigr]-g(x) \Rightarrow |f(x)| \leq |f(x) + g(x)| + |g(x)| \Rightarrow $ по $T_2\; \int\limits_a^b |f(x)| dx < \infty$.\\
 
 
 \subsection{Признаки Дирихле и Абеля сходимости интегралов.}
@@ -2810,7 +2818,7 @@ $\int\limits_{a}^{b} |f(x)| dx < \infty \Rightarrow |f(x) +g(x)| \leq |f(x)| + |
 \underline{\textbf{Теорема [Признак Дирихле]:}} Если выполнены условия:
 
 \begin{enumerate}
-    \item $f(x)$ непр, $g(x)$ непр. дифф. на $[a, b)$
+    \item $f(x)$ непрерывна, $g(x)$ непрерывно дифференцируема на $[a, b)$
     
     \item $F(x)$ = $\int\limits_a^b f(t) dt$ ограничена на $[a, b)$
     
@@ -2821,7 +2829,8 @@ $\int\limits_{a}^{b} |f(x)| dx < \infty \Rightarrow |f(x) +g(x)| \leq |f(x)| + |
 Тогда $\int\limits_a^b f(x)\cdot g(x) dx < \infty$.\\
 
 \textbf{Доказательство}:
-
+$$\exists M > 0: ~|F(x)| \leqslant M, \forall x \in [a, b) $$
+$$\xi^{''} > \xi' > a$$
 $$\forall \xi', \xi'' \in [a,b)$$
 
 Сделаем замену для интегрирования по частям: 
@@ -2830,18 +2839,19 @@ $u = g(x), du=g'(x)dx$, $dv=f(x)dx, v=F(x)$.
 
 $$\int\limits_{\xi'}^{\xi''} g(x) dx = g(x)\cdot F(x)\bigg|_{\xi'}^{\xi''} - \int\limits_{\xi'}^{\xi''} g'(x)F(x)dx$$ 
 
-$$|\int\limits_{\xi'}^{\xi''} f(x)g(x)dx|\leq M(|g(\xi')|+|g(\xi'')|) \pm M \int\limits_{\xi'}^{\xi''} g'(x) \leq 2M(|g(\xi')|+|g(\xi'')|)$$
+$$\left|\int\limits_{\xi'}^{\xi''} f(x)g(x)dx\right|\leq M(|g(\xi')|+|g(\xi'')|) + \left| \int\limits_{\xi'}^{\xi''} g'(x)F(x) dx \right| \leq M(|g(\xi')|+|g(\xi'')|) +  \int\limits_{\xi'}^{\xi''} |g'(x)F(x)| dx \leq $$ \\ 
+$$\leq M(|g(\xi')|+|g(\xi'')|) +  M \int\limits_{\xi'}^{\xi''} |g'(x)| dx \leq M(|g(\xi')|+|g(\xi'')|) ~\pm~ M \int\limits_{\xi'}^{\xi''} g'(x) dx \leq 2M(|g(\xi')|+|g(\xi'')|)$$
 
-$$\bigl[ \lim\limits_{x\rightarrow b-0}g(x) = 0 \bigr] \stackrel{\text{def}}{=} \bigl[ \forall \varepsilon > 0 \; \exists \delta(\varepsilon) \in (a, b) \forall x\in (\delta, b) \longmapsto |g(x)| \leq \frac{\varepsilon}{4M}  \Rightarrow $$
+$$\bigl[ \lim\limits_{x\rightarrow b-0}g(x) = 0 \bigr] \stackrel{\text{def}}{=} \bigl[ \forall \varepsilon > 0 \; \exists \delta(\varepsilon) \in (a, b) ~\forall x\in (\delta, b) \longmapsto |g(x)| \leq \frac{\varepsilon}{4M}  \Rightarrow $$
 
-$$  \Rightarrow \forall \; \xi', \xi'' \in (\delta, b) \longmapsto |\int\limits_{\xi'}^{\xi''} f(x)g(x)dx|<2M(\frac{\varepsilon}{4M}+\frac{\varepsilon}{4M}) = \varepsilon \Rightarrow $$
+$$  \Rightarrow \forall \; \xi', \xi'' \in (\delta, b) \longmapsto \left|\int\limits_{\xi'}^{\xi''} f(x)g(x)dx\right|<2M(\frac{\varepsilon}{4M}+\frac{\varepsilon}{4M}) = \varepsilon \Rightarrow $$
 
 $$\text{ по критерию Коши } \int\limits_{a}^{b}f(x)g(x)<\infty$$\\\\
 
 \underline{\textbf{Следствие (Признак Абеля):}} Если выполняются условия:
 
 \begin{enumerate}
-    \item $f(x)$ непр, $g(x)$ непр. дифф. на $[a, b)$
+    \item $f(x)$ непрерывна, $g(x)$ непрерывно дифференцируема на $[a, b)$
     
     \item $\int\limits_{a}^{b}f(x) < \infty$
     
@@ -2855,9 +2865,9 @@ $$\text{ по критерию Коши } \int\limits_{a}^{b}f(x)g(x)<\infty$$\\
 
 Из условия $3$ следует, что $\exists\lim\limits_{x\rightarrow b-0}g(x) = g(b-0) \in R$
 
-$g_1(x) = g(x) - g(b-0) \xrightarrow[x \to b-0]{}$ 0 $\Rightarrow(по\; Дирихле)$ $\int\limits_a^b f(x)g_1(x) dx < \infty$
+$g_1(x) = g(x) - g(b-0) \xrightarrow[x \to b-0]{}$ 0 $\xRightarrow{\text{по}\; \text{Дирихле}}$ $\int\limits_a^b f(x)g_1(x) dx < \infty$
 
-$\int\limits_a^b f(x)g_1(x)dx = \int\limits_a^b f(x)g(x)dx+g(b-0)\int\limits_a^b f(x)dx$
+$\int\limits_a^b f(x)g_1(x)dx = \int\limits_a^b f(x)g(x)dx - g(b-0)\int\limits_a^b f(x)dx$
 
 $\int\limits_a^b f(x)g_1(x)dx$ и $\int\limits_a^b f(x)dx$ сходятся, значит сходится и $\int\limits_a^b f(x)g(x)dx$
 
