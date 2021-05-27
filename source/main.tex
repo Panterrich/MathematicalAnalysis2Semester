@@ -131,7 +131,7 @@
 
 \vfill
 
-Version 4.9\\
+Version 4.10\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -2483,7 +2483,7 @@ $$\int\limits_a^b[uv'+u'v]dx = [uv]|^b_a$$
 
 Множество $G=\{(x,y): a\leq x \leq b, 0 \leq y \leq f(x)\}$ называется криволинейной трапецией.
 
-Интегрируемость криволинейной трапеции по Жордану была доказана ранее. (нет $\smiley$) \\
+Измеримость криволинейной трапеции по Жордану была доказана ранее. (нет $\smiley$) \\
 
 \underline{\textbf{Предложение:}}
 
@@ -2790,7 +2790,7 @@ $$\left| I(\xi') - I(\xi'') \right| = \left|\int\limits_{\xi'}^{\xi''} f(x) dx\r
 
 \underline{\textbf{Определение 2}} Если $\int\limits_{a}^{b} |f(x)| dx = \infty$, а $\int\limits_{a}^{b} f(x) dx < \infty\;  , то$ $\int\limits_{a}^{b} f(x) dx$ называется условно сходящимся.\\
 
-\underline{\textbf{Предложение:}} Если интеграл сходится абсолютно, он сходится условно.\\
+\underline{\textbf{Предложение:}} Если интеграл сходится абсолютно, то и он сам сходится.\\
 
 \textbf{Доказательство:}
 
@@ -3494,7 +3494,7 @@ f_n(x) =
 Пусть $\widetilde{X} \subset X$ ---  область сходимости функциональной последовательности $\{f_n(x)\}_{k=1}^\infty$, совокупность пределов, взятых в точке $x\in \widetilde{X}$ определяет на $\widetilde{X}$ функцию $y = f(x)$. Эта функция называется предельной функцией $y = f(x) $ функциональной последовательности. \newline
 
 \noindent \underline{\textbf{Определение:}} [сумма ряда]:\newline
-Пусть $\widetilde{X} \subset X$ ---  область сходимости функционального ряда  $\sum\limits_{k = 1}^{\infty}  f_k(x_0)$, совокупность пределов, взятых в точке $x\in \widetilde{X}$ определяет на $\widetilde{X}$ функцию $y = S(x)$. Эта функция называется суммой ряда  $y = S(x) $ функциональной последовательности.\\
+Пусть $\widetilde{X} \subset X$ ---  область сходимости функционального ряда  $\sum\limits_{k = 1}^{\infty}  f_k(x)$, совокупность пределов, взятых в точке $x\in \widetilde{X}$ определяет на $\widetilde{X}$ функцию $y = S(x)$. Эта функция называется суммой ряда  $y = S(x) $ функциональной последовательности.\\
 
 
 \subsection{Понятие равномерной сходимости на множестве.}
@@ -3521,19 +3521,16 @@ f_n(x) =
 \begin{equation*}
 f(x) = 
  \begin{cases}
-   0 &\text{, $0 \leq x < {1}$}\\
-   1 &\text{, $x=1$}
+   0 &\text{, $0 < x \leqslant {1}$}\\
+   1 &\text{, $x = 0$}
  \end{cases}
 \end{equation*}
 
+$\exists \varepsilon_0 = \frac{1}{4}$  $\forall n ~\exists N = n$ $\&$ $\exists x_n = {1\over 2n}: ~|f_n(x_n) - f(x_n)| = \frac{1}{2} > \frac{1}{4} = \varepsilon_0$
 
+$f_n(x)$ сходится неравномерно к $f(x) = 0$ на $[0, 1]$.\\
 
-$\forall \varepsilon > 0$  $\exists n_0 = n$ $\&$ $x_n = {1\over 2n}:$ \newline
-\hspace*{40 mm}$f(x_n) = 0$, $f_n(x_n) = {1\over2}$ \newline
-\hspace*{40 mm}$|f_n(x_n) - f(x_n)| = \varepsilon_0$
-
-\noindent 2.\\
-
+\noindent 2. $X = [\delta, 1]$\\
 \begin{equation*}
 f_n(x) = 
  \begin{cases}
@@ -3541,7 +3538,7 @@ f_n(x) =
    0 &\text{, ${1\over n}< x\leq 1$}
  \end{cases}
 \end{equation*}
-Для заданного $\delta > 0$ $\exists N$ $\longmapsto$ \newline
+Для заданного $\delta > 0$ $\exists N ~\forall n \geq N $ $\longmapsto$ \newline
 \hspace*{40 mm} $f_n(x) \equiv 0$ на $[\delta, 1]$ \newline
 \hspace*{40 mm} $f(x) \equiv 0$ на $[\delta, 1]$ \newline
 Тогда $f_n(x) \overset{x \in [\delta;1]}{\underset{n \rightarrow \infty}{\rightrightarrows}} 0$.\\
@@ -3596,27 +3593,26 @@ $|f_{n+p}(x) - f_n(x)| \leq |f_{n+p}(x) - f(x)| + |f_n(x) - f(x)| < {\varepsilon
 
 2. \textit{Достаточность $\Leftarrow$:} \newline
 
-\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\&$ $\forall x \in X$ $\longmapsto$ \newline 
-\hspace*{50mm}$|f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall p \in  \mathds{N}$ $\&$ $\forall x \in X$ $\longmapsto |f_{n+p}(x) -f_n(x)| < \varepsilon\big]$
 \newline \newline 
 Зафиксируем $x \in X$, тогда $\exists f(x)$ --- предельное значение последовательности $\{f_n(x)\}_{n=1}^\infty$. \newline \newline 
 Тогда $f_{n+p}(x) \underset{n \longrightarrow \infty}{\longrightarrow} f(x)$ \newline \newline 
-В неравенстве перейдем к предельному при $p \longrightarrow \infty$:\newline 
-\hspace*{20mm}$\forall n \geq N$ $\&$ $\forall x \in X$ $\Rightarrow$ $|f_n(x) - f(x)| \leq {\varepsilon \over 2} < \varepsilon$  
+В неравенстве перейдем к предельному при $p \longrightarrow \infty$:\\
+
+$\forall n \geq N$ $\&$ $\forall x \in X$ $\Rightarrow$ $|f_n(x) - f(x)| \leq {\varepsilon \over 2} < \varepsilon$ 
 \newline \newline 
 Тогда получим, что $f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ по определнию.
 \newline \newline 
 
 \noindent \underline{\textbf{Теорема [Критерий Коши для функционального ряда]:}}
 
-Ряд $$\sum\limits_{k = 1}^{\infty}  f_k(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} S(x)$$ тогда и только тогда, когда выполнено условие Коши: 
+Ряд $\sum\limits_{k = 1}^{\infty}  f_k(x) \overset{x \in X}{\rightrightarrows}} S(x)$ тогда и только тогда, когда выполнено условие Коши: 
 \newline 
 
-\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N \& $   $\forall p \in  \mathds{N} \&$ $\forall x \in X$ $\longmapsto$ \newline 
-\hspace*{50mm}$$|\sum\limits_{k = n+1}^{n+p}f_k(x)| < \varepsilon\big]$$
+\hspace*{5mm}$\big[\forall \varepsilon > 0 $  $\exists N = N(\varepsilon)$: $\forall n \geq N \& $   $\forall p \in  \mathscr{N}~ \&$ $\forall x \in X$ $\longmapsto$ $\left|\sum\limits_{k = n+1}^{n+p}f_k(x)\right| < \varepsilon\big]$
 
 \textbf{Замечание:} критерий Коши для функциональных рядов следует из критерия Коши для функциональных последовательностей, так как: \newline 
-$$|\sum\limits_{k = n+1}^{n+p} f_k(x)| =| S_{n+p}(x) - S_n(x)|$$
+$$\left|\sum\limits_{k = n+1}^{n+p} f_k(x)\right| = \left| S_{n+p}(x) - S_n(x)\right|$$
 
 \textbf{Отрицание условия Коши:} 
 \newline 
@@ -3627,12 +3623,12 @@ $\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n$ $\& $ $\exists  p_
 \\[5mm] 
 \textit{Для функционального ряда:}
 \newline
-$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n ~\&  ~\exists  p_0 \in \mathds{N} ~\& $ $\exists x_n \in X:$ $|\sum\limits_{k = n+1}^{n+p}f_k(x_n)| \geq \varepsilon_0$ 
+$\exists \varepsilon_0 > 0$: $\forall n$ $\exists n_0 \geq n ~\&  ~\exists  p_0 \in \mathds{N} ~\& $ $\exists x_n \in X:$ $\left|\sum\limits_{k = n+1}^{n+p}f_k(x_n)\right| \geq \varepsilon_0$ 
 
 \subsection{Критерии равномерной сходимости функциональной последовательности и функционального ряда.}
 
 \underline{\textbf{Теорема 1 [$\sup$-критерий для функциональной последовательности]:}}\newline 
-$f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ тогда и только тогда, когда $$\lim\limits_{n \rightarrow \infty} \sup_{X}|f_n(x)-f(x)| = 0$$
+$f_n(x) \overset{x \in X}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$ тогда и только тогда, когда $$\lim\limits_{n \rightarrow \infty} \sup_{x \in X}|f_n(x)-f(x)| = 0$$
 
 \textbf{Доказательство:} 
 \newline
@@ -3665,7 +3661,7 @@ $$r_n(x) = \sum\limits_{k = 1}^{\infty}  f_k(x) -  \sum\limits_{k = 1}^{n}  f_k(
 
 \textbf{Примеры:}
 
-1. $f_n(x) = nx^2e^{-nx}$, $x \in [2, +\infty) \subset X$
+1. $f_n(x) = nx^2e^{-nx}$, $x \in [2, +\infty) = X$
 
 $\lim\limits_{n \rightarrow \infty}{nx^2 \over e^{nx}} = 0$ $\Rightarrow$ $y=f(x) \equiv 0$
 
@@ -3691,7 +3687,7 @@ $$\sup_{X}f_n(x) = {4\over e^2} \underset{n \rightarrow \infty}{\nrightarrow} 0 
 
 $$\forall n \; \exists n_0 = n \; \& \; \exists p_0 = n \; \& \; \exists x_n = {1 \over n}$$
 
-$$|f_{2n}(x_n) - f_n(x_n)| = |{\ln{2}\over{\sqrt{2}}} - {\ln{1}\over{\sqrt{1}}}| = {\ln{2}\over{\sqrt{2}}} > \varepsilon_0 = {\ln{2}\over{2\sqrt{2}}}$$
+$$|f_{2n}(x_n) - f_n(x_n)| = \left| {\ln{2}\over{\sqrt{2}}} - {\ln{1}\over{\sqrt{1}}} \right| = {\ln{2}\over{\sqrt{2}}} > \varepsilon_0 = {\ln{2}\over{2\sqrt{2}}}$$
 
 Отсюда, равномерной сходимости нет.
 
@@ -3740,13 +3736,13 @@ $\forall \varepsilon > 0$  $\exists N = N(\varepsilon)$: $\forall n \geqslant N$
 
 По теореме 1 $S$ непрерывны на $[a,b]$, следовательно $S$ и $f_k $ --- интегрируемые функции ($\forall k$) на $[a,b]$. Обозначим:
 
-$$I(x) = \int\limits_{a}^{x}S(t)dt$$ и $$I_{n}(x) = \sum\limits_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{\infty}  f_k(t) ]dt = \int\limits_{a}^x S_n(t)dt$$
+$$I(x) = \int\limits_{a}^{x}S(t)dt$$ и $$I_{n}(x) = \sum\limits_{k = 1}^{n}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{n}  f_k(t) ]dt = \int\limits_{a}^x S_n(t)dt$$
 
 $$|I(x)-I_n(x)| = \big|\int\limits_{a}^x[S(t)-S_n(t)]dt\big| \leq \int\limits_{a}^x|S_n(t)-S(t)|dt \leq {\varepsilon \over {b-a}} (x-a) < \varepsilon$$
 
 Итак: 
 
-$\forall \varepsilon > 0 $ $\exists N=N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall x \in [a,b]$ $\longmapsto |I(a)-I_n(x)| < \varepsilon$, то есть функциональный ряд $$\sum\limits_{k = 1}^{\infty} \int\limits_{a}^{x}f_k(t)dt$$ сходится равномерно на $[a,b]$ к функции $$\int\limits_a^xS(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{\infty}  f_k(t) ]dt$$ и $$\sum\limits_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{\infty}  f_k(t) ]dt$$\\
+$\forall \varepsilon > 0 $ $\exists N=N(\varepsilon)$: $\forall n \geq N$  $\&$ $\forall x \in [a,b]$ $\longmapsto |I(x)-I_n(x)| < \varepsilon$, то есть функциональный ряд $$\sum\limits_{k = 1}^{\infty} \int\limits_{a}^{x}f_k(t)dt$$ сходится равномерно на $[a,b]$ к функции $$\int\limits_a^xS(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{\infty}  f_k(t) ]dt$$ и $$\sum\limits_{k = 1}^{\infty}  \int\limits_{a}^{x}f_k(t)dt = \int\limits_{a}^{x}[ \sum\limits_{k = 1}^{\infty}  f_k(t) ]dt$$\\
 
 \underline{\textbf{Теорема 2':}} если члены функциональной последовательности  $\{f_n(x)\}_{n=1}^\infty$ непрерывны на $[a,b]$. и $f_n(x) \overset{[a,b]}{\underset{n \rightarrow \infty}{\rightrightarrows}} f(x)$, то $\int\limits_a^x f_n(t)dt \overset{[a,b]}{\underset{n \rightarrow \infty}{\rightrightarrows}} \int\limits_a^x f(t)dt$.\\
 
@@ -3800,7 +3796,7 @@ $$\bigg(\sum\limits_{k = 1}^{\infty}  f_k(x)\bigg)' = \sum\limits_{k = 1}^{\inft
 
 $$\sum\limits_{k = 1}^{\infty}a_k < \infty \Leftrightarrow \forall \varepsilon > 0 \text{ }\exists N_1 = N_1(\varepsilon)\text{: } \forall n \geq N_1 \text{ }\&\text{ } \forall p \in \mathds{N} \longmapsto \sum\limits_{k = n+1}^{n+p}a_k < \varepsilon$$ 
 
-$$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& \text{ } \forall x \in X \text{ } \& \text{ } \forall p \in \mathds{N}\longmapsto$$ $$|\sum\limits_{k = n+1}^{n+p}f_k(x)| \leq \sum\limits_{k = n+1}^{n+p}|f_k(x)| \leq \sum\limits_{k = n+1}^{n+p}a_k < \varepsilon$$
+$$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& \text{ } \forall x \in X \text{ } \& \text{ } \forall p \in \mathds{N}\longmapsto$$ $$\left|\sum\limits_{k = n+1}^{n+p}f_k(x)\right| \leq \sum\limits_{k = n+1}^{n+p}|f_k(x)| \leq \sum\limits_{k = n+1}^{n+p}a_k < \varepsilon$$
 
 \textbf{Следствие:} если сходится числовой ряд $$\sum\limits_{k = 1}^{\infty}a_k,$$ где $a_k = \sup\limits_{x \in X}|f_k(x)|$, то функциональный ряд $\sum\limits_{k = 1}^{\infty}  f_k(x)$ сходится абсолютно и равномерно на $X$. \\
 
@@ -3809,13 +3805,11 @@ $$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& 
     \item $$\sum\limits_{k = 1}^{\infty}  u_k(x)$$ имеет равномерно ограниченную на $X$ последовательность частичных сумм $\{S_n(x)\}_{n=1}^\infty$: 
     \newline
     
-    $\exists M > 0 \text{: } \forall x \in X \text{ }\& \text{ } \forall n \in \mathds{N} \longmapsto |S_n(x)| \leq M$
+    $\exists M > 0 \text{: } \forall x \in X \text{ }\& \text{ } \forall n \in \mathbb{N} \longmapsto |S_n(x)| \leq M$
     
-    \item $\sum\limits_{k = 1}^{\infty}  v_k(x)$ монотонна на $X$ и $v_k(x) \overset{x \in X}{\underset{k \rightarrow \infty}{\rightrightarrows}} 0$: \newline
-    \\[5 mm]
+    \item ${\{v_k(x)\}_{k=1}^\infty}$ монотонна на $X$ и равномерно стремится к $0$:
     $v_k(x) \leq v_{k+1}(x) \text{ } \forall x \in X \text{} \& \text{ } \forall k$
-    \newline
-    $[v_k(x) \geq v_{k+1}(x)]$
+    $[v_k(x) \geq v_{k+1}(x)]$ и $v_k(x) \overset{x \in X}{\underset{k \rightarrow \infty}{\rightrightarrows}} 0$: 
     
 \end{enumerate}
 
