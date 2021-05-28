@@ -131,7 +131,7 @@
 
 \vfill
 
-Version 4.10\\
+Version 5.0\\
 Долгопрудный, 2021
 \end{center}
 \end{titlepage}
@@ -3844,7 +3844,7 @@ $$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& 
 	
 	\subsection{Теорема 1. [Первая теорема Абеля]}
 	
-	1. Если степенной ряд $\sum\limits_{k = 0}^\infty c_k z^k$ сходится в т. $z \neq 0$, то он сходится в круге: $k_0 = \{z = \mathbb{C}: |z| < |z_0|\}$
+	1. Если степенной ряд $\sum\limits_{k = 0}^\infty c_k z^k$ сходится в т. $z_0 \neq 0$, то он сходится абсолютно в круге: $K_0 = \{z = \mathbb{C}: |z| < |z_0|\}$
 	
 	2. Если степенной ряд $\sum\limits_{k = 0}^\infty c_k z^k$ расходится в т. $z_1$, то он расходится в любой т. $z: |z| > |z_1|$ 
 	
@@ -3853,10 +3853,6 @@ $$\exists N = max\{N_1, k_0\} \text{ } \Rightarrow \forall n \geq N \text{ } \& 
 	\includegraphics[scale = 0.1]{Que_11_pic_1.jpeg}
 	\end{figure*}
 	
-$$[\lim\limits_{n \rightarrow \infty} z_n = a]  \stackrel{\text{def}}{=} [ \lim\limits_{n \rightarrow \infty} |z_n - a| = 0]$$
-
-$$\forall \varepsilon > 0 \quad\exists \, N = N (\varepsilon): \forall n \geqslant N \Rightarrow |z_n - a| < \varepsilon $$ \\
-
 \textbf{Доказательство:} \\
 \ \\
 1) $\sum\limits_{k = 0}^\infty c_k z_0^k < \infty \Rightarrow c_k z_0^k \underset{k \to \infty}{\longrightarrow} 0 \Rightarrow \text{Ограничена:} \,  \exists M > 0: \forall k \Rightarrow |c_k z_0^k| \leqslant M$ \\
@@ -3865,8 +3861,10 @@ $ \forall z: |z| < |z_0| $ \\
 $ |c_k z^k| = | c_k z_0^k  \left(  \frac{z}{z_0} \right)^k | \leqslant M \cdot \left[ q(z) \right]^k, |q(z)| < 1 \Rightarrow \sum\limits_{k = 0}^\infty q^k(z) < \infty \Rightarrow
 $\\
 $
- \Rightarrow \sum\limits_{k = 0}^\infty |c_k z^k| < \infty \Rightarrow \sum\limits_{k = 0}^\infty c_k z^k
-$\\
+ \Rightarrow \sum\limits_{k = 0}^\infty |c_k z^k| < \infty \Rightarrow \sum\limits_{k = 0}^\infty c_k z^k 
+$ cходится абсолютно в точке $z \in K_0$\\
+
+В силу произвольности точки $z \Rightarrow ~ \sum\limits_{k = 0}^\infty c_k z^k$ сходится абсолютно в $K_0$   
 \ \\
 2) $
 \sum\limits_{k = 0}^\infty c_k z_1^k = \infty \Rightarrow \forall z: |z| > |z_1| - \text{ряд} \sum\limits_{k = 0}^\infty c_k z^k \text{ расходится, если бы в точке } z_2: 
@@ -3875,7 +3873,7 @@ $
 |z_2| > |z_1| \text{ ряд } \sum\limits_{k = 0}^\infty c_k z_2^k < \infty \stackrel{1)}{\Rightarrow} \sum\limits_{k = 0}^\infty c_k z_1^k < \infty
 $ - противоречие. \\
 
-\textbf{Следствие 1. } Если $\sum\limits_{k = 0}^\infty c_k z_0^k < \infty, z_0 \neq 0$, то $\forall \rho: 0 < \rho < |z_0|$ в круге $k_{\rho} = \{z \in \mathbb{C} : |z| \leqslant \rho \} \text{ ряд } \sum\limits_{k = 0}^\infty c_k z^k$ сходится равномерно. \\
+\textbf{Следствие 1. } Если $\sum\limits_{k = 0}^\infty c_k z_0^k < \infty, z_0 \neq 0$, то $\forall \rho: 0 < \rho < |z_0|$ в круге $K_{\rho} = \{z \in \mathbb{C} : |z| \leqslant \rho \} \text{ ряд } \sum\limits_{k = 0}^\infty c_k z^k$ сходится равномерно. \\
 
 \textbf{Доказательство:} \\
 $
@@ -3892,7 +3890,7 @@ $ |q| = \frac{\rho}{|z_0|} < 1 $ ($\frac{\rho}{|z_0|}$ не зависит от 
 \ \\
 $\sum\limits_{k = 0}^\infty q^k < \infty \stackrel{\text{По пр. Вей.}}{\Rightarrow} \sum\limits_{k = 0}^\infty c_k z^k$ сходится равномерно в круге  $K_{\rho}$ \\
 
-\textbf{Следствие 2} Если в т. $z_0 \neq 0 $ вып. $\sum\limits_{k = 0}^\infty c_k z_0^k < \infty $, то \\
+\textbf{Следствие 2} Если в т. $z_0 \neq 0 $ выполнено $\sum\limits_{k = 0}^\infty c_k z_0^k < \infty $, то \\
 1) $\sum\limits_{k = m}^\infty c_k z^{k - m}$ сходится абсолютно в круге $K_0$ и равномерно в круге $K_{\rho}$ \\
 2) $\sum\limits_{k = 1}^\infty k c_k z^{k - 1}$ сходится абсолютно в круге $K_0$ и равномерно в круге $K_{\rho}$ \\
 
@@ -3911,7 +3909,7 @@ $\\
 $0 < q_1 < 1$ - не зависит от $z$ $\Rightarrow$ по признаку Вейр. в $K_1$ ряд сходится равномерно\\
 \noindent2) $\forall z \in K_0$ \\
 \ \\
-$ |k c_k z^{k-1} | = | \frac{c_k z_0^k}{z_0} \cdot k\left( \frac{z}{z_0} \right)^{k-1} | \leqslant \frac{M}{|z_0|} \cdot  k q^{k - 1}(z), q(z) = | \frac{z}{z_0} | < 1 $ \\
+$ |k c_k z^{k-1} | = | \frac{c_k z_0^k}{z_0} \cdot k\left( \frac{z}{z_0} \right)^{k-1} | \leqslant \frac{M}{|z_0|} \cdot  k q^{k - 1}(z), ~q(z) = | \frac{z}{z_0} | < 1 $ \\
 \ \\
 $ \sum\limits_{k = 1}^\infty k q^k(z) < \infty $ по признаку Даламбера\\
 
@@ -3933,7 +3931,7 @@ $ \sum\limits_{k = 1}^\infty k q^k(z) < \infty $ по признаку Дала�
 
  \textbf{Доказательство:} Пусть $\mathscr{D} \subset \mathbb{C}$ - множество сходимости степенного ряда; $\mathscr{D} \neq \varnothing$, т.к. $0 \in \mathscr{D}$
  
- 1) $\mathscr{D}$ - огран., $z_0 \in \mathscr{D}, z_0 \neq 0$ \\
+ 1) $\mathscr{D}$ - огран., $\exists z_0 \in \mathscr{D}, ~z_0 \neq 0$ \\
 
  $R = \underset{z \, \in \, \mathscr{D}}{\sup} |z| $ - сущ. т.к. $\mathscr{D}$ огранич. мн-во.
 
@@ -4046,9 +4044,9 @@ $\sum\limits_{k = 0}^\infty c_k z^k < \infty \ $ в круге $K = \{z: |z| < \
 
 б) $\forall z: |z| > \frac{1}{L} \Rightarrow \exists \, \varepsilon > 0: |z| > \frac{1}{L - \varepsilon} > \frac{1}{L} $
 
-$[\   \exists \  \{c_{k_n}\} : \lim\limits_{n \to \infty} \sqrt[k]{|c_k|} = L \,] \stackrel{\text{def}}{=} [\varepsilon > 0 \  \exists \, n_0 : \forall n \geqslant n_0 \Rightarrow L - \varepsilon < \sqrt[k_n]{|c_{k_n}|} \,]$ 
+$[\   \exists \  \{c_{k_n}\} : \lim\limits_{n \to \infty} \sqrt[k_n]{|c_{k_n}|} = L \,] \stackrel{\text{def}}{=} [\varepsilon > 0 \  \exists \, n_0 : \forall n \geqslant n_0 \mapsto L - \varepsilon < \sqrt[k_n]{|c_{k_n}|} < L + \varepsilon \,]$ 
 
-$\sqrt[k_n]{|c_{k_n}| z^{k_n}} = |z| \sqrt[k_n]{|c_{k_n}|} > \frac{1}{L - \varepsilon} \cdot (L - \varepsilon) = 1 \quad \forall n \geqslant n_0  \Rightarrow |c_k z^{k_n}| > 1 \Rightarrow$
+$\sqrt[k_n]{|c_{k_n}| z^{k_n}} = |z| \sqrt[k_n]{|c_{k_n}|} > \frac{1}{L - \varepsilon} \cdot (L - \varepsilon) = 1 \quad \forall n \geqslant n_0  \Rightarrow |c_{k_n} z^{k_n}| > 1 \Rightarrow$
 
 $\Rightarrow$ Не выполняется необходимых условий сходимости \\
 \hspace*{3 cm} $\Downarrow$
@@ -4083,7 +4081,7 @@ $\Rightarrow$ Не выполняется необходимых условий 
     Надо доказать: $R_1 = R_2 = R_3 = R$.\\
 
     \textbf{Доказательство:}
-    $\forall k \in \mathbb{N} \Rightarrow \frac{1}{k + 1} < 1 \leqslant k \quad  \times |c_k z^{k + 1}|$
+    $\forall k \in \mathbb{N} \Rightarrow \frac{1}{k + 1} < 1 \leqslant k$
     
     $|\frac{c_k}{k + 1} z^{k + 1}| \leqslant |z| \cdot |c_k z^k| \leqslant |z|^2 \cdot |k c_k z^{k - 1}|$
 
@@ -4107,27 +4105,6 @@ $\Rightarrow$ Не выполняется необходимых условий 
     
     Тогда в сумме $R_1 = R_2 = R_3 = R$
     
-      \subsection{Теорема 7.}
-      Если $R$ - радиус степенного ряда $\sum\limits_{k = 0}^\infty a_k (x - a)^k = f(x), $
-      
-      $
-      \quad x \in (a - R; a + R); \quad a_k, a, x \in R$, то
-      
-      1) $f$  бесконечно дифф. на $(a - R; a + R)$
-      
-      $f^{(m)}(x) = \sum\limits_{k = m}^\infty k(k-1) ... (k - (m - 1)) a_k (x - 1)^{k - m}$
-      
-      2) $\forall x \in (a - R; a + R) \Rightarrow \int\limits_{a}^{x} f(t) dt = \sum\limits_{k = 0}^\infty \frac{a_k}{k + 1} (x - a)^{k + 1}$ 
-
-      При почленном дифференцировании ряда радиус не меняется.\\
-      
-      \textbf{Доказательство:}
-      $\forall \rho: 0 < \rho < R  \text{ на } [a - \rho; a + \rho ]$ равномерная сходимость $\Rightarrow$ всё можно делать.\\
-
-      \textbf{Следствие:}
-      $a_k = \cfrac{f^{(k)}(a)}{k!}
-	  $
-
 %=======================================================================================
 
 %БИЛЕТ 12
@@ -4140,12 +4117,12 @@ $\Rightarrow$ Не выполняется необходимых условий 
 \underline{\textbf{Теорема:}}. Если $R$ -- радиус сходимости степенного ряда и выполнено следующее:
 
 \begin{equation*}
-\Large \displaystyle \sum\limits_{k = 0}^{\infty} a_k(x-a)^k = f(x),\ x\in (a - R, a + R),\ a_k,a \in \mathbb(R)
+\Large \displaystyle \sum\limits_{k = 0}^{\infty} a_k(x-a)^k = f(x),\ x\in (a - R, a + R),\ x,~a_k,~a \in \mathbb{R}
 \end{equation*}
 
 то
 \begin{enumerate}
-\item $f$ бесконечно дифференцируемая функция на $(a-R,a+R)$ и  выполняется: 
+\item $f$ бесконечно дифференцируемая функция на $(a-R,~a+R)$ и  выполняется: 
 
 \begin{equation*}
 \Large \displaystyle f^{(m)}(x) = \sum\limits_{k = m}^{+\infty} k(k-1)\dots (k - (m-1))a_k(x-a)^{k-m}
@@ -4154,6 +4131,9 @@ $\Rightarrow$ Не выполняется необходимых условий 
 \item $\Large \displaystyle \forall\ x \in (a - R, a + R) \mapsto \int\limits_{a}^{x} f(t)dt = \sum\limits_{k = 0}^{\infty} \frac{a_k}{k+1}(x-a)^{k+1}$ 
 
 \end{enumerate} 
+
+  \textbf{Доказательство:}
+      $\forall \rho: 0 < \rho < R  \text{ на } [a - \rho; a + \rho ]$ равномерная сходимость $\Rightarrow$ всё можно делать.\\
 
 \textbf{Следствие}. $a_n = \cfrac{f^{(k)}(a)}{k!}$
 
@@ -4233,7 +4213,7 @@ f(z) = \sum\limits_{n = 0}^{\infty}c_n(z-a)^n = \sum\limits_{n = 0}^{\infty}\wid
 
 Теперь покажем, что $c_n = \widetilde{c_n} \ $, для $n = 0, 1, 2,\dots$
 
-По условию ряды $\sum\limits_{n = 0}^{\infty}c_n(z-a)^n$ и $\sum\limits_{n = 0}^{\infty}\widetilde{c_n}(z-a)^n$ сходятся в круге $K$, и поэтому эти ряды сходятся равномерно в круге $K_1 = \{z: |z - a|\leqslant \rho_1 < \rho \}$, а их общая сумма -- непрерывная в круге $K_1$ функция.В частности, функция $f(z)$ непрерывна в точке $a$. Подходя к пределу при $z \to a$ в равенстве (**), получаем $c_0 = \widetilde{c_0}$. Отбрасывая одинаковые слагаемые $c_0$ и $\widetilde{c_0}$ в равенстве (**), получаем после деления на $(z - a)$ равенство:
+По условию ряды $\sum\limits_{n = 0}^{\infty}c_n(z-a)^n$ и $\sum\limits_{n = 0}^{\infty}\widetilde{c_n}(z-a)^n$ сходятся в круге $K$, и поэтому эти ряды сходятся равномерно в круге $K_1 = \{z: |z - a|\leqslant \rho_1 < \rho \}$, а их общая сумма -- непрерывная в круге $K_1$ функция. В частности, функция $f(z)$ непрерывна в точке $a$. Подходя к пределу при $z \to a$ в равенстве (**), получаем $c_0 = \widetilde{c_0}$. Отбрасывая одинаковые слагаемые $c_0$ и $\widetilde{c_0}$ в равенстве (**), получаем после деления на $(z - a)$ равенство:
 
 \begin{equation*}
 c_1 + c_2(z - a) + c_3(z - a)^2 +\ \dots = \widetilde{c_1} + \widetilde{c_2}(z - a) + \widetilde{c_3}(z - a)^2 +\ \dots\ ,
@@ -4400,7 +4380,7 @@ $x \in (-\rho, \, \rho), \; \rho > 0$
 
 $\forall \rho > 0 \Rightarrow R = + \infty$
 
-\[ e^x = \sum\limits^{+\infty}_{k = 0} \frac{x^k}{k!}\]
+\[ e^x = \ryad \frac{x^k}{k!}\]
 
 \[y = \sh x, \; y = \ch x, \; x \in \mathbb{R} \]
 
@@ -4462,7 +4442,7 @@ $$
 $ | \alpha | \leqslant m $, $m \in \mathbb{N}$. Тогда $\forall n > m$
 
 \begin{multline*}
-\left| \frac{\alpha(\alpha - 1) \ldots (\alpha - n)}{n!} \right| \leqslant \frac{m (m + 1) \ldots (m + n}{n!} \leqslant \frac{(m + n)!}{n!} = \\
+\left| \frac{\alpha(\alpha - 1) \ldots (\alpha - n)}{n!} \right| \leqslant \frac{m (m + 1) \ldots (m + n)}{n!} \leqslant \frac{(m + n)!}{n!} = \\
 = (n + 1)(n + 2) \ldots (n + m)\leqslant (2n)^m
 \end{multline*}
 
