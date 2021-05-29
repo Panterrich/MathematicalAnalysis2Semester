@@ -22,7 +22,7 @@
 </pre>
 
 <pre>
-<a href="https://github.com/Hollbrok">Талашкевич Даниил   Б01-009</a>
+<a href="https://github.com/Hollbrok">Талашкевич Даниил Б01-009</a>
 </pre>
 
 ```
