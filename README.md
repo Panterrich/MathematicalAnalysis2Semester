@@ -26,8 +26,8 @@
 </pre>
 
 <pre>
-<a href="https://github.com/Hollbrok">Курневич Станислав  Б01-002
-</a>
+<a href="https://github.com/Stan1slavssKy">Курневич Станислав  Б01-002</a>
+</pre>
 
 
 ```
