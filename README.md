@@ -17,7 +17,6 @@
     <a href="https://github.com/Panterrich">Дурнов Алексей      Б01-007</a>
     <a href="https://github.com/Stan1slavssKy">Курневич Станислав  Б01-002</a>
     <a href="https://github.com/Hollbrok">Талашкевич Даниил   Б01-009</a>
-
     Баранников Андрей   Б01-001
     Дорин Даниил        Б01-001
     Киселев Никита      Б01-001
